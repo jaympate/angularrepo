@@ -1,31 +1,45 @@
-import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {AppComponent} from './app.component';
+import {TranslatePipeMock} from './translation/translate.pipe.mock';
+import {TranslateService} from '@ngx-translate/core';
+import {of} from 'rxjs';
 
 describe('AppComponent', () => {
-  beforeEach(async(() => {
+  let fixture: ComponentFixture<AppComponent>;
+  let nativeElement: HTMLElement;
+  let translateService: TranslateService;
+
+  beforeEach(() => {
+    translateService = jasmine.createSpyObj('translateServiceMock', ['setDefaultLang', 'use']);
+    translateService.setDefaultLang['and'].returnValue(of('en'));
+
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        TranslatePipeMock
       ],
-    }).compileComponents();
-  }));
+      providers: [
+        {
+          provide: TranslateService,
+          useValue: translateService
+        }
+      ]
+    });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
-  });
-
-  it(`should have as title 'website'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('website');
-  });
-
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    fixture = TestBed.createComponent(AppComponent);
+    nativeElement = fixture.debugElement.nativeElement;
     fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to website!');
   });
+
+  it('translated welcome message should be displayed', () => {
+    const EXPECTED_WEBSITE_WELCOME_MESSAGE = 'website.welcome.message.translated';
+
+    const websiteWelcomeMessage = getWebsiteWelcomeMessage();
+
+    expect(websiteWelcomeMessage).toBe(EXPECTED_WEBSITE_WELCOME_MESSAGE);
+  });
+
+  function getWebsiteWelcomeMessage(): string {
+    return nativeElement.querySelector('div').textContent.trim();
+  }
 });
