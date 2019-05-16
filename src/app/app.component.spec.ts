@@ -1,27 +1,30 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {AppComponent} from './app.component';
-import {TranslatePipeMock} from './translation/translate.pipe.mock';
 import {TranslateService} from '@ngx-translate/core';
-import {of} from 'rxjs';
+import {LanguageSelectorComponent} from './language-selector/language-selector.component';
+import {MockComponent} from 'ng-mocks';
+import {TranslatePipeMock} from './translation/translate.pipe.mock';
+import {By} from '@angular/platform-browser';
 
 describe('AppComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
   let nativeElement: HTMLElement;
-  let translateService: TranslateService;
+  let translateServiceSpyObject: TranslateService;
 
   beforeEach(() => {
-    translateService = jasmine.createSpyObj('translateServiceMock', ['setDefaultLang', 'use']);
-    translateService.setDefaultLang['and'].returnValue(of('en'));
+    translateServiceSpyObject = jasmine.createSpyObj('translateServiceSpyObject', ['setDefaultLang']);
+
 
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        TranslatePipeMock
+        TranslatePipeMock,
+        MockComponent(LanguageSelectorComponent)
       ],
       providers: [
         {
           provide: TranslateService,
-          useValue: translateService
+          useValue: translateServiceSpyObject
         }
       ]
     });
@@ -29,6 +32,10 @@ describe('AppComponent', () => {
     fixture = TestBed.createComponent(AppComponent);
     nativeElement = fixture.debugElement.nativeElement;
     fixture.detectChanges();
+  });
+
+  it('should set the default language to English', () => {
+    expect(translateServiceSpyObject.setDefaultLang).toHaveBeenCalledWith('en');
   });
 
   it('translated welcome message should be displayed', () => {
@@ -39,7 +46,21 @@ describe('AppComponent', () => {
     expect(websiteWelcomeMessage).toBe(EXPECTED_WEBSITE_WELCOME_MESSAGE);
   });
 
+  it('should contain the language selector component', () => {
+    const languageSelectorComponent = getLanguageSelectorComponent();
+
+    expect(languageSelectorComponent).not.toBeNull();
+  });
+
+
   function getWebsiteWelcomeMessage(): string {
     return nativeElement.querySelector('div').textContent.trim();
+  }
+
+  function getLanguageSelectorComponent(): LanguageSelectorComponent {
+    return fixture.debugElement
+      .query(By.directive(LanguageSelectorComponent))
+      .componentInstance as LanguageSelectorComponent;
+
   }
 });

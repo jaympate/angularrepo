@@ -6,6 +6,8 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslationService} from './translation/translation.service';
 import {CustomTranslateLoader} from './translation/custom.translate.loader';
 import {HttpClientModule} from '@angular/common/http';
+import {TranslatePipeMock} from './translation/translate.pipe.mock';
+import {LanguageSelectorComponent} from './language-selector/language-selector.component';
 
 export function CustomTranslateLoaderFactory(languageTranslationsService: TranslationService) {
   return new CustomTranslateLoader(languageTranslationsService);
@@ -13,7 +15,9 @@ export function CustomTranslateLoaderFactory(languageTranslationsService: Transl
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TranslatePipeMock,
+    LanguageSelectorComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,6 @@ export function CustomTranslateLoaderFactory(languageTranslationsService: Transl
       }
     })
   ],
-  providers: [TranslationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
