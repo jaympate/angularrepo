@@ -1,14 +1,19 @@
 import {Component} from '@angular/core';
 import {LanguageService} from '../translation/language-service';
 import {Observable} from 'rxjs';
-import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-language-selector',
   template: `
-    <ng-container *ngFor="let language of languages$ | async">
-      <button class="change-language-button" (click)="useLanguage(language)">{{language}}</button>
-    </ng-container>
+    <div ngbDropdown class="d-inline-block dropdown">
+      <button class="btn btn-outline-info dropdown-toggle" id="languageSelectorDropdown"
+              ngbDropdownToggle>{{'website.change.language' | translate}}</button>
+      <div ngbDropdownMenu aria-labelledby="languageSelectorDropdown" class="dropdown-menu">
+        <ng-container *ngFor="let language of languages$ | async">
+          <app-change-language-button [language]="language"></app-change-language-button>
+        </ng-container>
+      </div>
+    </div>
   `,
   styles: []
 })
@@ -16,12 +21,7 @@ export class LanguageSelectorComponent {
 
   languages$: Observable<Array<string>>;
 
-  constructor(private languageService: LanguageService,
-              private translateService: TranslateService) {
-    this.languages$ = this.languageService.getLanguages();
-  }
-
-  useLanguage(language: string) {
-    this.translateService.use(language);
+  constructor(private languageService: LanguageService) {
+    this.languages$ = this.languageService.getLanguages$();
   }
 }

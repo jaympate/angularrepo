@@ -1,5 +1,31 @@
 {
   "website": {
-    "welcome.message": "Welcome!"
+    "welcome.message": "Hi there!",
+    "welcome.part1": "I am Dieter Jordens. This is my online portfolio.",
+    "welcome.part2": "I'm 26 years old and currently living in Geetbets, Belgium... in a close proximity of Leuven, Brussels and Hasselt. I'm passionate about full stack agile development and artificial intelligence.",
+    "learn.more.about.me": "Learn more",
+    "change.language": "Change language",
+    "home": "Homepage",
+    "about": "About me",
+    "timeline": "Timeline",
+    "cv": "CV",
+    "data": "More data",
+    "what.to.expect.of.me": "What can you expect of me?",
+    "what.is.my.vision": "Software Development is a craft!",
+    "what.is.my.mission": "As a Software Craftsman I try to raise the bar of professional software development by practicing it and helping others to learn the craft. I try to apply the values in the Manifesto for Software Craftsmanship in my daily work.",
+    "well.crafted.software.title": "Well-crafted software",
+    "well.crafted.software.part1": "My mission is to deliver high quality software. I am humble about my expertise and honest about my capabilities.",
+    "well.crafted.software.part2": "I try to be an expert in what I do and to master the technologies and techniques I need to perform my job.",
+    "well.crafted.software.part3": "I take full responsibility for the correctness of the code we write in our team. I do not tolerate preventable defects. I have an eye for detail in code reviews and try to test our code thoroughly.",
+    "steadily.adding.value.title": "Steadily adding value",
+    "steadily.adding.value.part1": "I make estimations with diligence. I'm not easily influenced by pressure or fear. I make sure I understand everything what is needed to deliver before giving an estimation.",
+    "steadily.adding.value.part2": "I strive to give my best effort at a sustainable pace.",
+    "community.of.professionals.title": "A community of professionals",
+    "community.of.professionals.part1": "I embrace different opinions and personalities. I don't let the current way of working impede improvements.",
+    "community.of.professionals.part2": "I am willing to share my knowledge with anyone who is willing to learn. I share my good practices and knowledge and try to learn from everyone myself.",
+    "productive.partnerships.title": "Productive partnerships",
+    "productive.partnerships.part1": "I show respect for the customer and fellow software crafters. I try to behave professionally and ethical every day.",
+    "productive.partnerships.part2": "I'm open and honest to the customer. I do not conceal or embellish.",
+    "productive.partnerships.part3": "I always try to find myself in the interests of the customer in order to build a long-term relationship."
   }
 }

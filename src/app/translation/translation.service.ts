@@ -10,7 +10,6 @@ export class TranslationService {
   private translationCache: Map<string, Observable<Translation>> = new Map();
 
   constructor(private httpClient: HttpClient) {
-
   }
 
   getTranslation(language: string): Observable<Translation> {

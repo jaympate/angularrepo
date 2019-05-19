@@ -1,3 +1,31 @@
 {
-  "website.welcome.message": "Bienvenue!"
+  "website": {
+    "welcome.message": "Bienvenue!",
+    "welcome.part1": "Je suis Dieter Jordens. Voici mon portfolio en ligne.",
+    "welcome.part2": "J'ai 26 ans et j'habite actuellement à Geetbets, en Belgique... à proximité de Louvain, Bruxelles et Hasselt. Je suis passionné par le développement agile (full stack) et l'intelligence artificielle.",
+    "learn.more.about.me": "En savoir plus",
+    "change.language": "Changer de langue",
+    "home": "Page d'accueil",
+    "about": "Mon profil",
+    "timeline": "Chronologie",
+    "cv": "CV",
+    "data": "Plus de données",
+    "what.to.expect.of.me": "Que pouvez-vous attendre de moi?",
+    "what.is.my.vision": "Le développement de logiciels est un métier!",
+    "what.is.my.mission": "En tant qu'artisan de logiciels, j'essaie d'élever la barre du développement de logiciels professionnels en le pratiquant et en aidant les autres à apprendre le métier. J'essaie d'appliquer les valeurs du Manifeste de l'artisanat logiciel dans mon travail quotidien.",
+    "well.crafted.software.title": "Logiciel bien conçu",
+    "well.crafted.software.part1": "Ma mission est de fournir des logiciels de haute qualité. Je suis humble quant à mon expertise et honnête quant à mes capacités.",
+    "well.crafted.software.part2": "J'essaie d'être un expert dans ce que je fais et de maîtriser les technologies et les techniques dont j'ai besoin pour faire mon travail.",
+    "well.crafted.software.part3": "J'assume l'entière responsabilité de l'exactitude du code que nous rédigeons dans notre équipe. Je ne tolère pas les défauts évitables. J'ai un oeil pour les détails dans les revues de code et j'essaie de tester notre code à fond.",
+    "steadily.adding.value.title": "Une valeur ajoutée constante",
+    "steadily.adding.value.part1": "Je fais des estimations avec diligence. Je ne suis pas facilement influencée par la pression ou la peur. Je m'assure de bien comprendre tout ce qui est nécessaire pour livrer avant de donner un devis.",
+    "steadily.adding.value.part2": "Je m'efforce de donner le meilleur de moi-même à un rythme durable.",
+    "community.of.professionals.title": "Une communauté de professionnels",
+    "community.of.professionals.part1": "J'embrasse différentes opinions et personnalités. Je ne laisse pas la façon actuelle de travailler entraver les améliorations.",
+    "community.of.professionals.part2": "Je suis prêt à partager mes connaissances avec toute personne désireuse d'apprendre. Je partage mes bonnes pratiques et mes connaissances et j'essaie d'apprendre de tout le monde moi-même.",
+    "productive.partnerships.title": "Partenariats productifs",
+    "productive.partnerships.part1": "J'ai du respect pour le client et les autres concepteurs de logiciels. J'essaie de me comporter de façon professionnelle et éthique tous les jours.",
+    "productive.partnerships.part2": "Je suis ouvert et honnête avec le client. Je ne cache ni n'embellis.",
+    "productive.partnerships.part3": "J'essaie toujours de me trouver dans l'intérêt du client afin de construire une relation à long terme."
+  }
 }

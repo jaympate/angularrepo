@@ -3,31 +3,30 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {LanguageSelectorComponent} from './language-selector.component';
 import {LanguageService} from '../translation/language-service';
 import {of} from 'rxjs';
-import {TranslateService} from '@ngx-translate/core';
+import {ChangeLanguageButtonComponent} from './change-language-button/change-language-button.component';
+import {MockComponent} from 'ng-mocks';
+import {By} from '@angular/platform-browser';
 
 describe('LanguageSelectorComponent', () => {
   let component: LanguageSelectorComponent;
   let fixture: ComponentFixture<LanguageSelectorComponent>;
   let nativeElement: HTMLElement;
 
-  let translateServiceSpyObject: TranslateService;
   let languageServiceSpyObject: LanguageService;
 
   beforeEach(async(() => {
-    translateServiceSpyObject = jasmine.createSpyObj('translateServiceSpyObject', ['use']);
-    languageServiceSpyObject = jasmine.createSpyObj('languageServiceSpyObject', ['getLanguages']);
-    languageServiceSpyObject.getLanguages['and'].returnValue(of(['en', 'nl', 'fr']));
+    languageServiceSpyObject = jasmine.createSpyObj('languageServiceSpyObject', ['getLanguages$']);
+    languageServiceSpyObject.getLanguages$['and'].returnValue(of(['en', 'nl', 'fr']));
 
     TestBed.configureTestingModule({
-      declarations: [LanguageSelectorComponent],
+      declarations: [
+        LanguageSelectorComponent,
+        MockComponent(ChangeLanguageButtonComponent)
+      ],
       providers: [
         {
           provide: LanguageService,
           useValue: languageServiceSpyObject
-        },
-        {
-          provide: TranslateService,
-          useValue: translateServiceSpyObject
         }
       ]
     });
@@ -44,15 +43,18 @@ describe('LanguageSelectorComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should display a button for every available language', () => {
-    const expectedLanguages = ['en', 'nl', 'fr'];
-    const languageChangeButtonValues = getLanguageChangeButtons()
-      .map(languageChangeButton => languageChangeButton.textContent.trim());
 
-    expect(languageChangeButtonValues).toEqual(expectedLanguages);
+  it('should create a button for every language', () => {
+    const expectedLanguages = ['en', 'nl', 'fr'];
+    const languages = getChangeLanguageButtonComponents()
+      .map(languageChangeButton => languageChangeButton.language);
+
+    expect(languages).toEqual(expectedLanguages);
   });
 
-  function getLanguageChangeButtons(): HTMLButtonElement[] {
-    return Array.from(nativeElement.querySelectorAll('.change-language-button')) as HTMLButtonElement[];
+  function getChangeLanguageButtonComponents(): ChangeLanguageButtonComponent[] {
+    return fixture.debugElement
+      .queryAll(By.directive(ChangeLanguageButtonComponent))
+      .map(debugElement => debugElement.componentInstance) as ChangeLanguageButtonComponent[];
   }
 });
