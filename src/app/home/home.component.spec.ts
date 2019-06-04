@@ -95,18 +95,18 @@ describe('HomeComponent', () => {
     return element.querySelector('.detailsMessage') as HTMLElement;
   }
 
+  function clickLearnMoreButton(): void {
+    const visionButton = getLearnMoreButton();
+    visionButton.click();
+    fixture.detectChanges();
+    tick();
+  }
+
   function trimTextContent(htmlElement: HTMLElement): string {
     return htmlElement.textContent.trim();
   }
 
   function getCurrentPath(): string {
     return location.path();
-  }
-
-  function clickLearnMoreButton(): void {
-    const visionButton = getLearnMoreButton();
-    visionButton.click();
-    fixture.detectChanges();
-    tick();
   }
 });
