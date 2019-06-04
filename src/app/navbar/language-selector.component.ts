@@ -6,7 +6,7 @@ import {Observable} from 'rxjs';
   selector: 'app-language-selector',
   template: `
     <div ngbDropdown class="d-inline-block dropdown">
-      <button class="btn btn-outline-info dropdown-toggle" id="languageSelectorDropdown"
+      <button class="btn btn-outline-success dropdown-toggle changeLanguageButton" id="languageSelectorDropdown"
               ngbDropdownToggle>{{'website.change.language' | translate}}</button>
       <div ngbDropdownMenu aria-labelledby="languageSelectorDropdown" class="dropdown-menu">
         <ng-container *ngFor="let language of languages$ | async">
