@@ -14,8 +14,7 @@ import {Observable} from 'rxjs';
         </ng-container>
       </div>
     </div>
-  `,
-  styles: []
+  `
 })
 export class LanguageSelectorComponent {
 
