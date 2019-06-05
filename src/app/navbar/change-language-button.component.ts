@@ -1,14 +1,11 @@
 import {Component, Input} from '@angular/core';
-import {LanguageService} from '../../translation/language-service';
+import {LanguageService} from '../translation/language-service';
 
 @Component({
   selector: 'app-change-language-button',
   template: `
-    <button class="dropdown-item" ngbDropdownItem (click)="useLanguage(language)">
-      {{language}}
-    </button>
-  `,
-  styles: []
+    <button class="changeLanguage" (click)="useLanguage(language)">{{language}}</button>
+  `
 })
 export class ChangeLanguageButtonComponent {
 
