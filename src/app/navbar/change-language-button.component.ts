@@ -4,8 +4,15 @@ import {LanguageService} from '../translation/language-service';
 @Component({
   selector: 'app-change-language-button',
   template: `
-    <button class="changeLanguage" (click)="useLanguage(language)">{{language}}</button>
-  `
+    <button class="dropdown-item changeLanguage" (click)="useLanguage(language)">{{language}}</button>
+  `,
+  styles: [
+      `
+      .dropdown-item {
+        padding: .25rem 1.25rem;
+      }
+    `
+  ]
 })
 export class ChangeLanguageButtonComponent {
 
