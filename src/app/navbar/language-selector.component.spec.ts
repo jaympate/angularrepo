@@ -1,12 +1,13 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {LanguageSelectorComponent} from './language-selector.component';
-import {Languages, LanguageService} from '../translation/language-service';
+import {LanguageService} from '../translation/language-service';
 import {of} from 'rxjs';
 import {ChangeLanguageButtonComponent} from './change-language-button.component';
 import {MockComponent} from 'ng-mocks';
 import {By} from '@angular/platform-browser';
 import {TranslatePipeMock} from '../translation/translate.pipe.mock';
+import {Languages} from '../translation/languages';
 import SpyObj = jasmine.SpyObj;
 
 describe('LanguageSelectorComponent', () => {
