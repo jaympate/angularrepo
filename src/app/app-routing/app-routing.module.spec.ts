@@ -10,7 +10,7 @@ import {TimelineComponent} from '../timeline/timeline.component';
 import {HomeComponent} from '../home/home.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {TranslatePipeMock} from '../translation/translate.pipe.mock';
-import {LanguageSelectorComponent} from '../language-selector/language-selector.component';
+import {LanguageSelectorComponent} from '../navbar/language-selector.component';
 
 describe('HomeComponent', () => {
   let fixture: ComponentFixture<AppComponent>;
@@ -37,8 +37,7 @@ describe('HomeComponent', () => {
         AppComponent,
         TranslatePipeMock
       ]
-    })
-      .compileComponents();
+    });
   }));
 
   beforeEach(() => {
