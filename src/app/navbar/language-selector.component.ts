@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
-import {Languages, LanguageService} from '../translation/language-service';
+import {LanguageService} from '../translation/language-service';
 import {Observable} from 'rxjs';
+import {Languages} from '../translation/languages';
 
 @Component({
   selector: 'app-language-selector',
@@ -25,7 +26,6 @@ import {Observable} from 'rxjs';
   ]
 })
 export class LanguageSelectorComponent {
-
   languages$: Observable<Languages>;
 
   constructor(private languageService: LanguageService) {

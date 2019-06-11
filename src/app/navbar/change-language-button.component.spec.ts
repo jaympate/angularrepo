@@ -36,8 +36,7 @@ describe('ChangeLanguageButtonComponent', () => {
           useValue: languageServiceSpyObj
         }
       ]
-    })
-      .compileComponents();
+    });
   }));
 
   beforeEach(() => {
