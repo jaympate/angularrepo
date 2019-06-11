@@ -1,28 +1,40 @@
 import {Injectable} from '@angular/core';
-import {Observable, of} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {TranslateService} from '@ngx-translate/core';
 import {CookieService} from 'ngx-cookie-service';
+import {Languages} from './languages';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LanguageService {
   readonly languageCookie = 'website.locale';
-  readonly languages: Array<string> = ['en', 'nl', 'fr'];
+  readonly allSupportedLanguages: Array<string> = ['en', 'nl', 'fr'];
+
+  private languagesBehaviorSubject: BehaviorSubject<Languages>;
 
   constructor(private translateService: TranslateService, private cookieService: CookieService) {
-    const initialLanguage = cookieService.get(this.languageCookie) || this.languages[0];
+    const currentLanguage = cookieService.get(this.languageCookie) || this.allSupportedLanguages[0];
 
-    this.translateService.setDefaultLang(initialLanguage);
+    this.translateService.setDefaultLang(currentLanguage);
+    this.languagesBehaviorSubject = new BehaviorSubject<Languages>(this.getCurrentAndOtherLanguages(currentLanguage));
   }
 
-  getLanguages$(): Observable<Array<string>> {
-    return of(this.languages);
+  getLanguages$(): Observable<Languages> {
+    return this.languagesBehaviorSubject.asObservable();
   }
 
-  setCurrentLanguage(language: string): void {
-    this.translateService.use(language);
-    this.cookieService.set(this.languageCookie, language);
+  setCurrentLanguage(currentLanguage: string): void {
+    this.translateService.use(currentLanguage);
+    this.cookieService.set(this.languageCookie, currentLanguage);
+
+    this.languagesBehaviorSubject.next(this.getCurrentAndOtherLanguages(currentLanguage));
+  }
+
+  private getCurrentAndOtherLanguages(currentLanguage: string): Languages {
+    return {
+      currentLanguage,
+      other: this.allSupportedLanguages.filter(supportedLanguage => supportedLanguage !== currentLanguage)
+    };
   }
 }
-
