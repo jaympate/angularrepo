@@ -1,4 +1,4 @@
-import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
+import {async, ComponentFixture, fakeAsync, TestBed} from '@angular/core/testing';
 import {Router} from '@angular/router';
 import {Location} from '@angular/common';
 import {RouterTestingModule} from '@angular/router/testing';
@@ -12,10 +12,11 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {TranslatePipeMock} from '../translation/translate.pipe.mock';
 import {LanguageSelectorComponent} from '../navbar/language-selector.component';
 
-describe('HomeComponent', () => {
+describe('AppRoutingModule', () => {
   let fixture: ComponentFixture<AppComponent>;
   let location: Location;
   let router: Router;
+  let appComponent: AppComponent;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -44,51 +45,67 @@ describe('HomeComponent', () => {
     router = TestBed.get(Router);
     location = TestBed.get(Location);
     fixture = TestBed.createComponent(AppComponent);
-
+    appComponent = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('navigate to "" redirects you to the home path', fakeAsync(() => {
+  it('should create', () => {
+    expect(appComponent).toBeTruthy();
+  });
+
+  it('navigate to "" redirects you to the home path', async(() => {
     const expectedHomePath = '/';
 
-    navigateTo(expectedHomePath);
-
-    const actualCurrentPath = getCurrentPath();
-    expect(actualCurrentPath).toBe(expectedHomePath);
+    fixture.ngZone.run(() => {
+      router.navigate([expectedHomePath]);
+      fixture.detectChanges();
+      fixture.whenStable().then(() => {
+        const actualCurrentPath = getCurrentPath();
+        expect(actualCurrentPath).toBe(expectedHomePath);
+      });
+    });
   }));
 
-  it('navigate to "vision" redirects you to the vision path', fakeAsync(() => {
+  it('navigate to "vision" redirects you to the vision path', async(() => {
     const expectedVisionPath = '/vision';
 
-    navigateTo(expectedVisionPath);
-
-    const actualCurrentPath = getCurrentPath();
-    expect(actualCurrentPath).toBe(expectedVisionPath);
+    fixture.ngZone.run(() => {
+      router.navigate([expectedVisionPath]);
+      fixture.detectChanges();
+      fixture.whenStable().then(() => {
+        const actualCurrentPath = getCurrentPath();
+        expect(actualCurrentPath).toBe(expectedVisionPath);
+      });
+    });
   }));
 
-  it('navigate to "cv" redirects you to the cv path', fakeAsync(() => {
+  it('navigate to "cv" redirects you to the cv path', async(() => {
     const expectedCvPath = '/cv';
-    navigateTo(expectedCvPath);
 
-    const actualCurrentPath = getCurrentPath();
-    expect(actualCurrentPath).toBe(expectedCvPath);
+    fixture.ngZone.run(() => {
+      router.navigate([expectedCvPath]);
+      fixture.detectChanges();
+      fixture.whenStable().then(() => {
+        const actualCurrentPath = getCurrentPath();
+        expect(actualCurrentPath).toBe(expectedCvPath);
+      });
+    });
   }));
 
   it('navigate to "timeline" redirects you to the timeline path', fakeAsync(() => {
     const expectedTimelinePath = '/timeline';
 
-    navigateTo(expectedTimelinePath);
-
-    const actualCurrentPath = getCurrentPath();
-    expect(actualCurrentPath).toBe(expectedTimelinePath);
+    fixture.ngZone.run(() => {
+      router.navigate([expectedTimelinePath]);
+      fixture.detectChanges();
+      fixture.whenStable().then(() => {
+        const actualCurrentPath = getCurrentPath();
+        expect(actualCurrentPath).toBe(expectedTimelinePath);
+      });
+    });
   }));
 
   function getCurrentPath(): string {
     return location.path();
-  }
-
-  function navigateTo(path: string): void {
-    router.navigate([path]);
-    tick();
   }
 });
