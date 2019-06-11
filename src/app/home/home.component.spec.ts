@@ -28,8 +28,7 @@ describe('HomeComponent', () => {
         HomeComponent,
         TranslatePipeMock
       ]
-    })
-      .compileComponents();
+    });
   }));
 
   beforeEach(() => {
