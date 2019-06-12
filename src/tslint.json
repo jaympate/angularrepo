@@ -12,6 +12,8 @@
       "element",
       "app",
       "kebab-case"
-    ]
+    ],
+    "no-string-literal": false
+    /* allows for using ['and'] in spec files */
   }
 }

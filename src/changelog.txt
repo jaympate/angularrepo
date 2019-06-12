@@ -1,0 +1,9 @@
+-- create angular app using intellij
+
+I've adapted the app component to display a single message.
+
+-- translating this static translation message
+
+-> install i18n library
+npm install @ngx-translate/core --save
+read https://github.com/ngx-translate/core for other details

@@ -1,31 +1,55 @@
-import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {AppComponent} from './app.component';
+import {TranslateService} from '@ngx-translate/core';
+import {LanguageSelectorComponent} from './navbar/language-selector.component';
+import {MockComponent} from 'ng-mocks';
+import {TranslatePipeMock} from './translation/translate.pipe.mock';
+import {By} from '@angular/platform-browser';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('AppComponent', () => {
+  let fixture: ComponentFixture<AppComponent>;
+  let nativeElement: HTMLElement;
+  let translateServiceSpyObject: TranslateService;
+
   beforeEach(async(() => {
+    translateServiceSpyObject = jasmine.createSpyObj('translateServiceSpyObject', ['setDefaultLang']);
+
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
+      imports: [
+        NgbModule,
+        RouterTestingModule
       ],
-    }).compileComponents();
+      declarations: [
+        AppComponent,
+        TranslatePipeMock,
+        MockComponent(LanguageSelectorComponent)
+      ],
+      providers: [
+        {
+          provide: TranslateService,
+          useValue: translateServiceSpyObject
+        }
+      ]
+    });
+
+    fixture = TestBed.createComponent(AppComponent);
+    nativeElement = fixture.nativeElement;
+    fixture.detectChanges();
   }));
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app).toBeTruthy();
+  it('should contain the language selector component', () => {
+    const languageSelectorComponent = getLanguageSelectorComponent();
+
+    expect(languageSelectorComponent).not.toBeNull();
   });
 
-  it(`should have as title 'website'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('website');
-  });
 
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to website!');
-  });
+  function getLanguageSelectorComponent(): LanguageSelectorComponent {
+    return fixture.debugElement
+      .query(By.directive(LanguageSelectorComponent))
+      .componentInstance as LanguageSelectorComponent;
+
+  }
 });
