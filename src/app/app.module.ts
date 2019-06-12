@@ -60,7 +60,9 @@ const translateModuleConfig: TranslateModuleConfig = {
   providers: [
     CookieService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule {
 }
