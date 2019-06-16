@@ -1,0 +1,45 @@
+$background-color: #E0E1DD;
+$active-color: #778DA9;
+$hover-color: #415A77;
+$passive-color: #1B263B;
+$text-color: #0D1B2A;
+$black-color: black;
+
+html {
+  background-color: $background-color;
+}
+
+.text {
+  color: $text-color;
+}
+
+hr {
+  border-color: $black-color;
+}
+
+.btn {
+  border-width: 2px;
+  background-color: $hover-color;
+  border-color: $passive-color;
+  color: $background-color;
+}
+
+.btn:hover {
+  background-color: $passive-color;
+  border-color: $active-color;
+  color: $background-color;
+}
+
+.btn:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem $active-color;
+  background-color: $active-color;
+  border-color: $passive-color;
+  color: $background-color;
+}
+
+.btn:active {
+  background-color: $active-color;
+  border-color: $passive-color;
+  color: $background-color;
+}

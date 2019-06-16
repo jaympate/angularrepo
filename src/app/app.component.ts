@@ -4,10 +4,9 @@ import {Router} from '@angular/router';
 @Component({
   selector: 'app-root',
   template: `
-    <header>
-      <!--TODO: create navbar component-->
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">
+    <header class="header">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand text" href="#">
           DJ
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -18,13 +17,13 @@ import {Router} from '@angular/router';
         <div class="collapse navbar-collapse" id="navbarSupportedContent" [ngbCollapse]="isCollapsed">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item" [ngClass]="getActiveHomeUrl()">
-              <a class="nav-link" routerLink="">{{'website.home' | translate}}</a>
+              <a class="nav-link navigation" routerLink="">{{'website.home' | translate}}</a>
             </li>
             <li class="nav-item" [ngClass]="getActiveVisionUrl()">
-              <a class="nav-link" routerLink="vision">{{'website.vision' | translate}}</a>
+              <a class="nav-link navigation" routerLink="vision">{{'website.vision' | translate}}</a>
             </li>
             <li class="nav-item" [ngClass]="getActiveCvUrl()">
-              <a class="nav-link" routerLink="cv">{{'website.cv' | translate}}</a>
+              <a class="nav-link navigation" routerLink="cv">{{'website.cv' | translate}}</a>
             </li>
             <!--   <li class="nav-item" [ngClass]="getActiveTimelineUrl()">
                  <a class="nav-link" routerLink="timeline">{{'website.timeline' | translate}}</a>
@@ -41,17 +40,7 @@ import {Router} from '@angular/router';
       <router-outlet></router-outlet>
     </main>
   `,
-  styles: [
-      `
-      .body {
-        font-family: hind, sans-serif;
-      }
-
-      html {
-        background-color: #f8f9fa;
-      }
-    `
-  ]
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
   isCollapsed = true;

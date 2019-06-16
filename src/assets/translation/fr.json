@@ -1,6 +1,6 @@
 {
   "website": {
-    "welcome.message": "Bienvenue!",
+    "welcome.message": "Enfin, vous êtes là...",
     "introduction.message": "Je suis Dieter Jordens. Voici mon portfolio en ligne. Malheureusement, il n'y a pas grand-chose à voir ici pour le moment, alors n'hésitez pas à revenir dans le futur.",
     "details.message": "J'ai {{age}} ans et j'habite actuellement à Geetbets, en Belgique... à proximité de Louvain, Bruxelles et Hasselt. Je suis passionné par le développement agile (full stack) et l'intelligence artificielle.",
     "learn.more.about.my.vision": "Ma vision",
