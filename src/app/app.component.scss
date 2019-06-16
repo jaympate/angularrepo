@@ -1,0 +1,28 @@
+@import "../styles.scss";
+
+.header {
+  font-family: Roboto, serif;
+}
+
+.body {
+  font-family: Roboto, serif;
+  background-color: $background-color;
+}
+
+.navbar-dark {
+  background-color: $background-color;
+}
+
+.nav-item :not(.active) {
+  color: $text-color;
+}
+
+.nav-item:hover :not(.active) {
+  color: $hover-color;
+  border-bottom: 2px solid $hover-color;
+}
+
+.nav-item.active .nav-link.navigation {
+  color: $passive-color;
+  border-bottom: 2px solid $passive-color;
+}
