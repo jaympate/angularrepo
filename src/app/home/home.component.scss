@@ -1,0 +1,17 @@
+@import "../../styles.scss";
+
+.home {
+  color: $text-color;
+  background-color: $background-color;
+  max-width: 900px;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.welcomeMessage {
+  color: $black-color;
+}
+
+.website {
+  color: $passive-color;
+}

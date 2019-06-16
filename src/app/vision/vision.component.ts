@@ -6,8 +6,8 @@ import {Observable} from 'rxjs';
 @Component({
   selector: 'app-vision',
   template: `
-    <div class="container-fluid">
-      <div class="card text-center mt-2">
+    <div class="container-fluid pt-2">
+      <div class="card text-center">
         <div class="card-header">
           {{'my.vision.what.to.expect.of.me' | translate}}
         </div>
@@ -25,14 +25,7 @@ import {Observable} from 'rxjs';
       </div>
     </div>
   `,
-  styles: [`
-    .software-craftsmanship-values {
-      padding: 1rem;
-      margin-right: 0;
-      margin-left: 0;
-      border-width: .2rem;
-    }
-  `]
+  styleUrls: ['./vision.component.scss']
 })
 export class VisionComponent implements OnInit {
   cards$: Observable<Array<Card>>;
