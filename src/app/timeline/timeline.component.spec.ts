@@ -1,4 +1,4 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {TimelineComponent} from './timeline.component';
 import {RouterTestingModule} from '@angular/router/testing';
@@ -9,7 +9,7 @@ describe('TimelineComponent', () => {
   let component: TimelineComponent;
   let fixture: ComponentFixture<TimelineComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule.withRoutes([
@@ -21,7 +21,7 @@ describe('TimelineComponent', () => {
         TimelineComponent
       ]
     });
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(TimelineComponent);

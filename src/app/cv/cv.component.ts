@@ -1,15 +1,15 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-cv',
   template: `
-    <div class="container pt-2">
+	  <div class="container pt-4 pb-4">
       <div class="row cv border">
         <div class="col-sm-4 cv-left border-right">
-          <div class="container-fluid pt-4 pb-4">
+			<div class="container-fluid pt-4">
             <img src="/assets/images/dieter.jpg" class="img-fluid cv-image" alt="{{'cv.image' | translate}}">
           </div>
-          <div class="container-fluid ">
+			<div class="container-fluid pt-4">
             <h1 class="name">Dieter Jordens</h1>
             <span class="lead">{{'cv.current.role' | translate}}</span>
             <div class="about pt-2">
@@ -39,7 +39,7 @@ import {Component, OnInit} from '@angular/core';
               </li>
             </ul>
             <a href="mailto:dieter.jordens.website@gmail.com?subject=CV&body={{'cv.body' | translate}}"
-               class="btn btn-outline-success"><i
+			   class="btn btn-outline-dark btn-lg cvButton"><i
               class="fa fa-download"></i> {{'cv.receive' | translate}}</a>
           </div>
         </div>
@@ -107,12 +107,6 @@ import {Component, OnInit} from '@angular/core';
   `,
   styleUrls: ['./cv.component.scss']
 })
-export class CvComponent implements OnInit {
-
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
+export class CvComponent {
 
 }

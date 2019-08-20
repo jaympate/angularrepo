@@ -1,12 +1,29 @@
-$background-color: #E0E1DD;
+$background-color: #EFEFEF;
+
+$sky: #CAEBF2;
+$carbon: #A9A9A9;
+$watermelon: #FF3B3F;
+
 $active-color: #778DA9;
 $hover-color: #415A77;
 $passive-color: #1B263B;
 $text-color: #0D1B2A;
+/*$background-color: #E0E1DD;
+$active-color: #778DA9;
+$hover-color: #415A77;
+$passive-color: #1B263B;
+$text-color: #0D1B2A;*/
+
 $black-color: black;
 
 html {
   background-color: $background-color;
+}
+
+.header {
+  font-family: bree, sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .text {
@@ -17,6 +34,7 @@ hr {
   border-color: $black-color;
 }
 
+/*
 .btn {
   border-width: 2px;
   background-color: $hover-color;
@@ -43,3 +61,4 @@ hr {
   border-color: $passive-color;
   color: $background-color;
 }
+*/

@@ -1,0 +1,13 @@
+@import "../../styles";
+
+.nav-item :not(.active) {
+  color: $carbon;
+}
+
+.nav-item:hover :not(.active) {
+  color: $watermelon;
+}
+
+.nav-item.active .nav-link.navigation {
+  color: $watermelon;
+}

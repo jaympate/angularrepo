@@ -49,18 +49,19 @@ export class CardService {
     ]
   };
 
-  cards: Array<Card>;
+  cards: Observable<Array<Card>>;
 
   constructor() {
-    this.cards = [
+    const stubData = [
       this.wellCraftedSoftwareCard,
       this.addingValueCard,
       this.communityOfProfessionalsCard,
       this.productivePartnershipsCard
     ];
+    this.cards = of(stubData);
   }
 
   getCards$(): Observable<Array<Card>> {
-    return of(this.cards);
+    return this.cards;
   }
 }

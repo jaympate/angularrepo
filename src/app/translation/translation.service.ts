@@ -7,6 +7,7 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class TranslationService {
+
   private translationCache: Map<string, Observable<Translation>> = new Map();
 
   constructor(private httpClient: HttpClient) {
@@ -15,6 +16,8 @@ export class TranslationService {
   getTranslation(language: string): Observable<Translation> {
     return this.getStaticTranslation(language);
   }
+
+  // TODO: add test to verify that every translation file contains the same amount of entries
 
   private getStaticTranslation(language: string): Observable<Translation> {
     if (!this.translationCache.has(language)) {
