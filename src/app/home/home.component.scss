@@ -1,7 +1,7 @@
 @import "../../styles.scss";
 
 .home {
-  color: $text-color;
+  color: $black-color;
   background-color: $background-color;
   max-width: 900px;
   text-align: center;
@@ -9,9 +9,19 @@
 }
 
 .welcomeMessage {
-  color: $black-color;
+  color: $carbon;
+  font-size: 4rem;
+}
+
+.detailsMessage {
+  font-size: 1.8rem;
+}
+
+.introductionMessage {
+  font-size: 1.6rem;
 }
 
 .website {
-  color: $passive-color;
+  color: $watermelon;
+  font-size: 3rem;
 }

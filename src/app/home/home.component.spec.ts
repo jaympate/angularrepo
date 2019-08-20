@@ -1,21 +1,94 @@
-import {async, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {HomeComponent} from './home.component';
-import {Router} from '@angular/router';
 import {Location} from '@angular/common';
 import {RouterTestingModule} from '@angular/router/testing';
 import {TranslatePipeMock} from '../translation/translate.pipe.mock';
 import {MockComponent} from 'ng-mocks';
 import {VisionComponent} from '../vision/vision.component';
+import {TestHTMLElementHelper} from '../testing/TestHTMLElementHelper';
 
 describe('HomeComponent', () => {
-  let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
-  let location: Location;
-  let router: Router;
-  let element: HTMLElement;
+  let helper: HomeComponentHelper;
 
-  beforeEach(async(() => {
+  beforeEach(configureTestingModule);
+  beforeEach(createHelper);
+
+  it('should show the translated welcome message in upper case', () => {
+    const expectedTranslatedWelcomeMessageText = 'website.welcome.message.translated'.toUpperCase();
+
+    expect(helper.welcomeMessageText).toBe(expectedTranslatedWelcomeMessageText);
+  });
+
+  it('should show the translated introduction message', () => {
+    const expectedTranslatedIntroductionMessageText = 'website.introduction.message.translated';
+
+    expect(helper.introductionMessageText).toBe(expectedTranslatedIntroductionMessageText);
+  });
+
+  it('should show the translated details message', () => {
+    const expectedTranslatedDetailsMessageText = 'website.details.message.translated';
+
+    expect(helper.detailsMessageText).toBe(expectedTranslatedDetailsMessageText);
+  });
+
+  it('should show the translated learn more button', () => {
+    const expectedTranslatedLearnMoreText = 'website.learn.more.about.my.vision.translated';
+
+    expect(helper.learnMoreButtonText).toBe(expectedTranslatedLearnMoreText);
+  });
+
+  it('clicking on the "learn more" button redirects you to the vision path', () => {
+    const expectedVisionPath = '/vision';
+    helper.clickLearnMoreButton();
+
+    helper.resumeAfterAsynchronousEventOrChangeDetection.then(() => expect(TestBed.get(Location).path()).toBe(expectedVisionPath));
+  });
+
+  class HomeComponentHelper {
+    private element: HTMLElement;
+    private fixture: ComponentFixture<HomeComponent>;
+
+    constructor() {
+      this.fixture = TestBed.createComponent(HomeComponent);
+      this.element = this.fixture.nativeElement;
+      this.fixture.detectChanges();
+    }
+
+    private get learnMoreButton(): HTMLButtonElement {
+      return this.element.querySelector('.learnMore') as HTMLButtonElement;
+    }
+
+    get learnMoreButtonText(): string {
+      return TestHTMLElementHelper.textContent(this.learnMoreButton);
+    }
+
+    get welcomeMessageText(): string {
+      const welcomeMessage = this.element.querySelector('.welcomeMessage') as HTMLElement;
+      return TestHTMLElementHelper.textContent(welcomeMessage);
+    }
+
+    get introductionMessageText(): string {
+      const introductionMessage = this.element.querySelector('.introductionMessage') as HTMLElement;
+      return TestHTMLElementHelper.textContent(introductionMessage);
+    }
+
+    get detailsMessageText(): string {
+      const detailsMessage = this.element.querySelector('.detailsMessage') as HTMLElement;
+      return TestHTMLElementHelper.textContent(detailsMessage);
+    }
+
+    get resumeAfterAsynchronousEventOrChangeDetection(): Promise<any> {
+      return this.fixture.whenStable();
+    }
+
+    clickLearnMoreButton(): void {
+      this.learnMoreButton.click();
+      this.fixture.detectChanges();
+    }
+  }
+
+  function configureTestingModule(): void {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule.withRoutes([
@@ -29,83 +102,9 @@ describe('HomeComponent', () => {
         TranslatePipeMock
       ]
     });
-  }));
-
-  beforeEach(() => {
-    router = TestBed.get(Router);
-    location = TestBed.get(Location);
-    fixture = TestBed.createComponent(HomeComponent);
-
-    component = fixture.componentInstance;
-    element = fixture.nativeElement;
-
-    fixture.detectChanges();
-  });
-
-  it('should show the translated welcome message', () => {
-    const expectedTranslatedWelcomeMessageText = 'website.welcome.message.translated';
-
-    const actualWelcomeMessageText = trimTextContent(getWelcomeMessage());
-    expect(actualWelcomeMessageText).toBe(expectedTranslatedWelcomeMessageText);
-  });
-
-  it('should show the translated introduction message', () => {
-    const expectedTranslatedIntroductionMessageText = 'website.introduction.message.translated';
-
-    const actualIntroductionMessageText = trimTextContent(getIntroductionMessage());
-    expect(actualIntroductionMessageText).toBe(expectedTranslatedIntroductionMessageText);
-  });
-
-  it('should show the translated details message', () => {
-    const expectedTranslatedDetailsMessageText = 'website.details.message.translated';
-
-    const actualDetailsMessageText = trimTextContent(getDetailsMessage());
-    expect(actualDetailsMessageText).toBe(expectedTranslatedDetailsMessageText);
-  });
-
-  it('should show the translated learn more button', () => {
-    const expectedTranslatedLearnMoreText = 'website.learn.more.about.my.vision.translated';
-
-    const actualLearnMoreButtonText = trimTextContent(getLearnMoreButton());
-    expect(actualLearnMoreButtonText).toBe(expectedTranslatedLearnMoreText);
-  });
-
-  it('clicking on the "learn more" button redirects you to the vision path', fakeAsync(() => {
-    const expectedVisionPath = '/vision';
-    clickLearnMoreButton();
-
-    const actualCurrentPath = getCurrentPath();
-    expect(actualCurrentPath).toBe(expectedVisionPath);
-  }));
-
-  function getLearnMoreButton(): HTMLButtonElement {
-    return element.querySelector('.learnMore') as HTMLButtonElement;
   }
 
-  function getWelcomeMessage(): HTMLElement {
-    return element.querySelector('.welcomeMessage') as HTMLElement;
-  }
-
-  function getIntroductionMessage(): HTMLElement {
-    return element.querySelector('.introductionMessage') as HTMLElement;
-  }
-
-  function getDetailsMessage(): HTMLElement {
-    return element.querySelector('.detailsMessage') as HTMLElement;
-  }
-
-  function clickLearnMoreButton(): void {
-    const visionButton = getLearnMoreButton();
-    visionButton.click();
-    fixture.detectChanges();
-    tick();
-  }
-
-  function trimTextContent(htmlElement: HTMLElement): string {
-    return htmlElement.textContent.trim();
-  }
-
-  function getCurrentPath(): string {
-    return location.path();
+  function createHelper(): void {
+    helper = new HomeComponentHelper();
   }
 });

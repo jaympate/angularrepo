@@ -1,55 +1,46 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {AppComponent} from './app.component';
-import {TranslateService} from '@ngx-translate/core';
-import {LanguageSelectorComponent} from './navbar/language-selector.component';
-import {MockComponent} from 'ng-mocks';
-import {TranslatePipeMock} from './translation/translate.pipe.mock';
+import {MockComponent, MockDirective, MockedComponent} from 'ng-mocks';
 import {By} from '@angular/platform-browser';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {RouterTestingModule} from '@angular/router/testing';
+import {HeaderComponent} from './header/header.component';
+import {RouterOutlet} from '@angular/router';
 
 describe('AppComponent', () => {
-  let fixture: ComponentFixture<AppComponent>;
-  let nativeElement: HTMLElement;
-  let translateServiceSpyObject: TranslateService;
+  let helper: AppComponentHelper;
 
-  beforeEach(async(() => {
-    translateServiceSpyObject = jasmine.createSpyObj('translateServiceSpyObject', ['setDefaultLang']);
+  beforeEach(createTestingModule);
+  beforeEach(createHelper);
 
-    TestBed.configureTestingModule({
-      imports: [
-        NgbModule,
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent,
-        TranslatePipeMock,
-        MockComponent(LanguageSelectorComponent)
-      ],
-      providers: [
-        {
-          provide: TranslateService,
-          useValue: translateServiceSpyObject
-        }
-      ]
-    });
-
-    fixture = TestBed.createComponent(AppComponent);
-    nativeElement = fixture.nativeElement;
-    fixture.detectChanges();
-  }));
-
-  it('should contain the language selector component', () => {
-    const languageSelectorComponent = getLanguageSelectorComponent();
-
-    expect(languageSelectorComponent).not.toBeNull();
+  it('should instantiate the header component', () => {
+    expect(helper.getHeaderComponent()).toBeTruthy();
   });
 
+  class AppComponentHelper {
+    private element: HTMLElement;
+    private fixture: ComponentFixture<AppComponent>;
 
-  function getLanguageSelectorComponent(): LanguageSelectorComponent {
-    return fixture.debugElement
-      .query(By.directive(LanguageSelectorComponent))
-      .componentInstance as LanguageSelectorComponent;
+    constructor() {
+      this.fixture = TestBed.createComponent(AppComponent);
+      this.element = this.fixture.nativeElement;
+      this.fixture.detectChanges();
+    }
 
+    getHeaderComponent(): MockedComponent<HeaderComponent> {
+      return this.fixture.debugElement.query(By.directive(HeaderComponent)).componentInstance;
+    }
+  }
+
+  function createTestingModule(): void {
+    TestBed.configureTestingModule({
+      declarations: [
+        AppComponent,
+        MockComponent(HeaderComponent),
+        MockDirective(RouterOutlet)
+      ]
+    });
+  }
+
+  function createHelper(): void {
+    helper = new AppComponentHelper();
   }
 });

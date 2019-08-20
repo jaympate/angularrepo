@@ -1,9 +1,9 @@
-import {async, TestBed} from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
 import {CardService} from './card.service';
 
 describe('CardService', () => {
-  beforeEach(async(() => TestBed.configureTestingModule({})));
+  beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
     const service: CardService = TestBed.get(CardService);

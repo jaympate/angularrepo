@@ -1,4 +1,4 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {VisionComponent} from './vision.component';
 import {TranslatePipeMock} from '../translation/translate.pipe.mock';
@@ -9,7 +9,7 @@ describe('VisionComponent', () => {
   let component: VisionComponent;
   let fixture: ComponentFixture<VisionComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
         VisionComponent,
@@ -17,7 +17,7 @@ describe('VisionComponent', () => {
         TranslatePipeMock
       ]
     });
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(VisionComponent);

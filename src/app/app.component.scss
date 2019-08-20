@@ -1,28 +1,43 @@
 @import "../styles.scss";
 
-.header {
-  font-family: Roboto, serif;
-}
-
 .body {
-  font-family: Roboto, serif;
   background-color: $background-color;
+  font-family: bree, sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
-.navbar-dark {
-  background-color: $background-color;
-}
+/*Bree Regular
 
-.nav-item :not(.active) {
-  color: $text-color;
-}
+font-family: bree, sans-serif;
 
-.nav-item:hover :not(.active) {
-  color: $hover-color;
-  border-bottom: 2px solid $hover-color;
-}
+font-weight: 400;
 
-.nav-item.active .nav-link.navigation {
-  color: $passive-color;
-  border-bottom: 2px solid $passive-color;
-}
+font-style: normal;
+
+
+Bree Bold
+
+font-family: bree, sans-serif;
+
+font-weight: 700;
+
+font-style: normal;
+
+
+Bree Oblique
+
+font-family: bree, sans-serif;
+
+font-weight: 400;
+
+font-style: italic;
+
+
+Bree Bold Oblique
+
+font-family: bree, sans-serif;
+
+font-weight: 700;
+
+font-style: italic;*/

@@ -1,21 +1,82 @@
-import {async, TestBed} from '@angular/core/testing';
-import {LanguageService} from './language-service';
+import {TestBed} from '@angular/core/testing';
+import {LanguageService} from './language.service';
 import {MockComponent} from 'ng-mocks';
-import {ChangeLanguageButtonComponent} from '../navbar/change-language-button.component';
+import {ChangeLanguageButtonComponent} from '../header/change-language-button.component';
 import {TranslatePipeMock} from './translate.pipe.mock';
-import {LanguageSelectorComponent} from '../navbar/language-selector.component';
-import {TranslateService} from '@ngx-translate/core';
+import {LanguageSelectorComponent} from '../header/language-selector.component';
 import {CookieService} from 'ngx-cookie-service';
+import {TranslateServiceFacade} from './translate.service.facade';
+import {Languages} from './languages';
 import SpyObj = jasmine.SpyObj;
 
 describe('LanguageService', () => {
-  let translateServiceSpyObject: SpyObj<TranslateService>;
-  let cookieServiceSpyObject: SpyObj<CookieService>;
+  const defaultLanguage = 'en';
+  const supportedLanguages = [defaultLanguage, 'fr', 'it', 'ch', 'nl'];
 
-  beforeEach(async(() => {
-    translateServiceSpyObject = jasmine.createSpyObj<TranslateService>('translateServiceSpyObject', ['setDefaultLang', 'use']);
-    cookieServiceSpyObject = jasmine.createSpyObj<CookieService>('cookieServiceSpyObject', ['set', 'get']);
+  beforeEach(configureTestingModule);
 
+  beforeEach(clearCookies);
+
+  describe('Constructor', () => {
+    it('No language is provided by a cookie, language service is initialised with the default language', () => {
+      const languageService: LanguageService = TestBed.get(LanguageService);
+
+      assertCurrentAndOtherLanguagesToEqual(languageService, defaultLanguage);
+    });
+
+    it('Language is provided by a cookie, language service is initialised with the cookie language', () => {
+      const cookieLanguage = 'nl';
+      TestBed.get(CookieService).set('website.locale', cookieLanguage);
+
+      const languageService: LanguageService = TestBed.get(LanguageService);
+
+      assertCurrentAndOtherLanguagesToEqual(languageService, cookieLanguage);
+    });
+
+    it('persists the cookie language to the translate service', () => {
+      const cookieLanguage = 'fr';
+      TestBed.get(CookieService).set('website.locale', cookieLanguage);
+
+      TestBed.get(LanguageService);
+
+      const translateServiceDecoratorMock: SpyObj<TranslateServiceFacade> = TestBed.get(TranslateServiceFacade);
+      expect(translateServiceDecoratorMock.use).toHaveBeenCalledWith(cookieLanguage);
+    });
+  });
+
+  describe('Changing language', () => {
+    it('updates the language services current language to a new language', () => {
+      const newLanguage = 'fr';
+
+      TestBed.get(LanguageService).updateCurrentLanguage(newLanguage);
+
+      assertCurrentAndOtherLanguagesToEqual(TestBed.get(LanguageService), newLanguage);
+    });
+
+    it('persists the new language to our translate service', () => {
+      const newLanguage = 'fr';
+
+      TestBed.get(LanguageService).updateCurrentLanguage(newLanguage);
+
+      const translateServiceDecoratorMock: SpyObj<TranslateServiceFacade> = TestBed.get(TranslateServiceFacade);
+      expect(translateServiceDecoratorMock.use).toHaveBeenCalledWith(newLanguage);
+    });
+
+    it('updates the cookie in the cookie service for the new language', () => {
+      const cookieLanguage = 'ch';
+      const newLanguage = 'fr';
+      TestBed.get(CookieService).set('website.locale', cookieLanguage);
+
+      TestBed.get(LanguageService).updateCurrentLanguage(newLanguage);
+
+      const actualCookieLanguage = TestBed.get(CookieService).get('website.locale');
+      expect(actualCookieLanguage).toEqual(newLanguage);
+    });
+  });
+
+  const mockedTranslateServiceDecorator: SpyObj<TranslateServiceFacade> = getMockedTranslateServiceDecorator();
+
+  function configureTestingModule(): void {
     TestBed.configureTestingModule({
       declarations: [
         MockComponent(ChangeLanguageButtonComponent),
@@ -23,20 +84,33 @@ describe('LanguageService', () => {
         LanguageSelectorComponent
       ],
       providers: [
+        CookieService,
         {
-          provide: TranslateService,
-          useValue: translateServiceSpyObject
-        },
-        {
-          provide: CookieService,
-          useValue: cookieServiceSpyObject
+          provide: TranslateServiceFacade,
+          useValue: mockedTranslateServiceDecorator
         }
       ]
     });
-  }));
+  }
 
-  it('should be created', () => {
-    const service: LanguageService = TestBed.get(LanguageService);
-    expect(service).toBeTruthy();
-  });
+  function getMockedTranslateServiceDecorator(): SpyObj<TranslateServiceFacade> {
+    const mock: SpyObj<TranslateServiceFacade> = jasmine.createSpyObj<TranslateServiceFacade>('translateServiceDecoratorMock', [
+      'getDefaultLanguage',
+      'getSupportedLanguages',
+      'use'
+    ]);
+    mock.getDefaultLanguage.and.returnValue(defaultLanguage);
+    mock.getSupportedLanguages.and.returnValue(supportedLanguages);
+    return mock;
+  }
+
+  function clearCookies(): void {
+    TestBed.get(CookieService).deleteAll();
+  }
+
+  function assertCurrentAndOtherLanguagesToEqual(languageService: LanguageService, expectedCurrentLanguage: string): void {
+    languageService.getCurrentAndOtherLanguages$().subscribe(currentAndOtherLanguages => {
+      expect(currentAndOtherLanguages).toEqual(Languages.from(expectedCurrentLanguage, supportedLanguages));
+    });
+  }
 });

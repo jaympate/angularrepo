@@ -2,6 +2,8 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/spec",
+    "baseUrl": "./",
+    "module": "commonjs",
     "types": [
       "jasmine",
       "node"
@@ -13,6 +15,8 @@
   ],
   "include": [
     "**/*.spec.ts",
+    "**/*.matcher.ts",
+    "**/*.matchers.ts",
     "**/*.d.ts"
   ]
 }

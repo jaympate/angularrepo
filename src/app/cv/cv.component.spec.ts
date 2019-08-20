@@ -1,14 +1,23 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {CvComponent} from './cv.component';
 import {TranslatePipeMock} from '../translation/translate.pipe.mock';
 import {RouterTestingModule} from '@angular/router/testing';
+import {TestHTMLElementHelper} from '../testing/TestHTMLElementHelper';
 
 describe('CvComponent', () => {
-  let component: CvComponent;
-  let fixture: ComponentFixture<CvComponent>;
+  let helper: CvComponentHelper;
 
-  beforeEach(async(() => {
+  beforeEach(configureTestingModule);
+  beforeEach(createHelper);
+
+  it('shows name', () => {
+    expect(TestHTMLElementHelper.textContent(helper.name)).toEqual('Dieter Jordens');
+  });
+
+  // TODO: write a lot of tests.
+
+  function configureTestingModule(): void {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule.withRoutes(
@@ -22,15 +31,24 @@ describe('CvComponent', () => {
         TranslatePipeMock
       ]
     });
-  }));
+  }
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(CvComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+  class CvComponentHelper {
+    private element: HTMLElement;
+    private fixture: ComponentFixture<CvComponent>;
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    constructor() {
+      this.fixture = TestBed.createComponent(CvComponent);
+      this.element = this.fixture.nativeElement;
+      this.fixture.detectChanges();
+    }
+
+    get name(): HTMLElement {
+      return this.element.querySelector('.name') as HTMLElement;
+    }
+  }
+
+  function createHelper(): void {
+    helper = new CvComponentHelper();
+  }
 });

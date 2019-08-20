@@ -1,18 +1,12 @@
 import {Component, Input} from '@angular/core';
-import {LanguageService} from '../translation/language-service';
+import {LanguageService} from '../translation/language.service';
 
 @Component({
   selector: 'app-change-language-button',
+  styleUrls: ['./change-language-button.component.scss'],
   template: `
     <button class="dropdown-item changeLanguage" (click)="useLanguage(language)">{{language}}</button>
-  `,
-  styles: [
-      `
-      .dropdown-item {
-        padding: .25rem 1.25rem;
-      }
-    `
-  ]
+  `
 })
 export class ChangeLanguageButtonComponent {
 
@@ -23,6 +17,6 @@ export class ChangeLanguageButtonComponent {
   }
 
   useLanguage(language: string): void {
-    this.languageService.setCurrentLanguage(language);
+    this.languageService.updateCurrentLanguage(language);
   }
 }

@@ -1,0 +1,13 @@
+@import "../../styles";
+
+.navbar-dark {
+  background-color: $background-color;
+}
+
+.navbar-brand {
+  color: $black-color;
+}
+
+.navbar-brand:hover, .navbar-brand:visited, .navbar-brand:active, .navbar-brand:focus {
+  color: $black-color;
+}
