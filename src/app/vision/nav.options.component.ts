@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {NavigationOption, WebsiteRoutes} from '../website.routes';
 
 @Component({
@@ -7,7 +7,7 @@ import {NavigationOption, WebsiteRoutes} from '../website.routes';
     <ul *ngIf="hasNavigationOptions" class="navbar-nav">
       <ng-container *ngFor="let navigationOption of navigationOptions">
         <li class="nav-item" [ngClass]="websiteRoutes.getActive(navigationOption.path)">
-          <a class="nav-link navigation" routerLink="{{navigationOption.path}}">{{navigationOption.text | translate}}</a>
+          <a class="nav-link navigation" (click)="clickNavigation()" routerLink="{{navigationOption.path}}">{{navigationOption.text | translate}}</a>
         </li>
       </ng-container>
     </ul>
@@ -16,6 +16,9 @@ import {NavigationOption, WebsiteRoutes} from '../website.routes';
 })
 export class NavOptionsComponent {
   navigationOptions: NavigationOption[];
+
+  @Output()
+  navigated = new EventEmitter<void>();
 
   constructor(public websiteRoutes: WebsiteRoutes) {
     this.navigationOptions = [
@@ -27,5 +30,9 @@ export class NavOptionsComponent {
 
   get hasNavigationOptions(): boolean {
     return this.navigationOptions.length !== 0;
+  }
+
+  clickNavigation(): void {
+    this.navigated.emit();
   }
 }
