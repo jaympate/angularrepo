@@ -3,20 +3,19 @@ import {Component} from '@angular/core';
 @Component({
   selector: 'app-cv',
   template: `
-	  <div class="container pt-4 pb-4">
+    <div class="container pt-3 pb-2">
       <div class="row cv border">
         <div class="col-sm-4 cv-left border-right">
-			<div class="container-fluid pt-4">
+          <div class="container-fluid pt-3">
             <img src="/assets/images/dieter.jpg" class="img-fluid cv-image" alt="{{'cv.image' | translate}}">
           </div>
-			<div class="container-fluid pt-4">
+          <div class="container-fluid pt-3">
             <h1 class="name">Dieter Jordens</h1>
             <span class="lead">{{'cv.current.role' | translate}}</span>
-            <div class="about pt-2">
-              <p>{{'cv.about.part1' | translate}}</p>
-              <p>{{'cv.about.part2' | translate}}</p>
+            <div class="about pt-3">
+              <p>{{'cv.about' | translate}}</p>
             </div>
-            <ul class="social-media-list pb-2">
+            <ul class="social-media-list">
               <li>
                 <a href="https://www.facebook.com/dieter.jordens"><i class="fa fa-facebook"></i>
                 </a>
@@ -45,7 +44,7 @@ import {Component} from '@angular/core';
         </div>
         <div class="col-sm-8 cv-right">
           <div class="container">
-            <div class="row border-bottom pt-4 pb-2 pl-3">
+            <div class="row border-bottom pt-3 pl-3">
               <div class="col">
                 <h2 class="section-title">{{'cv.expertise' | translate}}</h2>
                 <div class="row">
@@ -68,7 +67,7 @@ import {Component} from '@angular/core';
                 </div>
               </div>
             </div>
-            <div class="row border-bottom pt-4 pb-2 pl-3">
+            <div class="row border-bottom pt-3 pl-3">
               <div class="col">
                 <h2 class="section-title">{{'cv.work.experience' | translate}}</h2>
                 <div class="row">
@@ -81,7 +80,7 @@ import {Component} from '@angular/core';
                 </div>
               </div>
             </div>
-            <div class="row pt-4 pl-3">
+            <div class="row pt-3 pl-3">
               <div class="col">
                 <h2 class="section-title">{{'cv.education' | translate}}</h2>
                 <div class="row">
