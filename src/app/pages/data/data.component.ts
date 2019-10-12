@@ -8,7 +8,7 @@ import {BookService} from './book.service';
   selector: 'app-data',
   template: `
     <div class="container pt-4">
-      <p>Here you can find every book since the start of my professional career in <code>2016</code>.</p>
+      <p>Here you can find every book I've read since the start of my professional career in <code>2016</code>.</p>
 
       <table class="table table-striped">
         <thead>
