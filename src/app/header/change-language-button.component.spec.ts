@@ -3,7 +3,7 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {ChangeLanguageButtonComponent} from './change-language-button.component';
 import {Component} from '@angular/core';
 import {LanguageService} from '../translation/language.service';
-import {TestHTMLElementHelper} from '../testing/TestHTMLElementHelper';
+import {TestHTMLElementHelper} from '../_test/TestHTMLElementHelper';
 import SpyObj = jasmine.SpyObj;
 
 describe('ChangeLanguageButtonComponent', () => {
@@ -81,9 +81,6 @@ describe('ChangeLanguageButtonComponent', () => {
       declarations: [
         ChangeLanguageButtonComponent,
         TestHostComponent
-      ],
-      providers: [
-        LanguageService
       ]
     });
   }

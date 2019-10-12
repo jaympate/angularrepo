@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {Card} from './software-craftsmanship-card/card';
 import {CardService} from './software-craftsmanship-card/card.service';
 import {Observable} from 'rxjs';
@@ -27,13 +27,10 @@ import {Observable} from 'rxjs';
   `,
   styleUrls: ['./vision.component.scss']
 })
-export class VisionComponent implements OnInit {
+export class VisionComponent {
   cards$: Observable<Array<Card>>;
 
   constructor(private cardService: CardService) {
     this.cards$ = cardService.getCards$();
-  }
-
-  ngOnInit() {
   }
 }

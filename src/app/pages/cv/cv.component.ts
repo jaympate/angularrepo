@@ -7,7 +7,7 @@ import {Component} from '@angular/core';
       <div class="row cv border">
         <div class="col-sm-4 cv-left border-right">
           <div class="container-fluid pt-3">
-            <img src="/assets/images/dieter.jpg" class="img-fluid cv-image" alt="{{'cv.image' | translate}}">
+            <img src="../../../assets/images/dieter.jpg" class="img-fluid cv-image" alt="{{'cv.image' | translate}}">
           </div>
           <div class="container-fluid pt-3">
             <h1 class="name">Dieter Jordens</h1>
@@ -38,7 +38,7 @@ import {Component} from '@angular/core';
               </li>
             </ul>
             <a href="mailto:dieter.jordens.website@gmail.com?subject=CV&body={{'cv.body' | translate}}"
-			   class="btn btn-outline-dark btn-lg cvButton"><i
+               class="btn btn-outline-dark btn-lg cvButton"><i
               class="fa fa-download"></i> {{'cv.receive' | translate}}</a>
           </div>
         </div>

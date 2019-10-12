@@ -3,10 +3,10 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {HomeComponent} from './home.component';
 import {Location} from '@angular/common';
 import {RouterTestingModule} from '@angular/router/testing';
-import {TranslatePipeMock} from '../translation/translate.pipe.mock';
+import {TranslatePipeMock} from '../../translation/translate.pipe.mock';
 import {MockComponent} from 'ng-mocks';
 import {VisionComponent} from '../vision/vision.component';
-import {TestHTMLElementHelper} from '../testing/TestHTMLElementHelper';
+import {TestHTMLElementHelper} from '../../_test/TestHTMLElementHelper';
 
 describe('HomeComponent', () => {
   let helper: HomeComponentHelper;

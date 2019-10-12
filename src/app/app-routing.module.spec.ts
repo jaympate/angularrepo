@@ -3,11 +3,11 @@ import {Router} from '@angular/router';
 import {Location} from '@angular/common';
 import {RouterTestingModule} from '@angular/router/testing';
 import {MockComponent} from 'ng-mocks';
-import {VisionComponent} from './vision/vision.component';
+import {VisionComponent} from './pages/vision/vision.component';
 import {AppComponent} from './app.component';
-import {CvComponent} from './cv/cv.component';
-import {TimelineComponent} from './timeline/timeline.component';
-import {HomeComponent} from './home/home.component';
+import {CvComponent} from './pages/cv/cv.component';
+import {TimelineComponent} from './pages/timeline/timeline.component';
+import {HomeComponent} from './pages/home/home.component';
 import {HeaderComponent} from './header/header.component';
 
 describe('AppRoutingModule', () => {

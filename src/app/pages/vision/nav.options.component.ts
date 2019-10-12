@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Output} from '@angular/core';
-import {NavigationOption, WebsiteRoutes} from '../website.routes';
+import {NavigationOption, WebsiteRoutes} from '../../website.routes';
 
 @Component({
   selector: 'app-nav-options',
@@ -24,7 +24,9 @@ export class NavOptionsComponent {
     this.navigationOptions = [
       {path: '', text: 'website.home'},
       {path: 'vision', text: 'website.vision'},
-      {path: 'cv', text: 'website.cv'}
+      {path: 'cv', text: 'website.cv'},
+      /*{path: 'timeline', text: 'website.timeline'},*/
+      {path: 'data', text: 'website.data'}
     ];
   }
 

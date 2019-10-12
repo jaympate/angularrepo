@@ -21,14 +21,7 @@ import {Card} from './card';
       }
   `]
 })
-export class SoftwareCraftsmanshipCardComponent implements OnInit {
+export class SoftwareCraftsmanshipCardComponent {
   @Input()
   card: Card;
-
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
-
 }

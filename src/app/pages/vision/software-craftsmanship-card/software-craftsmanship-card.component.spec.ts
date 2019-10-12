@@ -1,7 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {SoftwareCraftsmanshipCardComponent} from './software-craftsmanship-card.component';
-import {TranslatePipeMock} from '../../translation/translate.pipe.mock';
+import {TranslatePipeMock} from '../../../translation/translate.pipe.mock';
 
 describe('SoftwareCraftsmanshipCardComponent', () => {
   let component: SoftwareCraftsmanshipCardComponent;

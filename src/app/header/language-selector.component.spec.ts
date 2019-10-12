@@ -8,7 +8,7 @@ import {MockComponent} from 'ng-mocks';
 import {By} from '@angular/platform-browser';
 import {TranslatePipeMock} from '../translation/translate.pipe.mock';
 import {Languages} from '../translation/languages';
-import {TestHTMLElementHelper} from '../testing/TestHTMLElementHelper';
+import {TestHTMLElementHelper} from '../_test/TestHTMLElementHelper';
 import SpyObj = jasmine.SpyObj;
 
 describe('LanguageSelectorComponent', () => {
@@ -71,9 +71,6 @@ describe('LanguageSelectorComponent', () => {
         MockComponent(ChangeLanguageButtonComponent),
         TranslatePipeMock,
         LanguageSelectorComponent
-      ],
-      providers: [
-        LanguageService
       ]
     });
   }

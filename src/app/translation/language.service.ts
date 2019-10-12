@@ -3,6 +3,7 @@ import {BehaviorSubject, Observable} from 'rxjs';
 import {CookieService} from 'ngx-cookie-service';
 import {Languages} from './languages';
 import {TranslateServiceFacade} from './translate.service.facade';
+import {TranslationModule} from './translation.module';
 
 @Injectable({
   providedIn: 'root'

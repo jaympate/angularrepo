@@ -1,7 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {HeaderComponent} from './header.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {NavOptionsComponent} from '../vision/nav.options.component';
+import {NavOptionsComponent} from '../pages/vision/nav.options.component';
 import {LanguageSelectorComponent} from './language-selector.component';
 import {MockComponent, MockedComponent} from 'ng-mocks';
 import {By} from '@angular/platform-browser';

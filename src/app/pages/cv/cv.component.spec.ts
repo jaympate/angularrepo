@@ -1,9 +1,9 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {CvComponent} from './cv.component';
-import {TranslatePipeMock} from '../translation/translate.pipe.mock';
+import {TranslatePipeMock} from '../../translation/translate.pipe.mock';
 import {RouterTestingModule} from '@angular/router/testing';
-import {TestHTMLElementHelper} from '../testing/TestHTMLElementHelper';
+import {TestHTMLElementHelper} from '../../_test/TestHTMLElementHelper';
 
 describe('CvComponent', () => {
   let helper: CvComponentHelper;
