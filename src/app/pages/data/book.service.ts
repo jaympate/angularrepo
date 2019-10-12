@@ -8,7 +8,7 @@ export class BookService {
   constructor(private http: HttpClient) {
   }
 
-  private readonly baseUrl = `http://dj-website-backend.herokuapp.com:8080/api/book`;
+  private readonly baseUrl = `https://dj-website-backend.herokuapp.com:8080/api/book`;
 
   getBooks$() {
     const httpOptions = {
