@@ -1,10 +1,7 @@
 {
   "name": "website",
   "version": "0.0.0",
-  "engines": {
-    "node": "10.15.3",
-    "npm": "6.9.0"
-  },
+  "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
@@ -61,5 +58,9 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0"
+  },
+  "engines": {
+    "node": "10.15.3",
+    "npm": "6.9.0"
   }
 }
