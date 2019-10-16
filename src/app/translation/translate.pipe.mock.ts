@@ -1,5 +1,6 @@
 import {Pipe, PipeTransform} from '@angular/core';
 
+// noinspection AngularMissingOrInvalidDeclarationInModule
 @Pipe({
   name: 'translate'
 })

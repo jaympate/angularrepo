@@ -29,7 +29,7 @@ import {BookService} from './book.service';
     </div>
   `,
   styles: [
-      `
+    `
           .asc::before {
               content: "\\25be";
               float: right;

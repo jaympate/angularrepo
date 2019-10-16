@@ -21,9 +21,9 @@ export class SortableHeaderDirective {
   }
 
   rotateDirection(key: string): SortDirection {
-    if(key === 'asc'){
+    if (key === 'asc') {
       return 'desc';
-    } else if(key === 'desc'){
+    } else if (key === 'desc') {
       return 'unsorted';
     }
     return 'asc';
@@ -37,13 +37,14 @@ export class SortableHeaderDirective {
 export type SortDirection = 'asc' | 'desc' | 'unsorted';
 
 export class SortEvent {
-  private constructor(public sortablePropertyName: string, public direction: SortDirection){}
+  private constructor(public sortablePropertyName: string, public direction: SortDirection) {
+  }
 
-  static of(sortablePropertyName: string, direction: SortDirection){
+  static of(sortablePropertyName: string, direction: SortDirection) {
     return new SortEvent(sortablePropertyName, direction);
   }
 
-  static ofEmpty(){
+  static ofEmpty() {
     return new SortEvent('', 'unsorted');
   }
 
@@ -55,7 +56,7 @@ export class SortEvent {
     return this.direction === 'unsorted';
   }
 
-  isEqualTo(sortablePropertyName: string){
+  isEqualTo(sortablePropertyName: string) {
     return this.sortablePropertyName === sortablePropertyName;
   }
 }
