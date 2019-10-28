@@ -8,20 +8,22 @@ import {BookService} from './book.service';
   selector: 'app-data',
   template: `
     <div class="container pt-4">
-      <p>Here you can find every book I've read since the start of my professional career in <code>2016</code>.</p>
+      <p>{{'data.books.description' | translate}}</p>
 
       <table class="table table-striped">
         <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col" sortable="title" (sort)="onSort($event)">Title</th>
-          <th scope="col" sortable="yearRead" (sort)="onSort($event)">Year read</th>
+          <th scope="col" sortable="title" (sort)="onSort($event)">{{'data.book.title' | translate}}</th>
+          <th scope="col" sortable="authors" (sort)="onSort($event)">{{'data.book.authors' | translate}}</th>
+          <th scope="col" sortable="yearRead" (sort)="onSort($event)">{{'data.book.year.read' | translate}}</th>
         </tr>
         </thead>
         <tbody>
         <tr *ngFor="let book of books$ | async ; index as i">
           <th scope="row">{{ i + 1 }}</th>
           <td>{{ book.title }}</td>
+          <td>{{ book.authors }}</td>
           <td>{{ book.yearRead }}</td>
         </tr>
         </tbody>
@@ -29,7 +31,7 @@ import {BookService} from './book.service';
     </div>
   `,
   styles: [
-    `
+      `
           .asc::before {
               content: "\\25be";
               float: right;

@@ -53,5 +53,9 @@
   "cv.education2.date": "2014",
   "cv.education2.title": "Bachelière en Sciences: Informatique, TIC",
   "cv.education2.employer": "Université d'Hasselt",
-  "cv.education2.place": "Diepenbeek, Belgique"
+  "cv.education2.place": "Diepenbeek, Belgique",
+  "data.books.description": "Vous trouverez ici tous les livres que j'ai lus depuis le début de ma carrière professionnelle en 2016.",
+  "data.book.title": "Titre",
+  "data.book.authors": "Auteures",
+  "data.book.year.read": "Année de lecture"
 }

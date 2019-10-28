@@ -53,5 +53,9 @@
   "cv.education2.date": "2014",
   "cv.education2.title": "Bachelor in de Wetenschappen: Computerwetenschappen, ICT",
   "cv.education2.employer": "Universiteit Hasselt",
-  "cv.education2.place": "Leuven, België"
+  "cv.education2.place": "Leuven, België",
+  "data.books.description": "Hier vind je alle boeken die ik sinds het begin van mijn professionele carrière in 2016 heb gelezen.",
+  "data.book.title": "Titel",
+  "data.book.authors": "Auteurs",
+  "data.book.year.read": "Jaar gelezen"
 }
