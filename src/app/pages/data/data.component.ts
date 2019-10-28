@@ -1,9 +1,11 @@
 import {Component, OnInit, QueryList, ViewChildren} from '@angular/core';
 import {BehaviorSubject, combineLatest, Observable} from 'rxjs';
-import {SortableHeaderDirective, SortEvent} from './sortable-header.directive';
-import {map, tap} from 'rxjs/operators';
+import {SortableHeaderDirective} from './sortable-header.directive';
+import {map, startWith, tap} from 'rxjs/operators';
 import {BookService} from './book.service';
 import {compare} from './compare';
+import {SortEvent} from './sort.event';
+import {FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-data',
@@ -13,6 +15,11 @@ import {compare} from './compare';
       <div class="card">
         <div class="card-body">
           <p>{{'data.books.description' | translate}}</p>
+          <form>
+            <div class="form-group form-inline">
+              {{'data.books.search' | translate}}: <input class="form-control ml-2" type="text" [formControl]="filter"/>
+            </div>
+          </form>
           <table class="table table-striped">
             <thead class="thead-dark">
             <tr>
@@ -23,7 +30,7 @@ import {compare} from './compare';
             </tr>
             </thead>
             <tbody>
-            <tr *ngFor="let book of books$ | async ; index as i">
+            <tr *ngFor="let book of sortedBooks$ | async ; index as i">
               <th scope="row">{{ i + 1 }}</th>
               <td>{{ book.title }}</td>
               <td>{{ book.authors }}</td>
@@ -54,32 +61,50 @@ import {compare} from './compare';
 export class DataComponent implements OnInit {
   @ViewChildren(SortableHeaderDirective) sortableHeaderDirectives: QueryList<SortableHeaderDirective>;
 
-  books$: Observable<Book[]>;
+  sortedBooks$: Observable<Book[]>;
   originalBooks: Book[];
-  sortEventBehaviorSubject = new BehaviorSubject<SortEvent>(SortEvent.ofEmpty());
+  sortEventBehaviorSubject = new BehaviorSubject<SortEvent>(SortEvent.unsortedEvent());
+
+  filter = new FormControl('');
 
   constructor(private bookService: BookService) {
   }
 
+  search(books: Book[], text: string): Book[] {
+    return books.filter(book => {
+      const term = text.toLowerCase();
+      return book.title.toLowerCase().includes(term)
+        || book.authors.toLowerCase().includes(term)
+        || book.yearRead.toString().includes(term);
+    });
+  }
+
   ngOnInit(): void {
-    this.books$ = combineLatest([
-      this.bookService.getBooks$(),
-      this.sortEventBehaviorSubject.asObservable()
-    ]).pipe(
-      tap(([, sortEvent]) => this.clearDirectionForEachOtherSortableHeader(sortEvent)),
-      tap(([books]) => this.saveOriginalBooks(books)),
-      map(([books, sortEvent]) => this.sortBooks(sortEvent, books))
+    const books$ = this.bookService.getBooks$().pipe(
+      tap(books => this.cacheOriginalBooks(books))
+    );
+
+    const text$ = this.filter.valueChanges.pipe(startWith(''));
+
+    const filteredBooks$ = combineLatest([books$, text$]).pipe(
+      map(([books, text]) => this.search(books, text)),
+      tap(books => console.log(books))
+    );
+
+    this.sortedBooks$ = combineLatest([filteredBooks$, this.sortEventBehaviorSubject.asObservable()]).pipe(
+      tap(([, sortEvent]) => this.resetHeadersToUnsorted(sortEvent)),
+      map(([books, sortEvent]) => this.sortBooks(books, sortEvent))
     );
   }
 
-  private sortBooks(sortEvent, books): Book[] {
+  private sortBooks(books: Book[], sortEvent: SortEvent): Book[] {
     if (sortEvent.isUnsorted()) {
-      return this.originalBooks;
+      return this.originalBooks.filter(originalBook => books.includes(originalBook));
     }
     return this.sortBooksAccordingToDirectionOfSortEvent(books, sortEvent);
   }
 
-  private sortBooksAccordingToDirectionOfSortEvent(books, sortEvent): Book[] {
+  private sortBooksAccordingToDirectionOfSortEvent(books: Book[], sortEvent: SortEvent): Book[] {
     return [...books].sort((book1, book2) => {
       const sortablePropertyName = sortEvent.sortablePropertyName;
 
@@ -93,7 +118,7 @@ export class DataComponent implements OnInit {
     });
   }
 
-  private saveOriginalBooks(books): void {
+  private cacheOriginalBooks(books: Book[]): void {
     if (!this.originalBooksPresent()) {
       this.originalBooks = books;
     }
@@ -103,7 +128,7 @@ export class DataComponent implements OnInit {
     return !!this.originalBooks;
   }
 
-  private clearDirectionForEachOtherSortableHeader(sortEvent: SortEvent): void {
+  private resetHeadersToUnsorted(sortEvent: SortEvent): void {
     if (this.sortableHeaderDirectivesPresent()) {
       this.sortableHeaderDirectives
         .filter(header => !sortEvent.isEqualTo(header.sortable))

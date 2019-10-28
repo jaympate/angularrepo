@@ -57,5 +57,6 @@
   "data.books.description": "Vous trouverez ici tous les livres que j'ai lus depuis le début de ma carrière professionnelle en 2016.",
   "data.book.title": "Titre",
   "data.book.authors": "Auteures",
-  "data.book.year.read": "Année de lecture"
+  "data.book.year.read": "Année de lecture",
+  "data.books.search": "Recherche"
 }

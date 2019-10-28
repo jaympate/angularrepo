@@ -57,5 +57,6 @@
   "data.books.description": "Hier vind je alle boeken die ik sinds het begin van mijn professionele carrière in 2016 heb gelezen.",
   "data.book.title": "Titel",
   "data.book.authors": "Auteurs",
-  "data.book.year.read": "Jaar gelezen"
+  "data.book.year.read": "Jaar gelezen",
+  "data.books.search": "Zoek"
 }

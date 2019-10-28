@@ -57,5 +57,6 @@
   "data.books.description": "Here you can find every book I've read since the start of my professional career back in 2016.",
   "data.book.title": "Title",
   "data.book.authors": "Authors",
-  "data.book.year.read": "Year read"
+  "data.book.year.read": "Year read",
+  "data.books.search": "Search"
 }

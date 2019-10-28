@@ -1,4 +1,6 @@
 import {Directive, EventEmitter, Input, Output} from '@angular/core';
+import {SortEvent} from './sort.event';
+import {SortDirection} from './sort.direction';
 
 @Directive({
   selector: 'th[sortable]',
@@ -34,29 +36,4 @@ export class SortableHeaderDirective {
   }
 }
 
-export type SortDirection = 'asc' | 'desc' | 'unsorted';
 
-export class SortEvent {
-  private constructor(public sortablePropertyName: string, public direction: SortDirection) {
-  }
-
-  static of(sortablePropertyName: string, direction: SortDirection) {
-    return new SortEvent(sortablePropertyName, direction);
-  }
-
-  static ofEmpty() {
-    return new SortEvent('', 'unsorted');
-  }
-
-  isAscending(): boolean {
-    return this.direction === 'asc';
-  }
-
-  isUnsorted(): boolean {
-    return this.direction === 'unsorted';
-  }
-
-  isEqualTo(sortablePropertyName: string) {
-    return this.sortablePropertyName === sortablePropertyName;
-  }
-}
