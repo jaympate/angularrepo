@@ -3,31 +3,36 @@ import {BehaviorSubject, combineLatest, Observable} from 'rxjs';
 import {SortableHeaderDirective, SortEvent} from './sortable-header.directive';
 import {map, tap} from 'rxjs/operators';
 import {BookService} from './book.service';
+import {compare} from './compare';
 
 @Component({
   selector: 'app-data',
   template: `
     <div class="container pt-4">
-      <p>{{'data.books.description' | translate}}</p>
-
-      <table class="table table-striped">
-        <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col" sortable="title" (sort)="onSort($event)">{{'data.book.title' | translate}}</th>
-          <th scope="col" sortable="authors" (sort)="onSort($event)">{{'data.book.authors' | translate}}</th>
-          <th scope="col" sortable="yearRead" (sort)="onSort($event)">{{'data.book.year.read' | translate}}</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let book of books$ | async ; index as i">
-          <th scope="row">{{ i + 1 }}</th>
-          <td>{{ book.title }}</td>
-          <td>{{ book.authors }}</td>
-          <td>{{ book.yearRead }}</td>
-        </tr>
-        </tbody>
-      </table>
+      <h1>Books</h1>
+      <div class="card">
+        <div class="card-body">
+          <p>{{'data.books.description' | translate}}</p>
+          <table class="table table-striped">
+            <thead class="thead-dark">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col" sortable="title" (sort)="onSort($event)">{{'data.book.title' | translate}}</th>
+              <th scope="col" sortable="authors" (sort)="onSort($event)">{{'data.book.authors' | translate}}</th>
+              <th scope="col" sortable="yearRead" (sort)="onSort($event)">{{'data.book.year.read' | translate}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let book of books$ | async ; index as i">
+              <th scope="row">{{ i + 1 }}</th>
+              <td>{{ book.title }}</td>
+              <td>{{ book.authors }}</td>
+              <td>{{ book.yearRead }}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   `,
   styles: [
@@ -114,5 +119,3 @@ export class DataComponent implements OnInit {
     this.sortEventBehaviorSubject.next(sortEvent);
   }
 }
-
-export const compare = (v1, v2) => v1 < v2 ? -1 : v1 > v2 ? 1 : 0;
