@@ -20,7 +20,7 @@ import {FormControl} from '@angular/forms';
               {{'data.books.search' | translate}}: <input class="form-control ml-2" type="text" [formControl]="filter"/>
             </div>
           </form>
-          <table class="table table-striped">
+          <table class="table table-striped table-responsive">
             <thead class="thead-dark">
             <tr>
               <th scope="col">#</th>
