@@ -87,8 +87,7 @@ export class DataComponent implements OnInit {
     const text$ = this.filter.valueChanges.pipe(startWith(''));
 
     const filteredBooks$ = combineLatest([books$, text$]).pipe(
-      map(([books, text]) => this.search(books, text)),
-      tap(books => console.log(books))
+      map(([books, text]) => this.search(books, text))
     );
 
     this.sortedBooks$ = combineLatest([filteredBooks$, this.sortEventBehaviorSubject.asObservable()]).pipe(
