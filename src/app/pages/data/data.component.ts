@@ -11,35 +11,43 @@ import {FormControl} from '@angular/forms';
   selector: 'app-data',
   template: `
     <div class="container pt-4">
-      <h1>Books</h1>
-      <div class="card">
-        <div class="card-body">
-          <p>{{'data.books.description' | translate}}</p>
-          <form>
-            <div class="form-group form-inline">
-              {{'data.books.search' | translate}}: <input class="form-control ml-2" type="text" [formControl]="filter"/>
-            </div>
-          </form>
-          <table class="table table-striped table-responsive">
-            <thead class="thead-dark">
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col" sortable="title" (sort)="onSort($event)">{{'data.book.title' | translate}}</th>
-              <th scope="col" sortable="authors" (sort)="onSort($event)">{{'data.book.authors' | translate}}</th>
-              <th scope="col" sortable="yearRead" (sort)="onSort($event)">{{'data.book.year.read' | translate}}</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let book of sortedBooks$ | async ; index as i">
-              <th scope="row">{{ i + 1 }}</th>
-              <td>{{ book.title }}</td>
-              <td>{{ book.authors }}</td>
-              <td>{{ book.yearRead }}</td>
-            </tr>
-            </tbody>
-          </table>
+      <ng-container *ngIf="sortedBooks$ | async as sortedBooks">
+        <h1>Books</h1>
+        <div class="card">
+          <div class="card-body">
+            <p>{{'data.books.description' | translate}}</p>
+            <form>
+              <div class="form-group form-inline">
+                {{'data.books.search' | translate}}: <input class="form-control ml-2" type="text" [formControl]="filter"/>
+              </div>
+            </form>
+            <table class="table table-striped table-responsive">
+              <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col" sortable="title" (sort)="onSort($event)">{{'data.book.title' | translate}}</th>
+                <th scope="col" sortable="authors" (sort)="onSort($event)">{{'data.book.authors' | translate}}</th>
+                <th scope="col" sortable="yearRead" (sort)="onSort($event)">{{'data.book.year.read' | translate}}</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let book of sortedBooks ; index as i">
+                <th scope="row">{{ i + 1 }}</th>
+                <td>
+                  <ngb-highlight [result]="book.title" [term]="filter.value"></ngb-highlight>
+                </td>
+                <td>
+                  <ngb-highlight [result]="book.authors" [term]="filter.value"></ngb-highlight>
+                </td>
+                <td>
+                  <ngb-highlight [result]="book.yearRead | numberToString" [term]="filter.value"></ngb-highlight>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
+      </ng-container>
     </div>
   `,
   styles: [
