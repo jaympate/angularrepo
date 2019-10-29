@@ -6,7 +6,7 @@ import {Component} from '@angular/core';
     <header class="header">
       <nav class="navbar navbar-expand-lg navbar-light">
         <span class="navbar-brand text">
-          DJ
+          Dieter Jordens
         </span>
         <button class="navbar-toggler toggleNavBar" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" [attr.aria-expanded]="!isCollapsed" aria-label="Toggle navigation"
