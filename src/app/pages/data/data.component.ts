@@ -6,6 +6,7 @@ import {BookService} from './book.service';
 import {compare} from './compare';
 import {SortEvent} from './sort.event';
 import {FormControl} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-data',
@@ -34,7 +35,7 @@ import {FormControl} from '@angular/forms';
               <tr *ngFor="let book of sortedBooks ; index as i">
                 <th scope="row">{{ i + 1 }}</th>
                 <td>
-                  <ngb-highlight [result]="book.title" [term]="filter.value"></ngb-highlight>
+                  <ngb-highlight class="book-title" [result]="book.title" [term]="filter.value" (click)="goToISBNSearch(book.isbn)"></ngb-highlight>
                 </td>
                 <td>
                   <ngb-highlight [result]="book.authors" [term]="filter.value"></ngb-highlight>
@@ -63,6 +64,12 @@ import {FormControl} from '@angular/forms';
               float: right;
               color: gray;
           }
+
+          .book-title:hover {
+              text-decoration: underline;
+              color: blue;
+              cursor: pointer;
+          }
     `
   ]
 })
@@ -75,7 +82,7 @@ export class DataComponent implements OnInit {
 
   filter = new FormControl('');
 
-  constructor(private bookService: BookService) {
+  constructor(private bookService: BookService, private router: Router) {
   }
 
   search(books: Book[], text: string): Book[] {
@@ -149,5 +156,9 @@ export class DataComponent implements OnInit {
 
   onSort(sortEvent: SortEvent): void {
     this.sortEventBehaviorSubject.next(sortEvent);
+  }
+
+  goToISBNSearch(isbn: number): void {
+    window.location.href = 'https://www.abebooks.com/servlet/SearchResults?sts=t&isbn=' + isbn;
   }
 }
