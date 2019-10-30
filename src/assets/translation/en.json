@@ -58,5 +58,6 @@
   "data.book.title": "Title",
   "data.book.authors": "Authors",
   "data.book.year.read": "Year read",
-  "data.books.search": "Search"
+  "data.books.search": "Search",
+  "data.books.title": "Books"
 }

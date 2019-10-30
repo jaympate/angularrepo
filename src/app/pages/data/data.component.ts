@@ -13,7 +13,7 @@ import {Router} from '@angular/router';
   template: `
     <div class="container pt-4">
       <ng-container *ngIf="sortedBooks$ | async as sortedBooks">
-        <h1>Books</h1>
+        <h1>{{'data.books.title' | translate}}</h1>
         <div class="card">
           <div class="card-body">
             <p>{{'data.books.description' | translate}}</p>
@@ -86,12 +86,11 @@ export class DataComponent implements OnInit {
   }
 
   search(books: Book[], text: string): Book[] {
-    return books.filter(book => {
-      const term = text.toLowerCase();
-      return book.title.toLowerCase().includes(term)
-        || book.authors.toLowerCase().includes(term)
-        || book.yearRead.toString().includes(term);
-    });
+    const term = text.toLowerCase();
+    return books.filter(book => book.title.toLowerCase().includes(term) ||
+      book.authors.toLowerCase().includes(term) ||
+      book.yearRead.toString().includes(term)
+    );
   }
 
   ngOnInit(): void {

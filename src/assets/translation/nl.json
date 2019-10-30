@@ -58,5 +58,6 @@
   "data.book.title": "Titel",
   "data.book.authors": "Auteurs",
   "data.book.year.read": "Jaar gelezen",
-  "data.books.search": "Zoek"
+  "data.books.search": "Zoek",
+  "data.books.title": "Boeken"
 }
