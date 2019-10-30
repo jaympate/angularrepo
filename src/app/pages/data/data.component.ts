@@ -159,6 +159,6 @@ export class DataComponent implements OnInit {
   }
 
   goToISBNSearch(isbn: number): void {
-    window.location.href = 'https://www.abebooks.com/servlet/SearchResults?sts=t&isbn=' + isbn;
+    window.location.href = 'https://isbnsearch.org/isbn/' + isbn;
   }
 }
