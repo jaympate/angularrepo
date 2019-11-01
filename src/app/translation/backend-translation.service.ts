@@ -11,7 +11,7 @@ export class BackendTranslationService {
   constructor(private http: HttpClient) {
   }
 
-  private readonly baseUrl = `http://localhost:8080/api/translation`;
+  private readonly baseUrl = `https://dj-website.herokuapp.com/api/translation`;
 
   getBackendTranslations$() {
     const httpOptions = {
