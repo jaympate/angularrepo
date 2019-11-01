@@ -1,7 +1,7 @@
 import {TranslateLoader} from '@ngx-translate/core';
 import {TranslationService} from './translation.service';
 import {Observable} from 'rxjs';
-import {Translation} from './translation';
+import {TranslationKeyValues} from './translation.key.values';
 
 
 export class CustomTranslateLoader implements TranslateLoader {
@@ -12,7 +12,7 @@ export class CustomTranslateLoader implements TranslateLoader {
     return new CustomTranslateLoader(translationService);
   }
 
-  getTranslation(language: string): Observable<Translation> {
+  getTranslation(language: string): Observable<TranslationKeyValues> {
     return this.translationService.getTranslation(language);
   }
 }

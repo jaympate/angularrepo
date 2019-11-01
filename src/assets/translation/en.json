@@ -1,4 +1,5 @@
 {
+  "current.language": "en",
   "website.welcome.message": "Finally, you're here",
   "website.introduction.message": "I am Dieter Jordens. This is my online portfolio. Unfortunately, there is not much to see here at the moment, so be sure to come back in the future.",
   "website.details.message": "I'm {{age}} years old and live in Geetbets, Belgium. This is in a close proximity of Leuven, Brussels and Hasselt. I'm passionate about full stack agile software development and artificial intelligence.",

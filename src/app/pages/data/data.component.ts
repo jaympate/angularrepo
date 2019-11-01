@@ -6,13 +6,13 @@ import {BookService} from './book.service';
 import {compare} from './compare';
 import {SortEvent} from './sort.event';
 import {FormControl} from '@angular/forms';
-import {Router} from '@angular/router';
+import {Book} from './book';
 
 @Component({
   selector: 'app-data',
   template: `
     <div class="container pt-4">
-      <ng-container *ngIf="sortedBooks$ | async as sortedBooks">
+      <ng-container *ngIf="filteredAndSortedBooks$ | async as sortedBooks">
         <h1>{{'data.books.title' | translate}}</h1>
         <div class="card">
           <div class="card-body">
@@ -76,13 +76,13 @@ import {Router} from '@angular/router';
 export class DataComponent implements OnInit {
   @ViewChildren(SortableHeaderDirective) sortableHeaderDirectives: QueryList<SortableHeaderDirective>;
 
-  sortedBooks$: Observable<Book[]>;
-  originalBooks: Book[];
+  filteredAndSortedBooks$: Observable<Book[]>;
+  allTranslatedBooks: Book[];
   sortEventBehaviorSubject = new BehaviorSubject<SortEvent>(SortEvent.unsortedEvent());
 
   filter = new FormControl('');
 
-  constructor(private bookService: BookService, private router: Router) {
+  constructor(private bookService: BookService) {
   }
 
   search(books: Book[], text: string): Book[] {
@@ -93,9 +93,10 @@ export class DataComponent implements OnInit {
     );
   }
 
+
   ngOnInit(): void {
     const books$ = this.bookService.getBooks$().pipe(
-      tap(books => this.cacheOriginalBooks(books))
+      tap(books => this.cacheTranslatedBooks(books))
     );
 
     const text$ = this.filter.valueChanges.pipe(startWith(''));
@@ -104,15 +105,18 @@ export class DataComponent implements OnInit {
       map(([books, text]) => this.search(books, text))
     );
 
-    this.sortedBooks$ = combineLatest([filteredBooks$, this.sortEventBehaviorSubject.asObservable()]).pipe(
-      tap(([, sortEvent]) => this.resetHeadersToUnsorted(sortEvent)),
+    const sortEventObservable$ = this.sortEventBehaviorSubject.asObservable().pipe(
+      tap(sortEvent => this.resetHeadersToUnsorted(sortEvent))
+    );
+
+    this.filteredAndSortedBooks$ = combineLatest([filteredBooks$, sortEventObservable$]).pipe(
       map(([books, sortEvent]) => this.sortBooks(books, sortEvent))
     );
   }
 
   private sortBooks(books: Book[], sortEvent: SortEvent): Book[] {
     if (sortEvent.isUnsorted()) {
-      return this.originalBooks.filter(originalBook => books.includes(originalBook));
+      return this.allTranslatedBooks.filter(originalBook => books.includes(originalBook));
     }
     return this.sortBooksAccordingToDirectionOfSortEvent(books, sortEvent);
   }
@@ -131,14 +135,8 @@ export class DataComponent implements OnInit {
     });
   }
 
-  private cacheOriginalBooks(books: Book[]): void {
-    if (!this.originalBooksPresent()) {
-      this.originalBooks = books;
-    }
-  }
-
-  private originalBooksPresent(): boolean {
-    return !!this.originalBooks;
+  private cacheTranslatedBooks(books: Book[]): void {
+    this.allTranslatedBooks = books;
   }
 
   private resetHeadersToUnsorted(sortEvent: SortEvent): void {
