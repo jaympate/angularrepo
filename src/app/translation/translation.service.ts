@@ -34,7 +34,7 @@ export class TranslationService {
   }
 
   private getLanguageTranslationsRequest(language: string): Promise<TranslationKeyValues> {
-    return this.httpClient.get<TranslationKeyValues>(`./assets/translation/${language}.json`).toPromise();
+    return this.httpClient.get<TranslationKeyValues>(`assets/translation/${language}.json`).toPromise();
   }
 
   private getBackendTranslation(language: string): Promise<TranslationKeyValues> {

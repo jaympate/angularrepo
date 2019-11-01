@@ -3,7 +3,6 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Book} from './book';
 import {combineLatest, Observable} from 'rxjs';
 import {TranslateService} from '@ngx-translate/core';
-import {LanguageService} from '../../translation/language.service';
 import {distinctUntilChanged, first, map} from 'rxjs/operators';
 
 @Injectable({
@@ -15,7 +14,7 @@ export class BookService {
   private currentLanguageTranslation$: Observable<any>;
   private books$: Observable<Book[]>;
 
-  constructor(private http: HttpClient, private languageService: LanguageService, private translateService: TranslateService) {
+  constructor(private http: HttpClient, private translateService: TranslateService) {
     this.currentLanguageTranslation$ = this.translateService.stream('current.language').pipe(distinctUntilChanged());
     const httpOptions = {
       headers: new HttpHeaders({
@@ -23,8 +22,9 @@ export class BookService {
         'Authorization': 'Basic YWRtaW46d2FjaHR3b29yZFZvb3JCb2VrZW4='
       })
     };
-    this.books$ = this.http.get<Book[]>(this.baseUrl, httpOptions).pipe(first());
+    this.books$ = this.http.get<Book[]>(this.baseUrl, httpOptions);
   }
+
   private readonly baseUrl = `http://localhost:8080/api/book`;
 
   getBooks$(): Observable<Book[]> {
