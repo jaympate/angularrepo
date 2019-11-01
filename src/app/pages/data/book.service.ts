@@ -17,10 +17,15 @@ export class BookService {
 
   constructor(private http: HttpClient, private languageService: LanguageService, private translateService: TranslateService) {
     this.currentLanguageTranslation$ = this.translateService.stream('current.language').pipe(distinctUntilChanged());
-    this.books$ = this.http.get<Book[]>(this.baseUrl, BookService.getHttpOptions()).pipe(first());
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Basic YWRtaW46d2FjaHR3b29yZFZvb3JCb2VrZW4='
+      })
+    };
+    this.books$ = this.http.get<Book[]>(this.baseUrl, httpOptions).pipe(first());
   }
-
-  private readonly baseUrl = `https://dj-website-backend.herokuapp.com/api/book`;
+  private readonly baseUrl = `http://localhost:8080/api/book`;
 
   getBooks$(): Observable<Book[]> {
     return combineLatest([this.books$, this.currentLanguageTranslation$])
