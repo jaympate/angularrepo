@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Book} from './book';
 import {combineLatest, Observable} from 'rxjs';
-import {TranslateService} from '@ngx-translate/core';
-import {distinctUntilChanged, first, map} from 'rxjs/operators';
+import {map} from 'rxjs/operators';
+import {TranslateServiceFacade} from '../../translation/translate.service.facade';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +14,8 @@ export class BookService {
   private currentLanguageTranslation$: Observable<any>;
   private books$: Observable<Book[]>;
 
-  constructor(private http: HttpClient, private translateService: TranslateService) {
-    this.currentLanguageTranslation$ = this.translateService.stream('current.language').pipe(distinctUntilChanged());
+  constructor(private http: HttpClient, private translateService: TranslateServiceFacade) {
+    this.currentLanguageTranslation$ = translateService.getCurrentLanguage$();
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -47,8 +47,8 @@ export class BookService {
     return books.map(book => {
       return ({
         ...book,
-        title: this.translateService.instant(book.title),
-        authors: this.translateService.instant(book.authors)
+        title: this.translateService.getTranslationKnowingTheyAreLoaded(book.title),
+        authors: this.translateService.getTranslationKnowingTheyAreLoaded(book.authors)
       });
     });
   }

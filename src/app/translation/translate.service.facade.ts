@@ -1,5 +1,7 @@
 import {TranslateService} from '@ngx-translate/core';
 import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
+import {distinctUntilChanged} from 'rxjs/operators';
 
 
 @Injectable({
@@ -23,5 +25,14 @@ export class TranslateServiceFacade {
 
   use(language: string) {
     this.translateService.use(language);
+  }
+
+  getCurrentLanguage$(): Observable<string> {
+    return this.translateService.stream('current.language')
+      .pipe(distinctUntilChanged());
+  }
+
+  getTranslationKnowingTheyAreLoaded(key: string): string {
+    return this.translateService.instant(key);
   }
 }
