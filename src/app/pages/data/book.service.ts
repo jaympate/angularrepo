@@ -25,7 +25,7 @@ export class BookService {
     this.books$ = this.http.get<Book[]>(this.baseUrl, httpOptions);
   }
 
-  private readonly baseUrl = `https://dj-website.herokuapp.com/api/book`;
+  private readonly baseUrl = `https://dj-website-backend.herokuapp.com/api/book`;
 
   getBooks$(): Observable<Book[]> {
     return combineLatest([this.books$, this.currentLanguageTranslation$])
