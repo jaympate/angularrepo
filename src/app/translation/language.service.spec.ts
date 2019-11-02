@@ -1,9 +1,5 @@
 import {TestBed} from '@angular/core/testing';
 import {LanguageService} from './language.service';
-import {MockComponent} from 'ng-mocks';
-import {ChangeLanguageButtonComponent} from '../header/change-language-button.component';
-import {TranslatePipeMock} from './translate.pipe.mock';
-import {LanguageSelectorComponent} from '../header/language-selector.component';
 import {CookieService} from 'ngx-cookie-service';
 import {TranslateServiceFacade} from './translate.service.facade';
 import {Languages} from './languages';
@@ -74,15 +70,10 @@ describe('LanguageService', () => {
     });
   });
 
-  const mockedTranslateServiceDecorator: SpyObj<TranslateServiceFacade> = getMockedTranslateServiceDecorator();
+  const mockedTranslateServiceDecorator: SpyObj<TranslateServiceFacade> = getMockedTranslateServiceFacade();
 
   function configureTestingModule(): void {
     TestBed.configureTestingModule({
-      declarations: [
-        MockComponent(ChangeLanguageButtonComponent),
-        TranslatePipeMock,
-        LanguageSelectorComponent
-      ],
       providers: [
         CookieService,
         {
@@ -93,7 +84,7 @@ describe('LanguageService', () => {
     });
   }
 
-  function getMockedTranslateServiceDecorator(): SpyObj<TranslateServiceFacade> {
+  function getMockedTranslateServiceFacade(): SpyObj<TranslateServiceFacade> {
     const mock: SpyObj<TranslateServiceFacade> = jasmine.createSpyObj<TranslateServiceFacade>('translateServiceDecoratorMock', [
       'getDefaultLanguage',
       'getSupportedLanguages',
