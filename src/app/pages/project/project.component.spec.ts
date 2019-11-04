@@ -1,30 +1,30 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {TimelineComponent} from './timeline.component';
+import {ProjectComponent} from './project.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {MockComponent} from 'ng-mocks';
-import {TimelineCardComponent} from './timeline.card.component';
+import {ProjectCardComponent} from './project.card.component';
 
-describe('TimelineComponent', () => {
-  let component: TimelineComponent;
-  let fixture: ComponentFixture<TimelineComponent>;
+describe('ProjectsComponent', () => {
+  let component: ProjectComponent;
+  let fixture: ComponentFixture<ProjectComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule.withRoutes([
-          {path: 'timeline', component: TimelineComponent}
+          {path: 'projects', component: ProjectComponent}
         ])
       ],
       declarations: [
-        MockComponent(TimelineCardComponent),
-        TimelineComponent
+        MockComponent(ProjectCardComponent),
+        ProjectComponent
       ]
     });
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TimelineComponent);
+    fixture = TestBed.createComponent(ProjectComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

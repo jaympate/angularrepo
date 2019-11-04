@@ -25,7 +25,7 @@ export class NavOptionsComponent {
       {path: '', text: 'website.home'},
       {path: 'vision', text: 'website.vision'},
       {path: 'cv', text: 'website.cv'},
-      /*{path: 'timeline', text: 'website.timeline'},*/
+      {path: 'projects', text: 'website.projects'},
       {path: 'data', text: 'website.data'}
     ];
   }

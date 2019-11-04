@@ -8,7 +8,7 @@
   "website.home": "Homepage",
   "website.vision": "My vision",
   "website.cv": "CV",
-  "website.timeline": "Timeline",
+  "website.projects": "Projects",
   "website.data": "More data",
   "my.vision.what.to.expect.of.me": "What can you expect of me?",
   "my.vision.what.is.my.vision": "I see Software Development as a craft!",
@@ -60,5 +60,7 @@
   "data.book.authors": "Authors",
   "data.book.year.read": "Year read",
   "data.books.search": "Search",
-  "data.books.title": "Books"
+  "data.books.title": "Books",
+  "projects.title": "Projects",
+  "projects.description": "Here you will find the projects I have done in my career as a consultant. The projects are sorted by start date, the most recent one first."
 }

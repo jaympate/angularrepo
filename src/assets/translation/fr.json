@@ -8,7 +8,7 @@
   "website.home": "Page d'accueil",
   "website.vision": "Ma vision",
   "website.cv": "CV",
-  "website.timeline": "Chronologie",
+  "website.projects": "Projets",
   "website.data": "Plus de données",
   "my.vision.what.to.expect.of.me": "Que pouvez-vous attendre de moi?",
   "my.vision.what.is.my.vision": "Le développement de logiciels est un métier!",
@@ -60,5 +60,7 @@
   "data.book.authors": "Auteures",
   "data.book.year.read": "Année de lecture",
   "data.books.search": "Recherche",
-  "data.books.title": "Livres"
+  "data.books.title": "Livres",
+  "projects.title": "Projets",
+  "projects.description": "Vous trouverez ici les projets que j'ai réalisés au cours de ma carrière de consultant. Les projets sont triés par date de début, la plus récente en premier."
 }

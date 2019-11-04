@@ -5,7 +5,7 @@ import {HeaderModule} from './header/header.module';
 import {HomeModule} from './pages/home/home.module';
 import {CvModule} from './pages/cv/cv.module';
 import {DataModule} from './pages/data/data.module';
-import {TimelineModule} from './pages/timeline/timeline.module';
+import {ProjectModule} from './pages/project/project.module';
 import {VisionModule} from './pages/vision/vision.module';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
@@ -22,7 +22,7 @@ import {HttpClientModule} from '@angular/common/http';
     CvModule,
     DataModule,
     HomeModule,
-    TimelineModule,
+    ProjectModule,
     VisionModule
   ],
   bootstrap: [

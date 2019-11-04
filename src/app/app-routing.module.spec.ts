@@ -6,7 +6,7 @@ import {MockComponent} from 'ng-mocks';
 import {VisionComponent} from './pages/vision/vision.component';
 import {AppComponent} from './app.component';
 import {CvComponent} from './pages/cv/cv.component';
-import {TimelineComponent} from './pages/timeline/timeline.component';
+import {ProjectComponent} from './pages/project/project.component';
 import {HomeComponent} from './pages/home/home.component';
 import {HeaderComponent} from './header/header.component';
 
@@ -40,12 +40,12 @@ describe('AppRoutingModule', () => {
     expect(AppRoutingModuleHelper.actualCurrentPath).toBe(expectedCvPath);
   });
 
-  it('navigate to "timeline" redirects you to the timeline path', async () => {
-    const expectedTimelinePath = '/timeline';
+  it('navigate to "projects" redirects you to the projects path', async () => {
+    const expectedProjectsPath = '/projects';
 
-    await helper.ngZoneToPreventWarning.run(() => AppRoutingModuleHelper.navigateToRoute(expectedTimelinePath));
+    await helper.ngZoneToPreventWarning.run(() => AppRoutingModuleHelper.navigateToRoute(expectedProjectsPath));
 
-    expect(AppRoutingModuleHelper.actualCurrentPath).toBe(expectedTimelinePath);
+    expect(AppRoutingModuleHelper.actualCurrentPath).toBe(expectedProjectsPath);
   });
 
   class AppRoutingModuleHelper {
@@ -77,7 +77,7 @@ describe('AppRoutingModule', () => {
     const mockedHomeComponent = MockComponent(HomeComponent);
     const mockedVisionComponent = MockComponent(VisionComponent);
     const mockedCvComponent = MockComponent(CvComponent);
-    const mockedTimelineComponent = MockComponent(TimelineComponent);
+    const mockedProjectsComponent = MockComponent(ProjectComponent);
 
     TestBed.configureTestingModule({
       imports: [
@@ -85,14 +85,14 @@ describe('AppRoutingModule', () => {
           {path: '', component: mockedHomeComponent},
           {path: 'vision', component: mockedVisionComponent},
           {path: 'cv', component: mockedCvComponent},
-          {path: 'timeline', component: mockedTimelineComponent}
+          {path: 'projects', component: mockedProjectsComponent}
         ])
       ],
       declarations: [
         mockedHomeComponent,
         mockedVisionComponent,
         mockedCvComponent,
-        mockedTimelineComponent,
+        mockedProjectsComponent,
         MockComponent(HeaderComponent),
         AppComponent
       ]
