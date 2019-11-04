@@ -62,5 +62,7 @@
   "data.books.search": "Zoek",
   "data.books.title": "Boeken",
   "projects.title": "Projecten",
-  "projects.description": "Hier vind je de projecten die ik in mijn carrière als consultant heb gedaan. De projecten zijn gesorteerd op startdatum, het meest recente eerst."
+  "projects.description": "Hier vind je de projecten die ik in mijn carrière als consultant heb gedaan. De projecten zijn gesorteerd op startdatum, het meest recente eerst.",
+  "data.title": "Gegevens",
+  "data.more.data.coming.soon": "Meer gegevens zullen binnenkort beschikbaar zijn!"
 }

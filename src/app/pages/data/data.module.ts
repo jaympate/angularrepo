@@ -6,6 +6,7 @@ import {TranslateModule} from '@ngx-translate/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NumberToStringPipe} from './no.comma.pipe';
+import {BookOverviewComponent} from './book.overview.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import {NumberToStringPipe} from './no.comma.pipe';
   ],
   declarations: [
     DataComponent,
+    BookOverviewComponent,
     SortableHeaderDirective,
     NumberToStringPipe
   ],

@@ -62,5 +62,7 @@
   "data.books.search": "Search",
   "data.books.title": "Books",
   "projects.title": "Projects",
-  "projects.description": "Here you will find the projects I have done in my career as a consultant. The projects are sorted by start date, the most recent one first."
+  "projects.description": "Here you will find the projects I have done in my career as a consultant. The projects are sorted by start date, the most recent one first.",
+  "data.title": "Data",
+  "data.more.data.coming.soon": "More information will be available soon!"
 }
