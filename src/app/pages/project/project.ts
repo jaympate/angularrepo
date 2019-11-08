@@ -4,5 +4,5 @@ export interface Project {
   jobTitle: string;
   jobDescription: string;
   timeSpan: string;
-  technologies?: string[];
+  technologies: string[];
 }

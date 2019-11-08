@@ -112,7 +112,10 @@ li a:hover {
     width: 100%;
     text-align: center;
     clear: both;
-    background-color: indianred;
-    border: 3px solid lightgrey;
+    background-color: rgba(0,0,0,.03);
+    border-color: #555555;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 4px;
   }
 }
