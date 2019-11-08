@@ -88,6 +88,10 @@ li a:hover {
   text-decoration: none;
 }
 
+.date-sm{
+  display: none;
+}
+
 /* Small Devices */
 @media only screen and (max-width: 768px) {
   .projects-content-left, .projects-content-right {
@@ -97,5 +101,18 @@ li a:hover {
 
   .projects-block:after {
     display: none;
+  }
+
+  .date-left, .date-right{
+    display: none;
+  }
+
+  .date-sm{
+    display: block;
+    width: 100%;
+    text-align: center;
+    clear: both;
+    background-color: indianred;
+    border: 3px solid lightgrey;
   }
 }

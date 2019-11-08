@@ -4,6 +4,7 @@ import {Project} from './project';
 @Component({
   selector: 'app-projects-card',
   template: `
+    <div class="date-sm mb-1">{{project.timeSpan}}</div>
     <div class="projects-block">
       <div class="card projects-content-left" [ngClass]="left ? 'projects-content-left' : 'projects-content-right'">
         <div class="card-header">
