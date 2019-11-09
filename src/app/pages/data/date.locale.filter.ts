@@ -24,7 +24,6 @@ export class DateLocaleFilter implements PipeTransform {
   }
 
   private initializeMomentWithCurrentLanguage() {
-    console.log(this.translate.getCurrentLanguage());
     const currentLanguage = this.translate.getCurrentLanguage() || 'en';
     moment.locale(currentLanguage);
   }
