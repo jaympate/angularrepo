@@ -3,7 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Book} from './book';
 import {combineLatest, Observable} from 'rxjs';
 import {map, tap} from 'rxjs/operators';
-import {TranslateServiceFacade} from '../../translation/translate.service.facade';
+import {TranslateServiceFacade} from '../../../translation/translate.service.facade';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +11,8 @@ import {TranslateServiceFacade} from '../../translation/translate.service.facade
 export class BookService {
   private untranslatedBooks: Book[];
   private readonly translatedBooks$: Observable<Book[]>;
+
+  private readonly baseUrl = `https://dj-website-backend.herokuapp.com/api/book`;
 
   constructor(private http: HttpClient, private translateService: TranslateServiceFacade) {
     const currentLanguage$ = translateService.getCurrentLanguage$();
@@ -29,8 +31,6 @@ export class BookService {
         map(() => this.translateBooks())
       );
   }
-
-  private readonly baseUrl = `https://dj-website-backend.herokuapp.com/api/book`;
 
   getBooks$(): Observable<Book[]> {
     return this.translatedBooks$;

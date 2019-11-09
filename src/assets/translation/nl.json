@@ -55,14 +55,17 @@
   "cv.education2.title": "Bachelor in de Wetenschappen: Computerwetenschappen, ICT",
   "cv.education2.employer": "Universiteit Hasselt",
   "cv.education2.place": "Leuven, België",
-  "data.books.description": "Hier vind je alle boeken die ik sinds het begin van mijn professionele carrière in 2016 heb gelezen.",
+  "data.books.description": "Klik hier om alle boeken te zien die ik sinds het begin van mijn carrière heb gelezen.",
   "data.book.title": "Titel",
   "data.book.authors": "Auteurs",
   "data.book.year.read": "Jaar gelezen",
   "data.books.search": "Zoek",
-  "data.books.title": "Boeken",
   "projects.title": "Projecten",
   "projects.description": "Hier vind je de projecten die ik in mijn carrière als consultant heb gedaan. De projecten zijn gesorteerd op startdatum, het meest recente eerst.",
   "data.title": "Gegevens",
-  "data.more.data.coming.soon": "Meer gegevens zullen binnenkort beschikbaar zijn!"
+  "data.more.data.coming.soon": "Meer gegevens zullen binnenkort beschikbaar zijn!",
+  "data.blogposts.description": "Klik hier om alle blogposts te zien die ik sinds het begin van mijn carrière heb geschreven.",
+  "data.blogpost.title": "Titel",
+  "data.blogpost.publicationDate": "Publicatiedatum",
+  "data.blogpost.category": "Categorie"
 }

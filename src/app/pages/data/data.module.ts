@@ -6,7 +6,9 @@ import {TranslateModule} from '@ngx-translate/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NumberToStringPipe} from './no.comma.pipe';
-import {BookOverviewComponent} from './book.overview.component';
+import {BookOverviewComponent} from './book/book.overview.component';
+import {BlogpostOverviewComponent} from './blogpost/blogpost.overview.component';
+import {DateLocaleFilter} from './date.locale.filter';
 
 @NgModule({
   imports: [
@@ -19,8 +21,10 @@ import {BookOverviewComponent} from './book.overview.component';
   declarations: [
     DataComponent,
     BookOverviewComponent,
+    BlogpostOverviewComponent,
     SortableHeaderDirective,
-    NumberToStringPipe
+    NumberToStringPipe,
+    DateLocaleFilter
   ],
   providers: [
     DecimalPipe

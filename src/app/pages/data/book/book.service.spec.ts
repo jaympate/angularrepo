@@ -1,7 +1,7 @@
 import {TestBed} from '@angular/core/testing';
 import {MockComponent} from 'ng-mocks';
-import {ChangeLanguageButtonComponent} from '../../header/change-language-button.component';
-import {TranslateServiceFacade} from '../../translation/translate.service.facade';
+import {ChangeLanguageButtonComponent} from '../../../header/change-language-button.component';
+import {TranslateServiceFacade} from '../../../translation/translate.service.facade';
 import {of} from 'rxjs';
 import {BookService} from './book.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
@@ -88,6 +88,5 @@ describe('BookService', () => {
     mock.getCurrentLanguage$.and.returnValue(of('nl'));
     mock.getTranslationKnowingTheyAreLoaded.and.returnValues(...getBookTranslations());
     return mock;
-
   }
 });

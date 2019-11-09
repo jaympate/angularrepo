@@ -1,10 +1,10 @@
 import {Component, OnInit, QueryList, ViewChildren} from '@angular/core';
 import {BehaviorSubject, combineLatest, Observable} from 'rxjs';
-import {SortableHeaderDirective} from './sortable-header.directive';
+import {SortableHeaderDirective} from '../sortable-header.directive';
 import {map, startWith, tap} from 'rxjs/operators';
 import {BookService} from './book.service';
-import {compare} from './compare';
-import {SortEvent} from './sort.event';
+import {compare} from '../compare';
+import {SortEvent} from '../sort.event';
 import {FormControl} from '@angular/forms';
 import {Book} from './book';
 
@@ -12,7 +12,6 @@ import {Book} from './book';
   selector: 'book-overview',
   template: `
     <div class="card" *ngIf="filteredAndSortedBooks$ | async as sortedBooks">
-      <h2 class="mt-3 ml-3">{{'data.books.title' | translate}}</h2>
       <div class="card-header">
         <h5 class="mb-0">
           <button type="button" class="btn btn-link btn-black" data-toggle="collapse" data-target="#bookContent"
@@ -83,6 +82,7 @@ import {Book} from './book';
           .btn-black:focus {
               text-decoration: none;
           }
+          
           .btn-black:hover {
               text-decoration: underline;
           }
@@ -99,7 +99,7 @@ export class BookOverviewComponent implements OnInit {
   @ViewChildren(SortableHeaderDirective) sortableHeaderDirectives: QueryList<SortableHeaderDirective>;
 
   filteredAndSortedBooks$: Observable<Book[]>;
-  allTranslatedBooks: Book[];
+  cachedBlogposts: Book[];
   sortEventBehaviorSubject = new BehaviorSubject<SortEvent>(SortEvent.unsortedEvent());
 
   filter = new FormControl('');
@@ -117,7 +117,7 @@ export class BookOverviewComponent implements OnInit {
 
   ngOnInit(): void {
     const books$ = this.bookService.getBooks$().pipe(
-      tap(books => this.cacheTranslatedBooks(books))
+      tap(books => this.cacheBooks(books))
     );
 
     const text$ = this.filter.valueChanges.pipe(startWith(''));
@@ -137,7 +137,7 @@ export class BookOverviewComponent implements OnInit {
 
   private sortBooks(books: Book[], sortEvent: SortEvent): Book[] {
     if (sortEvent.isUnsorted()) {
-      return this.allTranslatedBooks.filter(originalBook => books.includes(originalBook));
+      return this.cachedBlogposts.filter(originalBook => books.includes(originalBook));
     }
     return this.sortBooksAccordingToDirectionOfSortEvent(books, sortEvent);
   }
@@ -156,8 +156,8 @@ export class BookOverviewComponent implements OnInit {
     });
   }
 
-  private cacheTranslatedBooks(books: Book[]): void {
-    this.allTranslatedBooks = books;
+  private cacheBooks(books: Book[]): void {
+    this.cachedBlogposts = books;
   }
 
   private resetHeadersToUnsorted(sortEvent: SortEvent): void {

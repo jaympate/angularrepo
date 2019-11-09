@@ -35,4 +35,8 @@ export class TranslateServiceFacade {
   getTranslationKnowingTheyAreLoaded(key: string): string {
     return this.translateService.instant(key);
   }
+
+  getCurrentLanguage(): string {
+    return this.translateService.currentLang;
+  }
 }

@@ -55,14 +55,17 @@
   "cv.education2.title": "Bachelière en Sciences: Informatique, TIC",
   "cv.education2.employer": "Université d'Hasselt",
   "cv.education2.place": "Diepenbeek, Belgique",
-  "data.books.description": "Vous trouverez ici tous les livres que j'ai lus depuis le début de ma carrière professionnelle en 2016.",
+  "data.books.description": "Cliquez ici pour voir tous les livres que j'ai lus depuis le début de ma carrière.",
   "data.book.title": "Titre",
   "data.book.authors": "Auteures",
   "data.book.year.read": "Année de lecture",
   "data.books.search": "Recherche",
-  "data.books.title": "Livres",
   "projects.title": "Projets",
   "projects.description": "Vous trouverez ici les projets que j'ai réalisés au cours de ma carrière de consultant. Les projets sont triés par date de début, la plus récente en premier.",
   "data.title": "Données",
-  "data.more.data.coming.soon": "Plus d'informations seront bientôt disponibles!"
+  "data.more.data.coming.soon": "Plus d'informations seront bientôt disponibles!",
+  "data.blogposts.description": "Cliquez ici pour voir tous les blogposts que j'ai lus depuis le début de ma carrière.",
+  "data.blogpost.title": "Titre",
+  "data.blogpost.publicationDate": "Date de publication",
+  "data.blogpost.category": "Catégorie"
 }
