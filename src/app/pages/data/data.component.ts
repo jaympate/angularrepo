@@ -7,6 +7,7 @@ import {Component} from '@angular/core';
       <h1>{{'data.title' | translate}}</h1>
       <book-overview></book-overview>
       <blogpost-overview></blogpost-overview>
+      <certificate-overview></certificate-overview>
       <p class="mt-4 pl-2 alert-info">{{'data.more.data.coming.soon' | translate}}</p>
     </div>
   `,

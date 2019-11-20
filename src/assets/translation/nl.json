@@ -61,11 +61,16 @@
   "data.book.year.read": "Jaar gelezen",
   "data.books.search": "Zoek",
   "projects.title": "Projecten",
-  "projects.description": "Hier vind je de projecten die ik in mijn carrière als consultant heb gedaan. De projecten zijn gesorteerd op startdatum, het meest recente eerst.",
+  "projects.description": "Hier vindt u de projecten die ik in mijn carrière als consultant heb gedaan. De projecten zijn gesorteerd op startdatum, het meest recente eerst.",
   "data.title": "Gegevens",
   "data.more.data.coming.soon": "Meer gegevens zullen binnenkort beschikbaar zijn!",
   "data.blogposts.description": "Klik hier om alle blogposts te zien die ik sinds het begin van mijn carrière heb geschreven.",
   "data.blogpost.title": "Titel",
   "data.blogpost.publicationDate": "Publicatiedatum",
-  "data.blogpost.category": "Categorie"
+  "data.blogpost.category": "Categorie",
+  "data.certificates.description": "Klik hier om alle certificaten te zien die ik in mijn carrière als consultant heb behaald.",
+  "data.certificate.name": "Naam",
+  "data.certificate.issueDate": "Uitgiftedatum",
+  "data.certificate.organization": "Organisatie",
+  "data.certificate.type": "Type"
 }

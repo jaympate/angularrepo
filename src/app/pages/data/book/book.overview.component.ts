@@ -41,7 +41,7 @@ import {Book} from './book';
           <tr *ngFor="let book of sortedBooks ; index as i">
             <th scope="row">{{ i + 1 }}</th>
             <td>
-              <ngb-highlight class="book-title" [result]="book.title" [term]="filter.value" (click)="goToISBNSearch(book.isbn)"></ngb-highlight>
+              <ngb-highlight class="book-title" [result]="book.title" [term]="filter.value"></ngb-highlight> <a class="ml-1" target="_blank" href="{{'https://isbnsearch.org/isbn/' + book.isbn}}"><i class="fa fa-external-link"></i></a>
             </td>
             <td>
               <ngb-highlight [result]="book.authors" [term]="filter.value"></ngb-highlight>
@@ -67,12 +67,6 @@ import {Book} from './book';
               content: "\\25b4";
               float: right;
               color: gray;
-          }
-
-          .book-title:hover {
-              text-decoration: underline;
-              color: blue;
-              cursor: pointer;
           }
 
           .btn-black {
@@ -174,9 +168,5 @@ export class BookOverviewComponent implements OnInit {
 
   onSort(sortEvent: SortEvent): void {
     this.sortEventBehaviorSubject.next(sortEvent);
-  }
-
-  goToISBNSearch(isbn: number): void {
-    window.location.href = 'https://isbnsearch.org/isbn/' + isbn;
   }
 }

@@ -67,5 +67,10 @@
   "data.blogposts.description": "Click here to see all blogposts I've written since the start of my career.",
   "data.blogpost.title": "Title",
   "data.blogpost.publicationDate": "Date of publication",
-  "data.blogpost.category": "Category"
+  "data.blogpost.category": "Category",
+  "data.certificates.description": "Click here to see all the certificates that I have obtained during my career as a consultant.",
+  "data.certificate.name": "Name",
+  "data.certificate.issueDate": "Issue date",
+  "data.certificate.organization": "Organisation",
+  "data.certificate.type": "Type"
 }

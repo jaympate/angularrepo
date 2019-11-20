@@ -9,6 +9,7 @@ import {NumberToStringPipe} from './no.comma.pipe';
 import {BookOverviewComponent} from './book/book.overview.component';
 import {BlogpostOverviewComponent} from './blogpost/blogpost.overview.component';
 import {DateLocaleFilter} from './date.locale.filter';
+import {CertificateOverviewComponent} from './certificate/certificate.overview.component';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import {DateLocaleFilter} from './date.locale.filter';
     DataComponent,
     BookOverviewComponent,
     BlogpostOverviewComponent,
+    CertificateOverviewComponent,
     SortableHeaderDirective,
     NumberToStringPipe,
     DateLocaleFilter

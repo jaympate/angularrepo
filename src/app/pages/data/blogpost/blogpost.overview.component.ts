@@ -31,7 +31,7 @@ import {Observable} from 'rxjs';
           <tr *ngFor="let blogpost of blogposts ; index as i">
             <th scope="row">{{ i + 1 }}</th>
             <td>
-              <ngb-highlight class="blogpost-title" [result]="blogpost.title" (click)="goToExternalBlogpost(blogpost.url)"></ngb-highlight>
+              <ngb-highlight class="blogpost-title" [result]="blogpost.title"></ngb-highlight><a class="ml-1" target="_blank" href="{{blogpost.url}}"><i class="fa fa-external-link"></i></a>
             </td>
             <td>
               <ngb-highlight class="blogpost-publication-date" [result]="blogpost.publicationDate | dateLocale : 'd MMMM YYYY'"></ngb-highlight>
@@ -46,13 +46,7 @@ import {Observable} from 'rxjs';
     </div>
   `,
   styles: [
-      `
-          .blogpost-title:hover {
-              text-decoration: underline;
-              color: blue;
-              cursor: pointer;
-          }
-
+      `      
           .btn-black {
               color: black;
           }
@@ -82,9 +76,5 @@ export class BlogpostOverviewComponent implements OnInit {
 
   toggle(): void {
     this.isCollapsed = !this.isCollapsed;
-  }
-
-  goToExternalBlogpost(url: string) {
-    window.location.href = url;
   }
 }
