@@ -34,7 +34,7 @@ import {Observable} from 'rxjs';
               <ngb-highlight class="blogpost-title" [result]="blogpost.title"></ngb-highlight><a class="ml-1" target="_blank" href="{{blogpost.url}}"><i class="fa fa-external-link"></i></a>
             </td>
             <td>
-              <ngb-highlight class="blogpost-publication-date" [result]="blogpost.publicationDate | dateLocale : 'd MMMM YYYY'"></ngb-highlight>
+              <ngb-highlight class="blogpost-publication-date" [result]="blogpost.publicationDate | dateLocale : 'dd MMMM YYYY'"></ngb-highlight>
             </td>
             <td>
               <ngb-highlight class="blogpost-category" [result]="blogpost.category"></ngb-highlight>
@@ -46,7 +46,7 @@ import {Observable} from 'rxjs';
     </div>
   `,
   styles: [
-      `      
+      `
           .btn-black {
               color: black;
           }
