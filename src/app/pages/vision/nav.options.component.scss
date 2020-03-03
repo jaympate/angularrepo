@@ -1,5 +1,9 @@
 @import "../../../styles";
 
+.nav-item {
+  font-size: 1.2rem;
+}
+
 .nav-item :not(.active) {
   color: $carbon;
 }
