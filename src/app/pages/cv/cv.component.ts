@@ -4,7 +4,7 @@ import {Component} from '@angular/core';
   selector: 'app-cv',
   template: `
     <div class="container pt-3 pb-2">
-      <div class="row cv border">
+      <div class="row cv border pb-3">
         <div class="col-sm-4 cv-left border-right">
           <div class="container-fluid pt-3">
             <img src="../../../assets/images/dieter.jpg" class="img-fluid cv-image" alt="{{'cv.image' | translate}}">

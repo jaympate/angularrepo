@@ -17,7 +17,7 @@ import {Card} from './card';
   styles: [`
       .card-body {
           padding-top: 0;
-          font-size: 0.75rem;
+          font-size: 1rem;
       }
   `]
 })
