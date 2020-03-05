@@ -6,8 +6,6 @@ import {BackendTranslations} from './backend.translations';
   providedIn: 'root'
 })
 export class BackendTranslationService {
-
-
   constructor(private http: HttpClient) {
   }
 

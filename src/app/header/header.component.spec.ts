@@ -1,95 +1,76 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {HeaderComponent} from './header.component';
+import {LanguageSelectorComponent} from './language-selector/language-selector.component';
+import {MockComponent} from 'ng-mocks';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {NavOptionsComponent} from '../pages/vision/nav.options.component';
-import {LanguageSelectorComponent} from './language-selector.component';
-import {MockComponent, MockedComponent} from 'ng-mocks';
+import {NavOptionsComponent} from './nav-options/nav.options.component';
 import {By} from '@angular/platform-browser';
 
 describe('HeaderComponent', () => {
-  let helper: HeaderComponentHelper;
+  let component: HeaderComponent;
+  let fixture: ComponentFixture<HeaderComponent>;
 
-  beforeEach(configureTestingModule);
-  beforeEach(createHelper);
+  beforeEach(() => {
 
-  it('is collapsed on creation', () => {
-    expect(helper.isCollapsed).toBe(true);
-  });
-
-  it('allows changing from collapsed to not collapsed', () => {
-    helper.toggleNavBar();
-
-    expect(helper.isCollapsed).toBe(false);
-  });
-
-  it('allows changing from not collapsed to collapsed', () => {
-    helper.setIsNotCollapsed();
-    helper.toggleNavBar();
-
-    expect(helper.isCollapsed).toBe(true);
-  });
-
-  it('shows all navigation options', () => {
-    expect(helper.navigationOptionsComponent).toBeTruthy();
-  });
-
-  it('shows the language selector', () => {
-    expect(helper.languageSelectorComponent).toBeTruthy();
-  });
-
-  class HeaderComponentHelper {
-    private fixture: ComponentFixture<HeaderComponent>;
-    private element: HTMLElement;
-    private component: HeaderComponent;
-
-    constructor() {
-      this.fixture = TestBed.createComponent(HeaderComponent);
-      this.element = this.fixture.nativeElement;
-      this.component = this.fixture.componentInstance;
-      this.fixture.detectChanges();
-    }
-
-    setIsNotCollapsed() {
-      this.component.isCollapsed = false;
-      this.fixture.detectChanges();
-    }
-
-    get isCollapsed(): boolean {
-      return this.component.isCollapsed;
-    }
-
-    toggleNavBar(): void {
-      this.navBarToggleButton.click();
-      this.fixture.detectChanges();
-    }
-
-    private get navBarToggleButton() {
-      return this.element.querySelector('.toggleNavBar') as HTMLButtonElement;
-    }
-
-    get navigationOptionsComponent(): MockedComponent<NavOptionsComponent> {
-      return this.fixture.debugElement.query(By.directive(NavOptionsComponent)).nativeElement;
-    }
-
-    get languageSelectorComponent(): MockedComponent<LanguageSelectorComponent> {
-      return this.fixture.debugElement.query(By.directive(LanguageSelectorComponent)).nativeElement;
-    }
-  }
-
-  function configureTestingModule(): void {
     TestBed.configureTestingModule({
       imports: [
         NgbModule
       ],
       declarations: [
         HeaderComponent,
-        MockComponent(NavOptionsComponent),
-        MockComponent(LanguageSelectorComponent)
+        MockComponent(LanguageSelectorComponent),
+        MockComponent(NavOptionsComponent)
       ]
     });
+  });
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(HeaderComponent);
+    component = fixture.debugElement.componentInstance;
+  });
+
+  it('navigation bar is collapsed by default', () => {
+    fixture.detectChanges();
+    expect(component.isCollapsed).toBe(true);
+    expect(fixture).toMatchSnapshot();
+  });
+
+  it('the toggle button should allow to undo collapse', () => {
+    fixture.detectChanges();
+
+    getToggleButton().click();
+    fixture.detectChanges();
+
+    expect(component.isCollapsed).toBe(false);
+    expect(fixture).toMatchSnapshot();
+  });
+
+  it('should allow to collapse by the nav options component on navigation', () => {
+    component.isCollapsed = false;
+    fixture.detectChanges();
+
+    getNavOptionsComponent().navigated.emit();
+
+    fixture.detectChanges();
+
+    expect(component.isCollapsed).toBe(true);
+  });
+
+  it('the toggle button should allow to collapse', () => {
+    component.isCollapsed = false;
+    fixture.detectChanges();
+
+    getToggleButton().click();
+    fixture.detectChanges();
+
+    expect(component.isCollapsed).toBe(true);
+  });
+
+  function getToggleButton(): HTMLButtonElement {
+    return fixture.nativeElement.querySelector('[data-toggle]');
   }
 
-  function createHelper(): void {
-    helper = new HeaderComponentHelper();
+  function getNavOptionsComponent(): NavOptionsComponent {
+    return fixture.debugElement.query(By.directive(NavOptionsComponent)).componentInstance;
   }
 });

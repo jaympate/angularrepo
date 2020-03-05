@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LanguageSelectorComponent should render the current language and the other languages to choose from 1`] = `
+<app-language-selector
+  currentAndOtherLanguage$={[Function Observable]}
+  languageService={[Function Object]}
+>
+  <div
+    class="d-inline-block dropdown"
+    ngbdropdown=""
+  >
+    <button
+      class="btn btn-outline-dark dropdown-toggle changeLanguageButton"
+      id="languageSelectorDropdown"
+      ngbdropdowntoggle=""
+    >
+      EN
+    </button>
+    <div
+      aria-labelledby="languageSelectorDropdown"
+      class="dropdown-menu"
+      ngbdropdownmenu=""
+    >
+      
+      <app-change-language-button>
+        <button
+          class="dropdown-item changeLanguage"
+          data-change-language-button=""
+        >
+          NL
+        </button>
+      </app-change-language-button>
+      <app-change-language-button>
+        <button
+          class="dropdown-item changeLanguage"
+          data-change-language-button=""
+        >
+          FR
+        </button>
+      </app-change-language-button>
+    </div>
+  </div>
+</app-language-selector>
+`;

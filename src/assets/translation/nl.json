@@ -9,6 +9,7 @@
   "website.vision": "Mijn visie",
   "website.cv": "Curriculum vitae",
   "website.projects": "Projecten",
+  "website.blogposts": "Blogposts",
   "website.data": "Meer gegevens",
   "my.vision.what.to.expect.of.me": "Wat kun je van mij verwachten?",
   "my.vision.what.is.my.vision": "Software ontwikkeling is een ambacht!",
@@ -72,5 +73,6 @@
   "data.certificate.name": "Naam",
   "data.certificate.issueDate": "Uitgiftedatum",
   "data.certificate.organization": "Organisatie",
-  "data.certificate.type": "Type"
+  "data.certificate.type": "Type",
+  "blogpost.title": "Blogposts"
 }

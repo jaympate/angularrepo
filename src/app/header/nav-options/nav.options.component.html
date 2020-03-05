@@ -1,0 +1,10 @@
+<ul class="navbar-nav">
+  <ng-container *ngFor="let navigationOption of navigationOptions">
+    <li class="nav-item" [ngClass]="getActive(navigationOption.path)">
+      <a class="nav-link navigation"
+         [attr.data-navigation-option]="navigationOption.text"
+         (click)="clickNavigation()"
+         routerLink="{{navigationOption.path}}">{{navigationOption.text | translate}}</a>
+    </li>
+  </ng-container>
+</ul>

@@ -7,9 +7,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NumberToStringPipe} from './no.comma.pipe';
 import {BookOverviewComponent} from './book/book.overview.component';
-import {BlogpostOverviewComponent} from './blogpost/blogpost.overview.component';
-import {DateLocaleFilter} from './date.locale.filter';
 import {CertificateOverviewComponent} from './certificate/certificate.overview.component';
+import {DateModule} from '../../common/common.module';
 
 @NgModule({
   imports: [
@@ -17,16 +16,15 @@ import {CertificateOverviewComponent} from './certificate/certificate.overview.c
     TranslateModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    DateModule
   ],
   declarations: [
     DataComponent,
     BookOverviewComponent,
-    BlogpostOverviewComponent,
     CertificateOverviewComponent,
     SortableHeaderDirective,
-    NumberToStringPipe,
-    DateLocaleFilter
+    NumberToStringPipe
   ],
   providers: [
     DecimalPipe

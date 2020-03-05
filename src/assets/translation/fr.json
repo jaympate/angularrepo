@@ -9,6 +9,7 @@
   "website.vision": "Ma vision",
   "website.cv": "CV",
   "website.projects": "Projets",
+  "website.blogposts": "Blogposts",
   "website.data": "Plus de données",
   "my.vision.what.to.expect.of.me": "Que pouvez-vous attendre de moi?",
   "my.vision.what.is.my.vision": "Le développement de logiciels est un métier!",
@@ -72,5 +73,6 @@
   "data.certificate.name": "Nom",
   "data.certificate.issueDate": "Date d'émission",
   "data.certificate.organization": "L'organisation",
-  "data.certificate.type": "Type"
+  "data.certificate.type": "Type",
+  "blogpost.title": "Blogposts"
 }

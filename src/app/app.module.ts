@@ -9,6 +9,7 @@ import {ProjectModule} from './pages/project/project.module';
 import {VisionModule} from './pages/vision/vision.module';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
+import {BlogpostModule} from './pages/blogpost/blogpost.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {HttpClientModule} from '@angular/common/http';
     HeaderModule,
     AppRoutingModule,
     CvModule,
+    BlogpostModule,
     DataModule,
     HomeModule,
     ProjectModule,
