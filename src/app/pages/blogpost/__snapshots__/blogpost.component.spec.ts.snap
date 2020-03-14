@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlogpostComponent should render 1`] = `
+<app-blogpost>
+  <div
+    class="container-fluid pt-4 pb-4"
+  >
+    <h1>
+      blogpost.title.translated
+    </h1>
+    <blogpost-overview>
+      
+    </blogpost-overview>
+  </div>
+</app-blogpost>
+`;

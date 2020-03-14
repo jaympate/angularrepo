@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {Blogpost} from './blogpost';
 import {BlogpostService} from './blogpost.service';
 import {Observable} from 'rxjs';
@@ -33,7 +33,8 @@ import {Observable} from 'rxjs';
         </tbody>
       </table>
     </ng-container>
-  `
+  `,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BlogpostOverviewComponent implements OnInit {
 
