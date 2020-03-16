@@ -7,7 +7,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {HttpClientModule} from '@angular/common/http';
 import {BlogpostService} from './blogpost-overview/blogpost.service';
 import {TranslateModule} from '@ngx-translate/core';
-import {MockComponent} from 'ng-mocks';
 
 describe('BlogpostComponent', () => {
   let component: BlogpostComponent;
@@ -23,7 +22,7 @@ describe('BlogpostComponent', () => {
       ],
       declarations: [
         BlogpostComponent,
-        MockComponent(BlogpostOverviewComponent),
+        BlogpostOverviewComponent,
         TranslatePipeMock,
         DateLocaleFilter
       ],

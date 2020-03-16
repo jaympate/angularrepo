@@ -8,7 +8,9 @@ exports[`BlogpostComponent should render 1`] = `
     <h1>
       blogpost.title.translated
     </h1>
-    <blogpost-overview />
+    <blogpost-overview>
+      
+    </blogpost-overview>
   </div>
 </app-blogpost>
 `;

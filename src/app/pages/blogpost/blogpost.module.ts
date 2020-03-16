@@ -6,7 +6,6 @@ import {TranslateModule} from '@ngx-translate/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {DataModule} from '../data/data.module';
 import {DateModule} from '../../common/common.module';
-import {BlogpostRowComponent} from './blogpost-overview/blogpost-row/blogpost.row.component';
 
 @NgModule({
   imports: [
@@ -18,7 +17,6 @@ import {BlogpostRowComponent} from './blogpost-overview/blogpost-row/blogpost.ro
   ],
   declarations: [
     BlogpostComponent,
-    BlogpostRowComponent,
     BlogpostOverviewComponent
   ]
 })
