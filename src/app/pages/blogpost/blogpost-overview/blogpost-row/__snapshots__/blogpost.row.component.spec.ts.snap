@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlogpostRowComponent should render a list of two blogposts, when there are two given 1`] = `
+<blogpost-row
+  blogpost={[Function Object]}
+  rowNumber={[Function Number]}
+>
+  <tr>
+    <th
+      scope="row"
+    >
+      5
+    </th>
+    <td>
+      <ngb-highlight
+        class="blogpost-publication-date"
+      >
+        
+        
+        15 December 2020
+        
+      </ngb-highlight>
+    </td>
+    <td>
+      <ngb-highlight
+        class="blogpost-title"
+      >
+        
+        
+        my title
+        
+      </ngb-highlight>
+      <a
+        class="ml-1"
+        href="www.my.title.com"
+        target="_blank"
+      >
+        <i
+          class="fa fa-external-link"
+        />
+      </a>
+    </td>
+    <td>
+      <ngb-highlight
+        class="blogpost-category"
+      >
+        
+        
+        general
+        
+      </ngb-highlight>
+    </td>
+  </tr>
+</blogpost-row>
+`;

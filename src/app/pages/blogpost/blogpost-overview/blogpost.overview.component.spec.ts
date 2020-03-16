@@ -9,6 +9,9 @@ import {BlogpostService} from './blogpost.service';
 import {BehaviorSubject} from 'rxjs';
 import {Blogpost} from './blogpost';
 import {Builder} from 'builder-pattern';
+import {MockComponent} from 'ng-mocks';
+import {BlogpostRowComponent} from './blogpost-row/blogpost.row.component';
+import {By} from '@angular/platform-browser';
 
 describe('BlogpostOverviewComponent', () => {
   let component: BlogpostOverviewComponent;
@@ -26,6 +29,7 @@ describe('BlogpostOverviewComponent', () => {
       ],
       declarations: [
         BlogpostOverviewComponent,
+        MockComponent(BlogpostRowComponent),
         TranslatePipeMock,
         DateLocaleFilter
       ],
@@ -45,27 +49,46 @@ describe('BlogpostOverviewComponent', () => {
     component = fixture.debugElement.componentInstance;
   });
 
-  it('should render a list of blogposts', () => {
-    const blogpost1 = Builder<Blogpost>()
-      .title('How to be successful')
-      .category('life')
-      .publicationDate(new Date())
-      .url('http://www.how.to.be.succesful.com')
-      .build();
-
-    const blogpost2 = Builder<Blogpost>()
-      .title('How to succeed at programming')
-      .category('programming')
-      .publicationDate(new Date())
-      .url('http://www.how.to.succeed.at.programming.com')
-      .build();
-
+  it('should render a list of two blogposts, when there are two given', () => {
     blogpostSubject.next([
-      blogpost1,
-      blogpost2
+      Builder<Blogpost>().build(),
+      Builder<Blogpost>().build()
     ]);
 
     fixture.detectChanges();
     expect(fixture).toMatchSnapshot();
+  });
+
+  it('blogposts passed should be the correct ones', () => {
+    const blogposts = [
+      Builder<Blogpost>().build(),
+      Builder<Blogpost>().build()
+    ];
+
+    blogpostSubject.next(blogposts);
+
+    fixture.detectChanges();
+
+    const blogpostRowComponents = fixture.debugElement.queryAll(By.directive(BlogpostRowComponent)).map(component => component.componentInstance) as BlogpostRowComponent[];
+    const actualBlogposts = blogpostRowComponents.map(blogpostRowComponent => blogpostRowComponent.blogpost);
+
+    expect(actualBlogposts).toEqual(blogposts);
+  });
+
+  it('should number every blogpost correctly, for the amount of blogposts', () => {
+    const blogposts = [
+      Builder<Blogpost>().build(),
+      Builder<Blogpost>().build(),
+      Builder<Blogpost>().build()
+    ];
+
+    blogpostSubject.next(blogposts);
+
+    fixture.detectChanges();
+
+    const blogpostRowComponents = fixture.debugElement.queryAll(By.directive(BlogpostRowComponent)).map(component => component.componentInstance) as BlogpostRowComponent[];
+    const actualRowNumbers = blogpostRowComponents.map(blogpostRowComponent => blogpostRowComponent.rowNumber);
+
+    expect(actualRowNumbers).toEqual([1, 2, 3]);
   });
 });

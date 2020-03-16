@@ -17,19 +17,9 @@ import {Observable} from 'rxjs';
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let blogpost of blogposts ; index as i">
-          <th scope="row">{{ i + 1 }}</th>
-          <td>
-            <ngb-highlight class="blogpost-publication-date" [result]="blogpost.publicationDate | dateLocale : 'DD MMMM YYYY'"></ngb-highlight>
-          </td>
-          <td>
-            <ngb-highlight class="blogpost-title" [result]="blogpost.title"></ngb-highlight>
-            <a class="ml-1" target="_blank" href="{{blogpost.url}}"><i class="fa fa-external-link"></i></a>
-          </td>
-          <td>
-            <ngb-highlight class="blogpost-category" [result]="blogpost.category"></ngb-highlight>
-          </td>
-        </tr>
+        <ng-container *ngFor="let blogpost of blogposts; index as zeroBasedRowNumber">
+          <blogpost-row [blogpost]="blogpost" [rowNumber]="zeroBasedRowNumber+1"></blogpost-row>
+        </ng-container>
         </tbody>
       </table>
     </ng-container>

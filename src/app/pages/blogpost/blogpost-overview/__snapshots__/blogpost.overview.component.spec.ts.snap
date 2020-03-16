@@ -36,98 +36,55 @@ exports[`BlogpostOverviewComponent should render a list of blogposts 1`] = `
     </thead>
     <tbody>
       
+      
+      <blogpost-row />
+      
+      <blogpost-row />
+    </tbody>
+  </table>
+</blogpost-overview>
+`;
+
+exports[`BlogpostOverviewComponent should render a list of two blogposts, when there are two given 1`] = `
+<blogpost-overview
+  blogpostService={[Function Object]}
+  blogposts$={[Function Observable]}
+>
+  <table
+    class="table table-striped table-responsive"
+  >
+    <thead
+      class="thead-dark"
+    >
       <tr>
         <th
-          scope="row"
+          scope="col"
         >
-          1
+          #
         </th>
-        <td>
-          <ngb-highlight
-            class="blogpost-publication-date"
-          >
-            
-            
-            14 March 2020
-            
-          </ngb-highlight>
-        </td>
-        <td>
-          <ngb-highlight
-            class="blogpost-title"
-          >
-            
-            
-            How to be successful
-            
-          </ngb-highlight>
-          <a
-            class="ml-1"
-            href="http://www.how.to.be.succesful.com"
-            target="_blank"
-          >
-            <i
-              class="fa fa-external-link"
-            />
-          </a>
-        </td>
-        <td>
-          <ngb-highlight
-            class="blogpost-category"
-          >
-            
-            
-            life
-            
-          </ngb-highlight>
-        </td>
-      </tr>
-      <tr>
         <th
-          scope="row"
+          scope="col"
         >
-          2
+          data.blogpost.publicationDate.translated
         </th>
-        <td>
-          <ngb-highlight
-            class="blogpost-publication-date"
-          >
-            
-            
-            14 March 2020
-            
-          </ngb-highlight>
-        </td>
-        <td>
-          <ngb-highlight
-            class="blogpost-title"
-          >
-            
-            
-            How to succeed at programming
-            
-          </ngb-highlight>
-          <a
-            class="ml-1"
-            href="http://www.how.to.succeed.at.programming.com"
-            target="_blank"
-          >
-            <i
-              class="fa fa-external-link"
-            />
-          </a>
-        </td>
-        <td>
-          <ngb-highlight
-            class="blogpost-category"
-          >
-            
-            
-            programming
-            
-          </ngb-highlight>
-        </td>
+        <th
+          scope="col"
+        >
+          data.blogpost.title.translated
+        </th>
+        <th
+          scope="col"
+        >
+          data.blogpost.category.translated
+        </th>
       </tr>
+    </thead>
+    <tbody>
+      
+      
+      <blogpost-row />
+      
+      <blogpost-row />
     </tbody>
   </table>
 </blogpost-overview>
