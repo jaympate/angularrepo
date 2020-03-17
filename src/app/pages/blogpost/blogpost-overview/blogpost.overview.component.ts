@@ -17,9 +17,9 @@ import {Observable} from 'rxjs';
         </tr>
         </thead>
         <tbody>
-        <ng-container *ngFor="let blogpost of blogposts; index as zeroBasedRowNumber">
-          <blogpost-row [blogpost]="blogpost" [rowNumber]="zeroBasedRowNumber+1"></blogpost-row>
-        </ng-container>
+        <tr *ngFor="let blogpost of blogposts; index as zeroBasedRowNumber" blogpost-row
+            [blogpost]="blogpost"
+            [rowNumber]="zeroBasedRowNumber+1"></tr>
         </tbody>
       </table>
     </ng-container>
