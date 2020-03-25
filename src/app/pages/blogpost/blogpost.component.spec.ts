@@ -9,32 +9,27 @@ import {BlogpostService} from './blogpost-overview/blogpost.service';
 import {TranslateModule} from '@ngx-translate/core';
 import {MockComponent} from 'ng-mocks';
 
-describe('BlogpostComponent', () => {
+describe("BlogpostComponent", () => {
   let component: BlogpostComponent;
   let fixture: ComponentFixture<BlogpostComponent>;
 
   beforeEach(() => {
-
     TestBed.configureTestingModule({
-      imports: [
-        NgbModule,
-        HttpClientModule,
-        TranslateModule.forRoot()
-      ],
+      imports: [NgbModule, HttpClientModule, TranslateModule.forRoot()],
       declarations: [
         BlogpostComponent,
         MockComponent(BlogpostOverviewComponent),
         TranslatePipeMock,
-        DateLocaleFilter
+        DateLocaleFilter,
       ],
       providers: [
         {
           provide: BlogpostService,
           useValue: {
-            getBlogposts$: jest.fn()
-          }
-        }
-      ]
+            getBlogposts$: jest.fn(),
+          },
+        },
+      ],
     });
   });
 
@@ -43,8 +38,19 @@ describe('BlogpostComponent', () => {
     component = fixture.debugElement.componentInstance;
   });
 
-  it('should render', () => {
+  it("should render", () => {
     fixture.detectChanges();
-    expect(fixture).toMatchSnapshot();
+    expect(fixture).toMatchInlineSnapshot(`
+      <app-blogpost>
+        <div
+          class="container-fluid pt-4 pb-4"
+        >
+          <h1>
+            blogpost.title.translated
+          </h1>
+          <blogpost-overview />
+        </div>
+      </app-blogpost>
+    `);
   });
 });

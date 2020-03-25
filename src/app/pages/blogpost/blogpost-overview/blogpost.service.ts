@@ -3,7 +3,7 @@ import {combineLatest, Observable} from 'rxjs';
 import {Blogpost} from './blogpost';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {TranslateServiceFacade} from '../../../translation/translate.service.facade';
-import {map, tap} from 'rxjs/operators';
+import {filter, map, tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +25,7 @@ export class BlogpostService {
 
     this.translatedBlogposts$ = combineLatest([blogposts$, currentLanguage$])
       .pipe(
+        filter( ([, currentLanguage]) => !!currentLanguage),
         map(([blogposts]) => blogposts),
         tap(blogposts => this.cacheBlogposts(blogposts)),
         map(() => this.translateBlogposts())
@@ -42,10 +43,9 @@ export class BlogpostService {
   }
 
   private translateBlogposts(): Blogpost[] {
-    return this.untranslatedBlogposts.map(blogpost =>
-      ({
-        ...blogpost,
-        title: this.translateService.getTranslationKnowingTheyAreLoaded(blogpost.title)
-      }));
+    return this.untranslatedBlogposts.map(blogpost => ({
+      ...blogpost,
+      title: this.translateService.getTranslationKnowingTheyAreLoaded(blogpost.title)
+    }));
   }
 }
