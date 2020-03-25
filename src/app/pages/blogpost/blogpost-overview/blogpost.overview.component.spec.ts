@@ -1,17 +1,17 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {HttpClientModule} from '@angular/common/http';
-import {TranslateModule} from '@ngx-translate/core';
-import {BlogpostOverviewComponent} from './blogpost.overview.component';
-import {TranslatePipeMock} from '../../../translation/translate.pipe.mock';
-import {DateLocaleFilter} from '../../../common/date.locale.filter';
-import {BlogpostService} from './blogpost.service';
-import {BehaviorSubject} from 'rxjs';
-import {Blogpost} from './blogpost';
-import {Builder} from 'builder-pattern';
-import {MockComponent} from 'ng-mocks';
-import {BlogpostRowComponent} from './blogpost-row/blogpost.row.component';
-import {By} from '@angular/platform-browser';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { HttpClientModule } from "@angular/common/http";
+import { TranslateModule } from "@ngx-translate/core";
+import { BlogpostOverviewComponent } from "./blogpost.overview.component";
+import { TranslatePipeMock } from "../../../translation/translate.pipe.mock";
+import { DateLocaleFilter } from "../../../common/date.locale.filter";
+import { BlogpostService } from "./blogpost.service";
+import { BehaviorSubject } from "rxjs";
+import { Blogpost } from "./blogpost";
+import { Builder } from "builder-pattern";
+import { MockComponent } from "ng-mocks";
+import { BlogpostRowComponent } from "./blogpost-row/blogpost.row.component";
+import { By } from "@angular/platform-browser";
 
 describe("BlogpostOverviewComponent", () => {
   let component: BlogpostOverviewComponent;
@@ -89,7 +89,7 @@ describe("BlogpostOverviewComponent", () => {
             </tr>
           </thead>
           <tbody>
-
+            
             <tr
               blogpost-row=""
             />

@@ -1,12 +1,12 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {HttpClientModule} from '@angular/common/http';
-import {TranslateModule} from '@ngx-translate/core';
-import {BlogpostRowComponent} from './blogpost.row.component';
-import {TranslatePipeMock} from '../../../../translation/translate.pipe.mock';
-import {DateLocaleFilter} from '../../../../common/date.locale.filter';
-import {Builder} from 'builder-pattern';
-import {Blogpost} from '../blogpost';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { HttpClientModule } from "@angular/common/http";
+import { TranslateModule } from "@ngx-translate/core";
+import { BlogpostRowComponent } from "./blogpost.row.component";
+import { TranslatePipeMock } from "../../../../translation/translate.pipe.mock";
+import { DateLocaleFilter } from "../../../../common/date.locale.filter";
+import { Builder } from "builder-pattern";
+import { Blogpost } from "../blogpost";
 
 describe("BlogpostRowComponent", () => {
   let component: BlogpostRowComponent;
@@ -46,19 +46,19 @@ describe("BlogpostRowComponent", () => {
           <ngb-highlight
             class="blogpost-publication-date"
           >
-
-
+            
+            
             15 December 2020
-
+            
           </ngb-highlight>
         </td><td>
           <ngb-highlight
             class="blogpost-title"
           >
-
-
+            
+            
             my title
-
+            
           </ngb-highlight>
           <a
             class="ml-1"
@@ -73,10 +73,10 @@ describe("BlogpostRowComponent", () => {
           <ngb-highlight
             class="blogpost-category"
           >
-
-
+            
+            
             general
-
+            
           </ngb-highlight>
         </td>
       </div>

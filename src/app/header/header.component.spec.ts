@@ -1,10 +1,10 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {HeaderComponent} from './header.component';
-import {LanguageSelectorComponent} from './language-selector/language-selector.component';
-import {MockComponent} from 'ng-mocks';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {NavOptionsComponent} from './nav-options/nav.options.component';
-import {By} from '@angular/platform-browser';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { HeaderComponent } from "./header.component";
+import { LanguageSelectorComponent } from "./language-selector/language-selector.component";
+import { MockComponent } from "ng-mocks";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { NavOptionsComponent } from "./nav-options/nav.options.component";
+import { By } from "@angular/platform-browser";
 
 describe("HeaderComponent", () => {
   let component: HeaderComponent;
@@ -42,7 +42,7 @@ describe("HeaderComponent", () => {
             <span
               class="navbar-brand text"
             >
-               Dieter Jordens
+               Dieter Jordens 
             </span>
             <button
               aria-controls="navbarSupportedContent"
@@ -92,7 +92,7 @@ describe("HeaderComponent", () => {
             <span
               class="navbar-brand text"
             >
-               Dieter Jordens
+               Dieter Jordens 
             </span>
             <button
               aria-controls="navbarSupportedContent"

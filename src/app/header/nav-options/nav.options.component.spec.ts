@@ -1,7 +1,7 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {NavOptionsComponent} from './nav.options.component';
-import {RouterTestingModule} from '@angular/router/testing';
-import {TranslatePipeMock} from '../../translation/translate.pipe.mock';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { NavOptionsComponent } from "./nav.options.component";
+import { RouterTestingModule } from "@angular/router/testing";
+import { TranslatePipeMock } from "../../translation/translate.pipe.mock";
 
 describe("NavOptionsComponent", () => {
   let component: NavOptionsComponent;
@@ -30,8 +30,8 @@ describe("NavOptionsComponent", () => {
         <ul
           class="navbar-nav"
         >
-
-
+          
+          
           <li
             class="nav-item active"
           >
@@ -43,7 +43,7 @@ describe("NavOptionsComponent", () => {
               website.home.translated
             </a>
           </li>
-
+          
           <li
             class="nav-item"
           >
@@ -55,7 +55,7 @@ describe("NavOptionsComponent", () => {
               website.vision.translated
             </a>
           </li>
-
+          
           <li
             class="nav-item"
           >
@@ -67,7 +67,7 @@ describe("NavOptionsComponent", () => {
               website.cv.translated
             </a>
           </li>
-
+          
           <li
             class="nav-item"
           >
@@ -79,7 +79,7 @@ describe("NavOptionsComponent", () => {
               website.projects.translated
             </a>
           </li>
-
+          
           <li
             class="nav-item"
           >
@@ -91,7 +91,7 @@ describe("NavOptionsComponent", () => {
               website.blogposts.translated
             </a>
           </li>
-
+          
           <li
             class="nav-item"
           >

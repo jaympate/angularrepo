@@ -1,10 +1,10 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {LanguageSelectorComponent} from './language-selector.component';
-import {LanguageService} from '../../translation/language.service';
-import {ChangeLanguageButtonComponent} from './change-language-button/change-language-button.component';
-import {BehaviorSubject} from 'rxjs';
-import {Languages} from '../../translation/languages';
-import {Builder} from 'builder-pattern';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { LanguageSelectorComponent } from "./language-selector.component";
+import { LanguageService } from "../../translation/language.service";
+import { ChangeLanguageButtonComponent } from "./change-language-button/change-language-button.component";
+import { BehaviorSubject } from "rxjs";
+import { Languages } from "../../translation/languages";
+import { Builder } from "builder-pattern";
 
 describe("LanguageSelectorComponent", () => {
   let component: LanguageSelectorComponent;
@@ -63,7 +63,7 @@ describe("LanguageSelectorComponent", () => {
             class="dropdown-menu"
             ngbdropdownmenu=""
           >
-
+            
             <app-change-language-button>
               <button
                 class="dropdown-item changeLanguage"
