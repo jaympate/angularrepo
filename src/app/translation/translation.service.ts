@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {combineLatest, Observable} from 'rxjs';
-import {map, tap} from 'rxjs/operators';
+import {map} from 'rxjs/operators';
 import {BackendTranslationService} from './backend-translation.service';
 import {BackendTranslations} from './backend.translations';
 import {TranslationKeyValues} from './translation.key.values';
