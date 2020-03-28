@@ -2,10 +2,11 @@ import {NgModule} from '@angular/core';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {CustomTranslateLoaderFactory} from './custom.translate.loader.factory';
 import {TranslationService} from './translation.service';
-import {CookieService} from 'ngx-cookie-service';
+import {NgxLocalStorageModule} from 'ngx-localstorage';
 
 @NgModule({
   imports: [
+    NgxLocalStorageModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -15,9 +16,6 @@ import {CookieService} from 'ngx-cookie-service';
         ]
       }
     })
-  ],
-  providers: [
-    CookieService
   ],
   exports: [
     TranslateModule
