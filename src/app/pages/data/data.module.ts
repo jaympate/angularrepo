@@ -11,24 +11,27 @@ import {CertificateOverviewComponent} from './certificate/certificate.overview.c
 import {DateModule} from '../../common/common.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    TranslateModule,
-    FormsModule,
-    ReactiveFormsModule,
-    NgbModule,
-    DateModule
-  ],
-  declarations: [
-    DataComponent,
-    BookOverviewComponent,
-    CertificateOverviewComponent,
-    SortableHeaderDirective,
-    NumberToStringPipe
-  ],
-  providers: [
-    DecimalPipe
-  ]
+    imports: [
+        CommonModule,
+        TranslateModule,
+        FormsModule,
+        ReactiveFormsModule,
+        NgbModule,
+        DateModule
+    ],
+    declarations: [
+        DataComponent,
+        BookOverviewComponent,
+        CertificateOverviewComponent,
+        SortableHeaderDirective,
+        NumberToStringPipe
+    ],
+    exports: [
+        SortableHeaderDirective
+    ],
+    providers: [
+        DecimalPipe
+    ]
 })
 export class DataModule {
 
