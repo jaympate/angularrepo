@@ -43,7 +43,7 @@ describe("BlogpostComponent", () => {
     expect(fixture).toMatchInlineSnapshot(`
       <app-blogpost>
         <div
-          class="container-fluid pt-4 pb-4"
+          class="container pt-4 pb-4"
         >
           <h1>
             blogpost.title.translated
