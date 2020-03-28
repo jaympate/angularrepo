@@ -46,12 +46,12 @@ import {compare} from '../../data/compare';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BlogpostOverviewComponent implements OnInit {
+  blogposts$: Observable<Blogpost[]>;
+
   @ViewChildren(SortableHeaderDirective)
   sortableHeaderDirectives: QueryList<SortableHeaderDirective>;
 
-  sortEventBehaviorSubject = new BehaviorSubject<SortEvent>(SortEvent.unsortedEvent());
-
-  blogposts$: Observable<Blogpost[]>;
+  private sortEventBehaviorSubject = new BehaviorSubject<SortEvent>(SortEvent.unsortedEvent());
 
   constructor(private blogpostService: BlogpostService) {
 
