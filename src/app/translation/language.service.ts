@@ -8,12 +8,12 @@ import {LocalStorageService} from 'ngx-localstorage';
   providedIn: 'root'
 })
 export class LanguageService {
-  private readonly LANGUAGE_COOKIE = 'website.locale';
+  private readonly LANGUAGE_KEY = 'website.locale';
   private currentAndOtherLanguagesBehaviorSubject: BehaviorSubject<Languages>;
 
   constructor(private translateService: TranslateServiceFacade, private localStorage: LocalStorageService) {
-    console.log(localStorage.get(this.LANGUAGE_COOKIE));
-    const currentLanguage = localStorage.get(this.LANGUAGE_COOKIE) || this.translateService.getDefaultLanguage();
+    console.log(localStorage.get(this.LANGUAGE_KEY));
+    const currentLanguage = localStorage.get(this.LANGUAGE_KEY) || this.translateService.getDefaultLanguage();
     this.currentAndOtherLanguagesBehaviorSubject = new BehaviorSubject<Languages>(this.getLanguages(currentLanguage));
     this.translateService.use(currentLanguage);
   }
@@ -23,7 +23,7 @@ export class LanguageService {
   }
 
   updateCurrentLanguage(currentLanguage: string): void {
-    this.localStorage.set(this.LANGUAGE_COOKIE, currentLanguage);
+    this.localStorage.set(this.LANGUAGE_KEY, currentLanguage);
     this.translateService.use(currentLanguage);
     this.currentAndOtherLanguagesBehaviorSubject.next(this.getLanguages(currentLanguage));
   }
