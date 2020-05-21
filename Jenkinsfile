@@ -10,12 +10,17 @@ pipeline {
     }
 
     stage('Test') {
-      steps {
-        sh 'npm run-script lint'
-      }
-      steps {
-        sh 'npm run-script test'
-      }
+      parallel {
+        stage('Static code analysis') {
+            steps {
+              sh 'nmp run-script lint'
+            }
+        }
+        stage('Unit tests') {
+            steps {
+              sh 'npm run-script test'
+            }
+        }
     }
 
     stage('Build') {
