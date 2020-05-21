@@ -50,66 +50,6 @@ describe("BlogpostOverviewComponent", () => {
     component = fixture.debugElement.componentInstance;
   });
 
-  it("renders a table with #, publicationDate, title, category and an amount of blogposts (e.g. 2)", () => {
-    blogpostSubject.next([
-      Builder<Blogpost>().build(),
-      Builder<Blogpost>().build(),
-    ]);
-
-    fixture.detectChanges();
-    expect(fixture).toMatchInlineSnapshot(`
-      <blogpost-overview
-        blogpostService={[Function Object]}
-        blogposts$={[Function Observable]}
-        sortEventBehaviorSubject={[Function BehaviorSubject]}
-        sortableHeaderDirectives={[Function QueryList]}
-      >
-        <table
-          class="table table-striped table-responsive"
-        >
-          <thead
-            class="thead-dark"
-          >
-            <tr>
-              <th
-                scope="col"
-              >
-                #
-              </th>
-              <th
-                scope="col"
-                sortable="publicationDate"
-              >
-                data.blogpost.publicationDate.translated
-              </th>
-              <th
-                scope="col"
-                sortable="title"
-              >
-                data.blogpost.title.translated
-              </th>
-              <th
-                scope="col"
-                sortable="category"
-              >
-                data.blogpost.category.translated
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-
-            <tr
-              blogpost-row=""
-            />
-            <tr
-              blogpost-row=""
-            />
-          </tbody>
-        </table>
-      </blogpost-overview>
-    `);
-  });
-
   describe("on init", () => {
     it("passes the blogposts from the service to the blogpost row components as input and not sorted", () => {
       const blogposts = [

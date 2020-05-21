@@ -26,6 +26,5 @@ pipeline {
         mail(subject: 'Pushed to dj-website', body: 'You pushed to dj-website.', to: 'dieter.jordens.website@gmail.com', from: 'dieter.jordens.website@gmail.com')
       }
     }
-
   }
 }
