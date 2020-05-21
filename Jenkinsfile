@@ -4,23 +4,18 @@ pipeline {
   }
   stages {
     stage('Install') {
-      steps {
-        sh 'npm install'
-      }
+      steps { sh 'npm install' }
     }
 
     stage('Test') {
       parallel {
         stage('Static code analysis') {
-            steps {
-              sh 'nmp run-script lint'
-            }
+            steps { sh 'nmp run-script lint' }
         }
         stage('Unit tests') {
-            steps {
-              sh 'npm run-script test'
-            }
+            steps { sh 'npm run-script test' }
         }
+      }
     }
 
     stage('Build') {
