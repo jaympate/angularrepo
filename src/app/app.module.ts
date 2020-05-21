@@ -10,6 +10,7 @@ import {VisionModule} from './pages/vision/vision.module';
 import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {BlogpostModule} from './pages/blogpost/blogpost.module';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {BlogpostModule} from './pages/blogpost/blogpost.module';
     DataModule,
     HomeModule,
     ProjectModule,
-    VisionModule
+    VisionModule,
+    FontAwesomeModule
   ],
   exports: [],
   bootstrap: [

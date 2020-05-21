@@ -76,7 +76,7 @@ import {Book} from './book';
           .btn-black:focus {
               text-decoration: none;
           }
-          
+
           .btn-black:hover {
               text-decoration: underline;
           }
@@ -84,11 +84,10 @@ import {Book} from './book';
   ]
 })
 export class BookOverviewComponent implements OnInit {
-  isCollapsed = true;
 
-  toggle(): void {
-    this.isCollapsed = !this.isCollapsed;
+  constructor(private bookService: BookService) {
   }
+  isCollapsed = true;
 
   @ViewChildren(SortableHeaderDirective) sortableHeaderDirectives: QueryList<SortableHeaderDirective>;
 
@@ -98,7 +97,8 @@ export class BookOverviewComponent implements OnInit {
 
   filter = new FormControl('');
 
-  constructor(private bookService: BookService) {
+  toggle(): void {
+    this.isCollapsed = !this.isCollapsed;
   }
 
   search(books: Book[], text: string): Book[] {

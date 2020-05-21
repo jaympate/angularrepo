@@ -12,13 +12,12 @@ import {Builder} from 'builder-pattern';
 import {MockComponent} from 'ng-mocks';
 import {BlogpostRowComponent} from './blogpost-row/blogpost.row.component';
 import {By} from '@angular/platform-browser';
-import {DebugElement} from '@angular/core';
 import {SortableHeaderDirective} from '../../data/sortable-header.directive';
 
-describe("BlogpostOverviewComponent", () => {
+describe('BlogpostOverviewComponent', () => {
   let component: BlogpostOverviewComponent;
   let fixture: ComponentFixture<BlogpostOverviewComponent>;
-  let blogpostSubject = new BehaviorSubject<Blogpost[]>(null);
+  const blogpostSubject = new BehaviorSubject<Blogpost[]>(null);
 
   beforeEach(() => {
     const blogposts$ = jest
@@ -32,16 +31,16 @@ describe("BlogpostOverviewComponent", () => {
         SortableHeaderDirective,
         MockComponent(BlogpostRowComponent),
         TranslatePipeMock,
-        DateLocaleFilter,
+        DateLocaleFilter
       ],
       providers: [
         {
           provide: BlogpostService,
           useValue: {
-            getBlogposts$: blogposts$,
-          },
-        },
-      ],
+            getBlogposts$: blogposts$
+          }
+        }
+      ]
     });
   });
 
@@ -50,11 +49,11 @@ describe("BlogpostOverviewComponent", () => {
     component = fixture.debugElement.componentInstance;
   });
 
-  describe("on init", () => {
-    it("passes the blogposts from the service to the blogpost row components as input and not sorted", () => {
+  describe('on init', () => {
+    it('passes the blogposts from the service to the blogpost row components as input and not sorted', () => {
       const blogposts = [
-        Builder<Blogpost>().title("first blogpost").build(),
-        Builder<Blogpost>().title("second blogpost").build(),
+        Builder<Blogpost>().title('first blogpost').build(),
+        Builder<Blogpost>().title('second blogpost').build()
       ];
 
       blogpostSubject.next(blogposts);
@@ -68,11 +67,11 @@ describe("BlogpostOverviewComponent", () => {
       expect(actualBlogposts).toEqual(blogposts);
     });
 
-    it("should number every blogpost correctly, for the amount of blogposts", () => {
+    it('should number every blogpost correctly, for the amount of blogposts', () => {
       const blogposts = [
         Builder<Blogpost>().build(),
         Builder<Blogpost>().build(),
-        Builder<Blogpost>().build(),
+        Builder<Blogpost>().build()
       ];
 
       blogpostSubject.next(blogposts);
@@ -87,21 +86,21 @@ describe("BlogpostOverviewComponent", () => {
     });
   });
 
-  describe("sorting", () => {
+  describe('sorting', () => {
     beforeEach(() => {
       const blogposts = [
         Builder<Blogpost>()
-          .publicationDate(new Date("2020-12-15"))
-          .title("the good blogpost")
+          .publicationDate(new Date('2020-12-15'))
+          .title('the good blogpost')
           .build(),
         Builder<Blogpost>()
-          .publicationDate(new Date("2019-05-18"))
-          .title("the bad blogpost")
+          .publicationDate(new Date('2019-05-18'))
+          .title('the bad blogpost')
           .build(),
         Builder<Blogpost>()
-          .publicationDate(new Date("2020-03-01"))
-          .title("the ugly blogpost")
-          .build(),
+          .publicationDate(new Date('2020-03-01'))
+          .title('the ugly blogpost')
+          .build()
       ];
 
       blogpostSubject.next(blogposts);
@@ -195,7 +194,7 @@ describe("BlogpostOverviewComponent", () => {
       `[sortable="${columnName}"]`
     );
 
-    for (let i: number = 0; i < times; i++) {
+    for (let i = 0; i < times; i++) {
       sortableColumn.click();
       fixture.detectChanges();
     }
@@ -204,8 +203,6 @@ describe("BlogpostOverviewComponent", () => {
   function getBlogpostRowComponents(): BlogpostRowComponent[] {
     return fixture.debugElement
       .queryAll(By.directive(BlogpostRowComponent))
-      .map(
-        (component: DebugElement) => component.componentInstance
-      ) as BlogpostRowComponent[];
+      .map(blogpostRowComponent => blogpostRowComponent.componentInstance) as BlogpostRowComponent[];
   }
 });

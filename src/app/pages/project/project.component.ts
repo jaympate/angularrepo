@@ -73,7 +73,7 @@ import {Observable} from 'rxjs';
   `]
 })
 export class ProjectComponent {
-  projects$ : Observable<Project[]>;
+  projects$: Observable<Project[]>;
 
   constructor(private projectService: ProjectService) {
     this.projects$ = projectService.getProjects$();

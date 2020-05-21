@@ -1,14 +1,9 @@
-import {Directive, EventEmitter, Input, Output} from '@angular/core';
+import {Directive, EventEmitter, HostBinding, HostListener, Input, Output} from '@angular/core';
 import {SortEvent} from './sort.event';
 import {SortDirection} from './sort.direction';
 
 @Directive({
-  selector: 'th[sortable]',
-  host: {
-    '[class.asc]': 'direction === "asc"',
-    '[class.desc]': 'direction === "desc"',
-    '(click)': 'rotate()'
-  }
+  selector: 'th[sortable]'
 })
 export class SortableHeaderDirective {
 
@@ -16,6 +11,17 @@ export class SortableHeaderDirective {
   @Input() direction: SortDirection = 'unsorted';
   @Output() sort = new EventEmitter<SortEvent>();
 
+  @HostBinding('class.asc')
+  get ascending() {
+    return this.direction === 'asc';
+  }
+
+  @HostBinding('class.desc')
+  get descending() {
+    return this.direction === 'desc';
+  }
+
+  @HostListener('click')
   rotate(): void {
     this.direction = this.rotateDirection(this.direction);
     const sortablePropertyName = this.sortable;

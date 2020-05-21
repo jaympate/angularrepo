@@ -7,12 +7,6 @@ export class DateLocaleFilter implements PipeTransform {
   constructor(private translate: TranslateServiceFacade) {
   }
 
-  transform(date: Date, dateFormat: string): any {
-    this.initializeMomentWithCurrentLanguage();
-
-    return DateLocaleFilter.formatLocalDate(date, dateFormat);
-  }
-
   private static formatLocalDate(date: Date, dateFormat: string) {
     return DateLocaleFilter.getLocaleDate(date)
       .format(dateFormat);
@@ -21,6 +15,12 @@ export class DateLocaleFilter implements PipeTransform {
   private static getLocaleDate(value: Date) {
     return moment.utc(value)
       .local();
+  }
+
+  transform(date: Date, dateFormat: string): any {
+    this.initializeMomentWithCurrentLanguage();
+
+    return DateLocaleFilter.formatLocalDate(date, dateFormat);
   }
 
   private initializeMomentWithCurrentLanguage() {

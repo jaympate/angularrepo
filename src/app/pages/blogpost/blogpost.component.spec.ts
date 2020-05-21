@@ -9,7 +9,7 @@ import {BlogpostService} from './blogpost-overview/blogpost.service';
 import {TranslateModule} from '@ngx-translate/core';
 import {MockComponent} from 'ng-mocks';
 
-describe("BlogpostComponent", () => {
+describe('BlogpostComponent', () => {
   let component: BlogpostComponent;
   let fixture: ComponentFixture<BlogpostComponent>;
 
@@ -38,7 +38,7 @@ describe("BlogpostComponent", () => {
     component = fixture.debugElement.componentInstance;
   });
 
-  it("should render", () => {
+  it('should render', () => {
     fixture.detectChanges();
     expect(fixture).toMatchInlineSnapshot(`
       <app-blogpost>

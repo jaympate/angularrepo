@@ -62,7 +62,7 @@ import {Certificate} from './certificate';
           .btn-black:hover {
               text-decoration: underline;
           }
-      
+
           .certificate-type {
               text-transform: capitalize;
           }

@@ -6,17 +6,17 @@ import {BehaviorSubject} from 'rxjs';
 import {Blogpost} from './blogpost';
 import {Builder} from 'builder-pattern';
 
-describe("BlogpostService", () => {
+describe('BlogpostService', () => {
   let blogpostService: BlogpostService;
-  let currentLanguageSubject = new BehaviorSubject<string>(undefined);
-  let blogpostSubject = new BehaviorSubject<Blogpost[]>(undefined);
+  const currentLanguageSubject = new BehaviorSubject<string>(undefined);
+  const blogpostSubject = new BehaviorSubject<Blogpost[]>(undefined);
   let currentLanguage: string;
 
   beforeEach(() => {
     const get = jest.fn().mockReturnValue(blogpostSubject.asObservable());
     const getTranslationKnowingTheyAreLoaded = jest
       .fn()
-      .mockImplementation((title: string) => title + "." + currentLanguage);
+      .mockImplementation((title: string) => title + '.' + currentLanguage);
     const getCurrentLanguage$ = jest
       .fn()
       .mockReturnValue(currentLanguageSubject.asObservable());
@@ -36,29 +36,29 @@ describe("BlogpostService", () => {
     });
   });
 
-  describe("constructor", () => {
-    it("retrieves the blogposts from backend url `https://dj-website-backend.herokuapp.com/api/blogpost`", () => {
+  describe('constructor', () => {
+    it('retrieves the blogposts from backend url `https://dj-website-backend.herokuapp.com/api/blogpost`', () => {
       const httpClient = TestBed.inject(HttpClient);
       blogpostService = TestBed.inject(BlogpostService);
 
       expect(
         httpClient.get
       ).toHaveBeenCalledWith(
-        "https://dj-website-backend.herokuapp.com/api/blogpost",
+        'https://dj-website-backend.herokuapp.com/api/blogpost',
         { headers: expect.any(HttpHeaders) }
       );
     });
   });
 
-  describe("getBlogposts$", () => {
-    it("does not emit anything before translations are loaded", fakeAsync(() => {
+  describe('getBlogposts$', () => {
+    it('does not emit anything before translations are loaded', fakeAsync(() => {
       let dataEmitted;
 
       const aFrontendBlogpost = Builder<Blogpost>()
-        .title("my frontend blogpost")
-        .url("www.medium.com/life-is-fun")
-        .publicationDate(new Date("2020-03-21"))
-        .category("frontend")
+        .title('my frontend blogpost')
+        .url('www.medium.com/life-is-fun')
+        .publicationDate(new Date('2020-03-21'))
+        .category('frontend')
         .build();
 
       blogpostService = TestBed.inject(BlogpostService);
@@ -73,21 +73,21 @@ describe("BlogpostService", () => {
       expect(dataEmitted).toBeUndefined();
     }));
 
-    it("returns translated blogposts (e.g. for English translations)", fakeAsync(() => {
+    it('returns translated blogposts (e.g. for English translations)', fakeAsync(() => {
       let dataEmitted;
 
-      currentLanguage = "en";
+      currentLanguage = 'en';
 
       const aFrontendBlogpost = Builder<Blogpost>()
-        .title("my frontend blogpost")
-        .url("www.medium.com/life-is-fun")
-        .publicationDate(new Date("2020-03-21"))
-        .category("frontend")
+        .title('my frontend blogpost')
+        .url('www.medium.com/life-is-fun')
+        .publicationDate(new Date('2020-03-21'))
+        .category('frontend')
         .build();
       const aBackendBlogpost = Builder<Blogpost>()
-        .title("my backend blogpost")
-        .publicationDate(new Date("2020-02-15"))
-        .category("backend")
+        .title('my backend blogpost')
+        .publicationDate(new Date('2020-02-15'))
+        .category('backend')
         .build();
       const untranslatedBlogposts = [aFrontendBlogpost, aBackendBlogpost];
 
@@ -118,25 +118,25 @@ describe("BlogpostService", () => {
       `);
     }));
 
-    it("re-translates correctly (e.g. from English to French)", fakeAsync(() => {
+    it('re-translates correctly (e.g. from English to French)', fakeAsync(() => {
       let dataEmitted;
 
       blogpostService = TestBed.inject(BlogpostService);
       blogpostSubject.next([
         Builder<Blogpost>()
-          .title("my frontend blogpost")
-          .url("www.medium.com/life-is-fun")
-          .publicationDate(new Date("2020-03-21"))
-          .category("frontend")
+          .title('my frontend blogpost')
+          .url('www.medium.com/life-is-fun')
+          .publicationDate(new Date('2020-03-21'))
+          .category('frontend')
           .build(),
         Builder<Blogpost>()
-          .title("my backend blogpost")
-          .publicationDate(new Date("2020-02-15"))
-          .category("backend")
+          .title('my backend blogpost')
+          .publicationDate(new Date('2020-02-15'))
+          .category('backend')
           .build(),
       ]);
 
-      currentLanguage = "nl";
+      currentLanguage = 'nl';
       currentLanguageSubject.next(currentLanguage);
 
       blogpostService
@@ -160,7 +160,7 @@ describe("BlogpostService", () => {
         ]
       `);
 
-      currentLanguage = "fr";
+      currentLanguage = 'fr';
       currentLanguageSubject.next(currentLanguage);
 
       blogpostService
