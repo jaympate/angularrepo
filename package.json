@@ -46,6 +46,15 @@
     "zone.js": "~0.10.3"
   },
   "jest": {
+    "collectCoverage": true,
+    "coverageThreshold": {
+      "global": {
+        "branches": 65,
+        "functions": 65,
+        "lines": 77,
+        "statements": 80
+      }
+    },
     "preset": "jest-preset-angular",
     "setupFilesAfterEnv": [
       "./src/setup-jest.ts"
