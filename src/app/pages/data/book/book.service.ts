@@ -12,7 +12,7 @@ export class BookService {
   private untranslatedBooks: Book[];
   private readonly translatedBooks$: Observable<Book[]>;
 
-  private readonly baseUrl = `https://dj-website-backend.herokuapp.com/api/book`;
+  private readonly baseUrl = `https://dj-website-backend.herokuapp.com/api/books`;
 
   constructor(private http: HttpClient, private translateService: TranslateServiceFacade) {
     const currentLanguage$ = translateService.getCurrentLanguage$();
