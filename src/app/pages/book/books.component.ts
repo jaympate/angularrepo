@@ -11,7 +11,7 @@ import {compare} from '../data/compare';
   selector: 'my-books',
   template: `
     <div class="container pt-4 pb-4">
-      <h1>{{'book.title' | translate}}</h1>
+      <h1>{{'website.books' | translate}}</h1>
       <ng-container *ngIf="books$ | async as books">
         <table class="table table-striped table-responsive">
           <thead class="thead-dark">
