@@ -5,8 +5,8 @@ import {VisionComponent} from './pages/vision/vision.component';
 import {CvComponent} from './pages/cv/cv.component';
 import {DataComponent} from './pages/data/data.component';
 import {ProjectComponent} from './pages/project/project.component';
-import {BlogpostComponent} from './pages/blogpost/blogpost.component';
 import {BooksComponent} from './pages/book/books.component';
+import {BlogpostsComponent} from './pages/blogpost/blogposts.component';
 
 @NgModule({
   imports: [
@@ -15,7 +15,7 @@ import {BooksComponent} from './pages/book/books.component';
       {path: 'vision', component: VisionComponent},
       {path: 'cv', component: CvComponent},
       {path: 'projects', component: ProjectComponent},
-      {path: 'blogposts', component: BlogpostComponent},
+      {path: 'blogposts', component: BlogpostsComponent},
       {path: 'books', component: BooksComponent},
       {path: 'data', component: DataComponent}
     ])
