@@ -27,7 +27,8 @@ import {DateModule} from '../../common/date.module';
         NumberToStringPipe
     ],
     exports: [
-        SortableHeaderDirective
+        SortableHeaderDirective,
+        NumberToStringPipe
     ],
     providers: [
         DecimalPipe

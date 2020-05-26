@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Book} from './book';
 import {combineLatest, Observable} from 'rxjs';
-import {map, tap} from 'rxjs/operators';
-import {TranslateServiceFacade} from '../../../translation/translate.service.facade';
+import {Book} from './book';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {TranslateServiceFacade} from '../../translation/translate.service.facade';
+import {filter, map, tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,6 @@ import {TranslateServiceFacade} from '../../../translation/translate.service.fac
 export class BookService {
   private untranslatedBooks: Book[];
   private readonly translatedBooks$: Observable<Book[]>;
-
   private readonly baseUrl = `https://dj-website-backend.herokuapp.com/api/books`;
 
   constructor(private http: HttpClient, private translateService: TranslateServiceFacade) {
@@ -26,6 +25,7 @@ export class BookService {
 
     this.translatedBooks$ = combineLatest([books$, currentLanguage$])
       .pipe(
+        filter( ([, currentLanguage]) => !!currentLanguage),
         map(([books]) => books),
         tap(books => this.cacheBooks(books)),
         map(() => this.translateBooks())
@@ -43,11 +43,10 @@ export class BookService {
   }
 
   private translateBooks(): Book[] {
-    return this.untranslatedBooks.map(book =>
-      ({
-        ...book,
-        title: this.translateService.getTranslationKnowingTheyAreLoaded(book.title),
-        authors: this.translateService.getTranslationKnowingTheyAreLoaded(book.authors)
-      }));
+    return this.untranslatedBooks.map(book => ({
+      ...book,
+      title: this.translateService.getTranslationKnowingTheyAreLoaded(book.title),
+      authors: this.translateService.getTranslationKnowingTheyAreLoaded(book.authors)
+    }));
   }
 }
