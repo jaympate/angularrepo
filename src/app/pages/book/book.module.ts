@@ -4,7 +4,6 @@ import {BooksComponent} from './books.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {DataModule} from '../data/data.module';
-import {DateModule} from '../../common/date.module';
 import {BookComponent} from './book.component';
 
 @NgModule({
@@ -12,8 +11,7 @@ import {BookComponent} from './book.component';
     CommonModule,
     TranslateModule,
     NgbModule,
-    DataModule,
-    DateModule
+    DataModule
   ],
   declarations: [
     BookComponent,

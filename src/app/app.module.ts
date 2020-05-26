@@ -11,6 +11,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http';
 import {BlogpostModule} from './pages/blogpost/blogpost.module';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {BookModule} from './pages/book/book.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
     AppRoutingModule,
     CvModule,
     BlogpostModule,
+    BookModule,
     DataModule,
     HomeModule,
     ProjectModule,
