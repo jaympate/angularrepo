@@ -6,7 +6,6 @@ import {TranslateModule} from '@ngx-translate/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NumberToStringPipe} from './no.comma.pipe';
-import {BookOverviewComponent} from './book/book.overview.component';
 import {CertificateOverviewComponent} from './certificate/certificate.overview.component';
 import {DateModule} from '../../common/date.module';
 
@@ -21,7 +20,6 @@ import {DateModule} from '../../common/date.module';
     ],
     declarations: [
         DataComponent,
-        BookOverviewComponent,
         CertificateOverviewComponent,
         SortableHeaderDirective,
         NumberToStringPipe
