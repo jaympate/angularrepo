@@ -6,6 +6,7 @@ import {CvComponent} from './pages/cv/cv.component';
 import {DataComponent} from './pages/data/data.component';
 import {ProjectComponent} from './pages/project/project.component';
 import {BlogpostComponent} from './pages/blogpost/blogpost.component';
+import {BooksComponent} from './pages/book/books.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import {BlogpostComponent} from './pages/blogpost/blogpost.component';
       {path: 'cv', component: CvComponent},
       {path: 'projects', component: ProjectComponent},
       {path: 'blogposts', component: BlogpostComponent},
+      {path: 'books', component: BooksComponent},
       {path: 'data', component: DataComponent}
     ])
   ],
