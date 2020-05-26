@@ -21,6 +21,7 @@ export class NavOptionsComponent {
       Builder<NavigationOption>().path('cv').text('website.cv').build(),
       Builder<NavigationOption>().path('projects').text('website.projects').build(),
       Builder<NavigationOption>().path('blogposts').text('website.blogposts').build(),
+      Builder<NavigationOption>().path('books').text('website.books').build(),
       Builder<NavigationOption>().path('data').text('website.data').build()
     ];
   }
