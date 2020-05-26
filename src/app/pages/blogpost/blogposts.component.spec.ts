@@ -10,7 +10,7 @@ import {BehaviorSubject} from 'rxjs';
 import {Blogpost} from './blogpost';
 import {Builder} from 'builder-pattern';
 import {MockComponent} from 'ng-mocks';
-import {BlogpostComponent} from './blogpost/blogpost.component';
+import {BlogpostComponent} from './blogpost.component';
 import {By} from '@angular/platform-browser';
 import {SortableHeaderDirective} from '../data/sortable-header.directive';
 

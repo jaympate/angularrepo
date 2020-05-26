@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
-import {Blogpost} from '../blogpost';
+import {Blogpost} from './blogpost';
 
 @Component({
   // tslint:disable-next-line:component-selector

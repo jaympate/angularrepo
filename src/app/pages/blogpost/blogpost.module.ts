@@ -5,7 +5,7 @@ import {TranslateModule} from '@ngx-translate/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {DataModule} from '../data/data.module';
 import {DateModule} from '../../common/date.module';
-import {BlogpostComponent} from './blogpost/blogpost.component';
+import {BlogpostComponent} from './blogpost.component';
 
 @NgModule({
   imports: [
