@@ -8,7 +8,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NumberToStringPipe} from './no.comma.pipe';
 import {BookOverviewComponent} from './book/book.overview.component';
 import {CertificateOverviewComponent} from './certificate/certificate.overview.component';
-import {DateModule} from '../../common/common.module';
+import {DateModule} from '../../common/date.module';
 
 @NgModule({
     imports: [

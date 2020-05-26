@@ -5,7 +5,7 @@ import {BlogpostOverviewComponent} from './blogpost-overview/blogpost.overview.c
 import {TranslateModule} from '@ngx-translate/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {DataModule} from '../data/data.module';
-import {DateModule} from '../../common/common.module';
+import {DateModule} from '../../common/date.module';
 import {BlogpostRowComponent} from './blogpost-overview/blogpost-row/blogpost.row.component';
 
 @NgModule({
