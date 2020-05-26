@@ -2,21 +2,21 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {HttpClientModule} from '@angular/common/http';
 import {TranslateModule} from '@ngx-translate/core';
-import {BlogpostOverviewComponent} from './blogpost.overview.component';
-import {TranslatePipeMock} from '../../../translation/translate.pipe.mock';
-import {DateLocaleFilter} from '../../../common/date.locale.filter';
+import {BlogpostsComponent} from './blogposts.component';
+import {TranslatePipeMock} from '../../translation/translate.pipe.mock';
+import {DateLocaleFilter} from '../../common/date.locale.filter';
 import {BlogpostService} from './blogpost.service';
 import {BehaviorSubject} from 'rxjs';
 import {Blogpost} from './blogpost';
 import {Builder} from 'builder-pattern';
 import {MockComponent} from 'ng-mocks';
-import {BlogpostRowComponent} from './blogpost-row/blogpost.row.component';
+import {BlogpostComponent} from './blogpost/blogpost.component';
 import {By} from '@angular/platform-browser';
-import {SortableHeaderDirective} from '../../data/sortable-header.directive';
+import {SortableHeaderDirective} from '../data/sortable-header.directive';
 
-describe('BlogpostOverviewComponent', () => {
-  let component: BlogpostOverviewComponent;
-  let fixture: ComponentFixture<BlogpostOverviewComponent>;
+describe('BlogpostsComponent', () => {
+  let component: BlogpostsComponent;
+  let fixture: ComponentFixture<BlogpostsComponent>;
   const blogpostSubject = new BehaviorSubject<Blogpost[]>(null);
 
   beforeEach(() => {
@@ -27,9 +27,9 @@ describe('BlogpostOverviewComponent', () => {
     TestBed.configureTestingModule({
       imports: [NgbModule, HttpClientModule, TranslateModule.forRoot()],
       declarations: [
-        BlogpostOverviewComponent,
+        BlogpostsComponent,
         SortableHeaderDirective,
-        MockComponent(BlogpostRowComponent),
+        MockComponent(BlogpostComponent),
         TranslatePipeMock,
         DateLocaleFilter
       ],
@@ -45,7 +45,7 @@ describe('BlogpostOverviewComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BlogpostOverviewComponent);
+    fixture = TestBed.createComponent(BlogpostsComponent);
     component = fixture.debugElement.componentInstance;
   });
 
@@ -200,9 +200,9 @@ describe('BlogpostOverviewComponent', () => {
     }
   }
 
-  function getBlogpostRowComponents(): BlogpostRowComponent[] {
+  function getBlogpostRowComponents(): BlogpostComponent[] {
     return fixture.debugElement
-      .queryAll(By.directive(BlogpostRowComponent))
-      .map(blogpostRowComponent => blogpostRowComponent.componentInstance) as BlogpostRowComponent[];
+      .queryAll(By.directive(BlogpostComponent))
+      .map(blogpostRowComponent => blogpostRowComponent.componentInstance) as BlogpostComponent[];
   }
 });

@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {combineLatest, Observable} from 'rxjs';
 import {Blogpost} from './blogpost';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {TranslateServiceFacade} from '../../../translation/translate.service.facade';
+import {TranslateServiceFacade} from '../../translation/translate.service.facade';
 import {filter, map, tap} from 'rxjs/operators';
 
 @Injectable({
@@ -11,7 +11,7 @@ import {filter, map, tap} from 'rxjs/operators';
 export class BlogpostService {
   private untranslatedBlogposts: Blogpost[];
   private readonly translatedBlogposts$: Observable<Blogpost[]>;
-  private readonly baseUrl = `https://dj-website-backend.herokuapp.com/api/blogpost`;
+  private readonly baseUrl = `https://dj-website-backend.herokuapp.com/api/blogposts`;
 
   constructor(private http: HttpClient, private translateService: TranslateServiceFacade) {
     const currentLanguage$ = translateService.getCurrentLanguage$();

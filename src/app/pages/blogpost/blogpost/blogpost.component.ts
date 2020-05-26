@@ -4,10 +4,10 @@ import {Blogpost} from '../blogpost';
 @Component({
   // tslint:disable-next-line:component-selector
   selector: '[blogpost-row]',
-  templateUrl: 'blogpost.row.component.html',
+  templateUrl: 'blogpost.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BlogpostRowComponent {
+export class BlogpostComponent {
   @Input()
   blogpost: Blogpost;
 

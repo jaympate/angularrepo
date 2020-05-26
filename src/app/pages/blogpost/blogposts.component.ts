@@ -2,34 +2,37 @@ import {ChangeDetectionStrategy, Component, OnInit, QueryList, ViewChildren} fro
 import {Blogpost} from './blogpost';
 import {BlogpostService} from './blogpost.service';
 import {BehaviorSubject, combineLatest, Observable} from 'rxjs';
-import {SortEvent} from '../../data/sort.event';
-import {SortableHeaderDirective} from '../../data/sortable-header.directive';
+import {SortEvent} from '../data/sort.event';
+import {SortableHeaderDirective} from '../data/sortable-header.directive';
 import {map, tap} from 'rxjs/operators';
-import {compare} from '../../data/compare';
+import {compare} from '../data/compare';
 
 @Component({
-  selector: 'blogpost-overview',
+  selector: 'my-blogposts',
   template: `
-    <ng-container *ngIf="blogposts$ | async as blogposts">
-      <table class="table table-striped table-responsive">
-        <thead class="thead-dark">
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col" sortable="publicationDate" (sort)="onSort($event)">{{'data.blogpost.publicationDate' | translate}}</th>
-          <th scope="col" sortable="title" (sort)="onSort($event)">{{'data.blogpost.title' | translate}}</th>
-          <th scope="col" sortable="category" (sort)="onSort($event)">{{'data.blogpost.category' | translate}}</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let blogpost of blogposts; index as zeroBasedRowNumber" blogpost-row
-            [blogpost]="blogpost"
-            [rowNumber]="zeroBasedRowNumber+1"></tr>
-        </tbody>
-      </table>
-    </ng-container>
+    <div class="container pt-4 pb-4">
+      <h1>{{'blogpost.title' | translate}}</h1>
+      <ng-container *ngIf="blogposts$ | async as blogposts">
+        <table class="table table-striped table-responsive">
+          <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col" sortable="publicationDate" (sort)="onSort($event)">{{'data.blogpost.publicationDate' | translate}}</th>
+            <th scope="col" sortable="title" (sort)="onSort($event)">{{'data.blogpost.title' | translate}}</th>
+            <th scope="col" sortable="category" (sort)="onSort($event)">{{'data.blogpost.category' | translate}}</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let blogpost of blogposts; index as zeroBasedRowNumber" blogpost-row
+              [blogpost]="blogpost"
+              [rowNumber]="zeroBasedRowNumber+1"></tr>
+          </tbody>
+        </table>
+      </ng-container>
+    </div>
   `,
   styles: [
-    `
+      `
       .asc::before {
         content: "\\25be";
         float: right;
@@ -45,7 +48,7 @@ import {compare} from '../../data/compare';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BlogpostOverviewComponent implements OnInit {
+export class BlogpostsComponent implements OnInit {
   blogposts$: Observable<Blogpost[]>;
 
   @ViewChildren(SortableHeaderDirective)

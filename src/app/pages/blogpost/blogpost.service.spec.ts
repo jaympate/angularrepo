@@ -1,7 +1,7 @@
 import {fakeAsync, TestBed, tick} from '@angular/core/testing';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {BlogpostService} from './blogpost.service';
-import {TranslateServiceFacade} from '../../../translation/translate.service.facade';
+import {TranslateServiceFacade} from '../../translation/translate.service.facade';
 import {BehaviorSubject} from 'rxjs';
 import {Blogpost} from './blogpost';
 import {Builder} from 'builder-pattern';
@@ -37,14 +37,14 @@ describe('BlogpostService', () => {
   });
 
   describe('constructor', () => {
-    it('retrieves the blogposts from backend url `https://dj-website-backend.herokuapp.com/api/blogpost`', () => {
+    it('retrieves the blogposts from backend url `https://dj-website-backend.herokuapp.com/api/blogposts`', () => {
       const httpClient = TestBed.inject(HttpClient);
       blogpostService = TestBed.inject(BlogpostService);
 
       expect(
         httpClient.get
       ).toHaveBeenCalledWith(
-        'https://dj-website-backend.herokuapp.com/api/blogpost',
+        'https://dj-website-backend.herokuapp.com/api/blogposts',
         { headers: expect.any(HttpHeaders) }
       );
     });

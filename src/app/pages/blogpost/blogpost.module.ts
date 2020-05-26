@@ -1,12 +1,11 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {BlogpostComponent} from './blogpost.component';
-import {BlogpostOverviewComponent} from './blogpost-overview/blogpost.overview.component';
+import {BlogpostsComponent} from './blogposts.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {DataModule} from '../data/data.module';
 import {DateModule} from '../../common/date.module';
-import {BlogpostRowComponent} from './blogpost-overview/blogpost-row/blogpost.row.component';
+import {BlogpostComponent} from './blogpost/blogpost.component';
 
 @NgModule({
   imports: [
@@ -18,8 +17,7 @@ import {BlogpostRowComponent} from './blogpost-overview/blogpost-row/blogpost.ro
   ],
   declarations: [
     BlogpostComponent,
-    BlogpostRowComponent,
-    BlogpostOverviewComponent
+    BlogpostsComponent
   ]
 })
 export class BlogpostModule {
