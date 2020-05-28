@@ -3,10 +3,10 @@ import {RouterModule} from '@angular/router';
 import {HomeComponent} from './pages/home/home.component';
 import {VisionComponent} from './pages/vision/vision.component';
 import {CvComponent} from './pages/cv/cv.component';
-import {DataComponent} from './pages/data/data.component';
 import {ProjectComponent} from './pages/project/project.component';
 import {BooksComponent} from './pages/book/books.component';
 import {BlogpostsComponent} from './pages/blogpost/blogposts.component';
+import {CertificateOverviewComponent} from './pages/certificate/certificate.overview.component';
 
 @NgModule({
   imports: [
@@ -17,7 +17,7 @@ import {BlogpostsComponent} from './pages/blogpost/blogposts.component';
       {path: 'projects', component: ProjectComponent},
       {path: 'blogposts', component: BlogpostsComponent},
       {path: 'books', component: BooksComponent},
-      {path: 'certificates', component: DataComponent}
+      {path: 'certificates', component: CertificateOverviewComponent}
     ])
   ],
   exports: [
