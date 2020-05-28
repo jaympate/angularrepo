@@ -11,7 +11,7 @@ import {compare} from '../data/compare';
   selector: 'my-blogposts',
   template: `
     <div class="container pt-4 pb-4">
-      <h1>{{'blogpost.title' | translate}}</h1>
+      <h1>{{'website.blogposts' | translate}}</h1>
       <ng-container *ngIf="blogposts$ | async as blogposts">
         <table class="table table-striped table-responsive">
           <thead class="thead-dark">

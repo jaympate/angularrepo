@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {combineLatest, Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {TranslateServiceFacade} from '../../../translation/translate.service.facade';
+import {TranslateServiceFacade} from '../../translation/translate.service.facade';
 import {map, tap} from 'rxjs/operators';
 import {Certificate} from './certificate';
 
@@ -11,7 +11,7 @@ import {Certificate} from './certificate';
 export class CertificateService {
   private untranslatedCertificates: Certificate[];
   private readonly translatedCertificates$: Observable<Certificate[]>;
-  private readonly baseUrl = `https://dj-website-backend.herokuapp.com/api/certificate`;
+  private readonly baseUrl = `https://dj-website-backend.herokuapp.com/api/certificates`;
 
   constructor(private http: HttpClient, private translateService: TranslateServiceFacade) {
     const currentLanguage$ = translateService.getCurrentLanguage$();

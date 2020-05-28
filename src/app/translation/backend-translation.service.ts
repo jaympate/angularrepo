@@ -9,7 +9,7 @@ export class BackendTranslationService {
   constructor(private http: HttpClient) {
   }
 
-  private readonly baseUrl = `https://dj-website-backend.herokuapp.com/api/translation`;
+  private readonly baseUrl = `https://dj-website-backend.herokuapp.com/api/translations`;
 
   getBackendTranslations$() {
     const httpOptions = {

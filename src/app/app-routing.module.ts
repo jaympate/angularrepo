@@ -17,7 +17,7 @@ import {BlogpostsComponent} from './pages/blogpost/blogposts.component';
       {path: 'projects', component: ProjectComponent},
       {path: 'blogposts', component: BlogpostsComponent},
       {path: 'books', component: BooksComponent},
-      {path: 'data', component: DataComponent}
+      {path: 'certificates', component: DataComponent}
     ])
   ],
   exports: [

@@ -31,7 +31,7 @@ export class ProjectService {
       );
   }
 
-  private readonly baseUrl = `https://dj-website-backend.herokuapp.com/api/project`;
+  private readonly baseUrl = `https://dj-website-backend.herokuapp.com/api/projects`;
 
   getProjects$(): Observable<Project[]> {
     return this.translatedProjects$;

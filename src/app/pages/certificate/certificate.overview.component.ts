@@ -13,7 +13,7 @@ import {Certificate} from './certificate';
                   aria-controls="certificateContent" aria-label="Toggle certificate content" [attr.aria-expanded]="!isCollapsed"
                   (click)="toggle()">
             <i class="fa" [ngClass]="isCollapsed ? 'fa-caret-down' : 'fa-caret-up'"></i>
-            <span class="ml-2">{{'data.certificates.description' | translate}}</span>
+            <span class="ml-2">{{'certificates.description' | translate}}</span>
           </button>
         </h5>
       </div>
@@ -22,10 +22,10 @@ import {Certificate} from './certificate';
           <thead class="thead-dark">
           <tr>
             <th scope="col">#</th>
-            <th scope="col">{{'data.certificate.name' | translate}}</th>
-            <th scope="col">{{'data.certificate.organization' | translate}}</th>
-            <th scope="col">{{'data.certificate.issueDate' | translate}}</th>
-            <th scope="col">{{'data.certificate.type' | translate}}</th>
+            <th scope="col">{{'certificate.name' | translate}}</th>
+            <th scope="col">{{'certificate.organization' | translate}}</th>
+            <th scope="col">{{'certificate.issueDate' | translate}}</th>
+            <th scope="col">{{'certificate.type' | translate}}</th>
           </tr>
           </thead>
           <tbody>
