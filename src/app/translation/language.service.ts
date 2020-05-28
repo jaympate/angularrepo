@@ -12,7 +12,6 @@ export class LanguageService {
   private currentAndOtherLanguagesBehaviorSubject: BehaviorSubject<Languages>;
 
   constructor(private translateService: TranslateServiceFacade, private localStorage: LocalStorageService) {
-    console.log(localStorage.get(this.LANGUAGE_KEY));
     const currentLanguage = localStorage.get(this.LANGUAGE_KEY) || this.translateService.getDefaultLanguage();
     this.currentAndOtherLanguagesBehaviorSubject = new BehaviorSubject<Languages>(this.getLanguages(currentLanguage));
     this.translateService.use(currentLanguage);
