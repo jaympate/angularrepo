@@ -6,18 +6,9 @@ import {Certificate} from './certificate';
 @Component({
   selector: 'certificate-overview',
   template: `
-    <div class="card" *ngIf="certificates$ | async as certificates">
-      <div class="card-header">
-        <h5 class="mb-0">
-          <button type="button" class="btn btn-link btn-black" data-toggle="collapse" data-target="#certificateContent"
-                  aria-controls="certificateContent" aria-label="Toggle certificate content" [attr.aria-expanded]="!isCollapsed"
-                  (click)="toggle()">
-            <i class="fa" [ngClass]="isCollapsed ? 'fa-caret-down' : 'fa-caret-up'"></i>
-            <span class="ml-2">{{'certificates.description' | translate}}</span>
-          </button>
-        </h5>
-      </div>
-      <div class="card-body" id="certificateContent" [ngbCollapse]="isCollapsed">
+    <div class="container pt-4 pb-4">
+      <h1>{{'website.certificates' | translate}}</h1>
+      <ng-container *ngIf="certificates$ | async as certificates">
         <table class="table table-striped table-responsive">
           <thead class="thead-dark">
           <tr>
@@ -32,7 +23,8 @@ import {Certificate} from './certificate';
           <tr *ngFor="let certificate of certificates ; index as i">
             <th scope="row">{{ i + 1 }}</th>
             <td>
-              <ngb-highlight class="certificate-name" [result]="certificate.name"></ngb-highlight><a class="ml-1" target="_blank"  href="{{certificate.credentialUrl}}"><i class="fa fa-external-link"></i></a>
+              <ngb-highlight class="certificate-name" [result]="certificate.name"></ngb-highlight>
+              <a class="ml-1" target="_blank" href="{{certificate.credentialUrl}}"><i class="fa fa-external-link"></i></a>
             </td>
             <td>
               <ngb-highlight class="certificate-organization" [result]="certificate.organization"></ngb-highlight>
@@ -46,32 +38,17 @@ import {Certificate} from './certificate';
           </tr>
           </tbody>
         </table>
-      </div>
+      </ng-container>
     </div>
   `,
   styles: [`
-
-          .btn-black {
-              color: black;
-          }
-
-          .btn-black:focus {
-              text-decoration: none;
-          }
-
-          .btn-black:hover {
-              text-decoration: underline;
-          }
-
-          .certificate-type {
-              text-transform: capitalize;
-          }
-    `
+    .certificate-type {
+      text-transform: capitalize;
+    }
+  `
   ]
 })
 export class CertificateOverviewComponent implements OnInit {
-  isCollapsed = true;
-
   certificates$: Observable<Certificate[]>;
 
   constructor(private certificateService: CertificateService) {
@@ -80,9 +57,5 @@ export class CertificateOverviewComponent implements OnInit {
 
   ngOnInit(): void {
     this.certificates$ = this.certificateService.getCertificates$();
-  }
-
-  toggle(): void {
-    this.isCollapsed = !this.isCollapsed;
   }
 }
