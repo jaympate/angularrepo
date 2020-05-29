@@ -69,5 +69,5 @@
   "certificate.name": "Naam",
   "certificate.issueDate": "Uitgiftedatum",
   "certificate.organization": "Organisatie",
-  "certificate.type": "Type",
+  "certificate.type": "Type"
 }
