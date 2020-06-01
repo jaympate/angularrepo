@@ -1,6 +1,5 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {Book} from './book';
-import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -10,7 +9,7 @@ import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
     <td>
       <div class="img-wrapper">
         <div class="line"></div>
-        <img class="img-book" [src]="getSafeUrl(book.base64image)" alt="jos">
+        <img class="img-book" [src]="book.base64image | safeBase64Image" alt="jos">
       </div>
     </td>
     <td>
@@ -69,17 +68,16 @@ import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
       width: 130px;
       margin-left: -130px;
       position: absolute;
-      box-shadow:
-        1px 1px 1px 1px black,
-        2px 2px 1px 1px lightgrey,
-        3px 3px 1px 1px gray,
-        4px 4px 1px 1px lightgrey,
-        5px 5px 1px 1px gray,
-        6px 6px 1px 1px lightgrey,
-        7px 7px 1px 1px black;
+      box-shadow: 1px 1px 1px 1px black,
+      2px 2px 1px 1px lightgrey,
+      3px 3px 1px 1px gray,
+      4px 4px 1px 1px lightgrey,
+      5px 5px 1px 1px gray,
+      6px 6px 1px 1px lightgrey,
+      7px 7px 1px 1px black;
     }
 
-    .line{
+    .line {
       background-color: black;
       margin-top: 150px;
       margin-left: 3px;
@@ -93,17 +91,9 @@ import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
   ]
 })
 export class BookComponent {
-  constructor(private sanitizer: DomSanitizer) {
-
-  }
-
   @Input()
   book: Book;
 
   @Input()
   rowNumber: number;
-
-  getSafeUrl(image: string): SafeResourceUrl {
-    return this.sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64, ' + image);
-  }
 }

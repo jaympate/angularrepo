@@ -5,6 +5,7 @@ import {TranslateModule} from '@ngx-translate/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {DataModule} from '../data/data.module';
 import {BookComponent} from './book.component';
+import {SafeBase64Image} from './safe.image';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import {BookComponent} from './book.component';
   ],
   declarations: [
     BookComponent,
-    BooksComponent
+    BooksComponent,
+    SafeBase64Image
   ]
 })
 export class BookModule {
