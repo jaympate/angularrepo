@@ -16,12 +16,12 @@ import {compare} from '../data/compare';
         <table class="table table-striped table-responsive">
           <thead class="thead-dark">
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">{{'book.cover' | translate}}</th>
-            <th scope="col" sortable="title" (sort)="onSort($event)">{{'book.title' | translate}}</th>
-            <th scope="col" sortable="authors" (sort)="onSort($event)">{{'book.authors' | translate}}</th>
-            <th scope="col" sortable="yearRead" (sort)="onSort($event)">{{'book.year.read' | translate}}</th>
-<!--            <th scope="col" sortable="rating" (sort)="onSort($event)">{{'book.rating' | translate}}</th>-->
+            <th style="width: 10%" scope="col">#</th>
+            <th style="width: 15%" scope="col">{{'book.cover' | translate}}</th>
+            <th style="width: 35%" scope="col" sortable="title" (sort)="onSort($event)">{{'book.title' | translate}}</th>
+            <th style="width: 15%" scope="col" sortable="authors" (sort)="onSort($event)">{{'book.authors' | translate}}</th>
+            <th style="width: 15%" scope="col" sortable="yearRead" (sort)="onSort($event)">{{'book.year.read' | translate}}</th>
+            <th style="width: 10%" scope="col" sortable="rating" (sort)="onSort($event)">{{'book.rating' | translate}}</th>
           </tr>
           </thead>
           <tbody>

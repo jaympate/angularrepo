@@ -70,5 +70,6 @@
   "certificate.issueDate": "Date d'émission",
   "certificate.organization": "L'organisation",
   "certificate.type": "Type",
-  "book.cover": "Couverture"
+  "book.cover": "Couverture",
+  "book.rating": "Ma notation"
 }

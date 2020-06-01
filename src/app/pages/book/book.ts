@@ -4,4 +4,5 @@ export interface Book {
   authors: string;
   yearRead: number;
   base64image: string;
+  rating: number;
 }

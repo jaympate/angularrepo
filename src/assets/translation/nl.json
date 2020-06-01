@@ -70,5 +70,6 @@
   "certificate.issueDate": "Uitgiftedatum",
   "certificate.organization": "Organisatie",
   "certificate.type": "Type",
-  "book.cover": "Omslag"
+  "book.cover": "Omslag",
+  "book.rating": "Mijn beoordeling"
 }
