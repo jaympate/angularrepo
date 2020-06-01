@@ -69,5 +69,6 @@
   "certificate.name": "Nom",
   "certificate.issueDate": "Date d'émission",
   "certificate.organization": "L'organisation",
-  "certificate.type": "Type"
+  "certificate.type": "Type",
+  "book.cover": "Couverture"
 }
