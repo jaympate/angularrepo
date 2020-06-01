@@ -9,7 +9,7 @@ import {Book} from './book';
     <td>
       <div class="img-wrapper">
         <div class="book-cover-line"></div>
-        <img class="img-book" [src]="book.base64image | safeBase64Image" alt="Book cover of {{book.title}}">
+        <img loading=lazy class="img-book" [src]="book.base64image | safeBase64Image" alt="Book cover of {{book.title}}">
       </div>
     </td>
     <td>
