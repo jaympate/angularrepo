@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookRatingComponent on init shows the stars in the right order, when the rating is in between 0 and 5 1`] = `
+<div
+  class="book-rating"
+  data-jest="stars"
+>
+  
+  <span
+    class="fa fa-star checked"
+    data-jest="full star"
+  />
+  <span
+    class="fa fa-star checked"
+    data-jest="full star"
+  />
+  <span
+    class="fa fa-star checked"
+    data-jest="full star"
+  />
+  
+  <span
+    class="fa fa-star-half-empty"
+    data-jest="half star"
+  />
+  
+  <span
+    class="fa fa-star-o"
+    data-jest="empty star"
+  />
+</div>
+`;
