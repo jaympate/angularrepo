@@ -4,9 +4,9 @@ import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
   selector: 'book-rating',
   template: `
     <div class="book-rating">
-      <span *ngFor="let n of fullStars(rating)" class="fa fa-star checked"></span>
-      <span *ngIf="hasHalfStar(rating)" class="fa fa-star-half-empty"></span>
-      <span *ngFor="let n of emptyStars(rating)" class="fa fa-star-o"></span>
+      <span *ngFor="let fullStar of fullStars" class="fa fa-star checked"></span>
+      <span *ngIf="hasAnHalfStar" class="fa fa-star-half-empty"></span>
+      <span *ngFor="let emptyStar of emptyStars" class="fa fa-star-o"></span>
     </div>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -14,32 +14,35 @@ import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
     .fa-star, .fa-star-half-empty, .fa-star-o {
       color: orange;
     }
-    .book-rating{
+
+    .book-rating {
       min-width: 100px;
     }
   `]
 })
 export class BookRatingComponent {
+  private readonly MAX_AMOUNT_OF_STARS = 5;
+
   @Input()
   rating: number;
 
-  private static amountOfFullStars(rating: number) {
-    return Math.floor(rating);
+  private get amountOfFullStars() {
+    return Math.floor(this.rating);
   }
 
-  private static amountOfEmptyStars(rating: number) {
-    return 5 - Math.ceil(rating);
+  private get amountOfEmptyStars() {
+    return this.MAX_AMOUNT_OF_STARS - Math.ceil(this.rating);
   }
 
-  fullStars(rating: number) {
-    return Array(BookRatingComponent.amountOfFullStars(rating));
+  get fullStars() {
+    return Array(this.amountOfFullStars);
   }
 
-  emptyStars(rating: number) {
-    return Array(BookRatingComponent.amountOfEmptyStars(rating));
+  get emptyStars() {
+    return Array(this.amountOfEmptyStars);
   }
 
-  hasHalfStar(rating: number) {
-    return rating % 1 !== 0;
+  get hasAnHalfStar() {
+    return this.rating % 1 !== 0;
   }
 }
