@@ -16,56 +16,94 @@ describe('BookRatingComponent', () => {
     component = fixture.componentInstance;
   });
 
-  describe('when the rating n has no remainder', () => {
-    const n = 3;
+  describe('when the rating has no remainder', () => {
+    it('shows five empty stars when the rating is zero', () => {
+      component.rating = 0;
+      fixture.detectChanges();
+
+      expect(getEmptyStars().length).toEqual(5);
+    });
+
+    it('shows zero empty stars when the rating is five', () => {
+      component.rating = 5;
+      fixture.detectChanges();
+
+      expect(getEmptyStars().length).toEqual(0);
+    });
+
+    it('shows "five minus rating" empty stars', () => {
+      component.rating = 3;
+
+      fixture.detectChanges();
+
+      expect(getEmptyStars().length).toEqual(2);
+    });
+
+    it('shows five full stars when the rating is five', () => {
+      component.rating = 5;
+      fixture.detectChanges();
+
+      expect(getFullStars().length).toEqual(5);
+    });
+
+    it('shows zero full stars when the rating is zero', () => {
+      component.rating = 0;
+      fixture.detectChanges();
+
+      expect(getFullStars().length).toEqual(0);
+    });
+
+    it('shows "rating" full stars', () => {
+      component.rating = 3;
+      fixture.detectChanges();
+
+      expect(getFullStars().length).toEqual(3);
+    });
 
     it('shows no half star', () => {
-      component.rating = n;
+      component.rating = 3;
       fixture.detectChanges();
 
-      expect(fixture.nativeElement.querySelector('[data-jest="half star"]')).toBeNull();
-    });
-
-    it('shows 5-n empty stars', () => {
-      component.rating = n;
-
-      fixture.detectChanges();
-
-      expect(fixture.nativeElement.querySelectorAll('[data-jest="empty star"]').length).toEqual(2);
-    });
-
-    it('shows n full stars', () => {
-      component.rating = n;
-      fixture.detectChanges();
-
-      expect(fixture.nativeElement.querySelectorAll('[data-jest="full star"]').length).toEqual(3);
+      expect(getHalfStar()).toBeNull();
     });
   });
 
   describe('when the rating has a remainder', () => {
-    const n = 2.5;
+    const ratingWithRemainder = 2.5;
 
     it('shows a half star', () => {
-      component.rating = n;
+      component.rating = ratingWithRemainder;
 
       fixture.detectChanges();
 
-      expect(fixture.nativeElement.querySelector('[data-jest="half star"]')).not.toBeNull();
+      expect(getHalfStar()).not.toBeNull();
     });
 
-    it('shows 5 - (n + 0.5) empty stars', () => {
-      component.rating = n;
+    it('shows 5 - (ratingWithRemainder + 0.5) empty stars', () => {
+      component.rating = ratingWithRemainder;
 
       fixture.detectChanges();
 
-      expect(fixture.nativeElement.querySelectorAll('[data-jest="empty star"]').length).toEqual(2);
+      expect(getEmptyStars().length).toEqual(2);
     });
 
-    it('shows n - 0.5 full stars', () => {
-      component.rating = n;
+    it('shows ratingWithRemainder - 0.5 full stars', () => {
+      component.rating = ratingWithRemainder;
       fixture.detectChanges();
 
-      expect(fixture.nativeElement.querySelectorAll('[data-jest="full star"]').length).toEqual(2);
+      expect(getFullStars().length).toEqual(2);
     });
   });
+
+  function getEmptyStars(): HTMLSpanElement[] {
+    return fixture.nativeElement.querySelectorAll('[data-jest="empty star"]');
+  }
+
+  function getFullStars(): HTMLSpanElement[] {
+    return fixture.nativeElement.querySelectorAll('[data-jest="full star"]');
+  }
+
+  function getHalfStar(): HTMLSpanElement {
+    return fixture.nativeElement.querySelector('[data-jest="half star"]');
+  }
 });
