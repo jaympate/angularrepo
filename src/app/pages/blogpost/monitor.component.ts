@@ -5,7 +5,7 @@ import {ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild} from '
   template: `
     <div class="monitor" #monitor (scroll)="marginTop = monitor.scrollTop">
       <a href="{{url}}">
-        <img class="blogpost" [src]="image | safeBase64Image" alt="Book cover of {{title}}"/>
+        <img class="blogpost" [src]="image | safeBase64Image" alt="Preview of {{title}}"/>
         <img class="blogpost-view" src="assets/images/eye.png" [ngStyle]="{'top': marginTop + 'px'}"/>
       </a>
     </div>
