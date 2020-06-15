@@ -72,5 +72,6 @@
   "certificate.organization": "Organisation",
   "certificate.type": "Type",
   "book.cover": "Cover",
-  "book.rating": "My rating"
+  "book.rating": "My rating",
+  "article.preview": "Preview"
 }

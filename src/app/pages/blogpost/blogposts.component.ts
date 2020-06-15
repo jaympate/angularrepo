@@ -17,6 +17,7 @@ import {compare} from '../data/compare';
           <thead class="thead-dark">
           <tr>
             <th scope="col">#</th>
+            <th scope="col">{{'article.preview' | translate}}</th>
             <th scope="col" sortable="publicationDate" (sort)="onSort($event)">{{'blogpost.publicationDate' | translate}}</th>
             <th scope="col" sortable="title" (sort)="onSort($event)">{{'blogpost.title' | translate}}</th>
             <th scope="col" sortable="category" (sort)="onSort($event)">{{'blogpost.category' | translate}}</th>

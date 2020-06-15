@@ -5,20 +5,20 @@ import {TranslateModule} from '@ngx-translate/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {DataModule} from '../data/data.module';
 import {BookComponent} from './book.component';
-import {SafeBase64Image} from './safe.base64.image';
 import {BookRatingComponent} from './book.rating.component';
+import {ImageModule} from '../../common/image.module';
 
 @NgModule({
   imports: [
     CommonModule,
     TranslateModule,
     NgbModule,
-    DataModule
+    DataModule,
+    ImageModule
   ],
   declarations: [
     BookComponent,
     BooksComponent,
-    SafeBase64Image,
     BookRatingComponent
   ]
 })

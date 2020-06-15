@@ -9,6 +9,7 @@ export class SafeBase64Image implements PipeTransform {
   constructor(protected sanitizer: DomSanitizer) {}
 
   public transform(image: any): SafeResourceUrl {
-    return this.sanitizer.bypassSecurityTrustResourceUrl( 'data:image/jpg;base64, ' + image);
+    return this.sanitizer.bypassSecurityTrustResourceUrl(image);
+    // "'data:image/jpg;base64, ' + /**/"
   }
 }

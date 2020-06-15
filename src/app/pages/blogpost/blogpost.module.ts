@@ -6,6 +6,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {DataModule} from '../data/data.module';
 import {DateModule} from '../../common/date.module';
 import {BlogpostComponent} from './blogpost.component';
+import {ImageModule} from '../../common/image.module';
+import {MonitorComponent} from './monitor.component';
 
 @NgModule({
   imports: [
@@ -13,11 +15,13 @@ import {BlogpostComponent} from './blogpost.component';
     TranslateModule,
     NgbModule,
     DataModule,
-    DateModule
+    DateModule,
+    ImageModule
   ],
   declarations: [
     BlogpostComponent,
-    BlogpostsComponent
+    BlogpostsComponent,
+    MonitorComponent
   ]
 })
 export class BlogpostModule {

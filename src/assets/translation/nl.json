@@ -71,5 +71,6 @@
   "certificate.organization": "Organisatie",
   "certificate.type": "Type",
   "book.cover": "Omslag",
-  "book.rating": "Mijn beoordeling"
+  "book.rating": "Mijn beoordeling",
+  "article.preview": "Preview"
 }
