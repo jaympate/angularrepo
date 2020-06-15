@@ -6,10 +6,14 @@ import {Pipe, PipeTransform} from '@angular/core';
 })
 export class SafeBase64Image implements PipeTransform {
 
-  constructor(protected sanitizer: DomSanitizer) {}
+  constructor(protected sanitizer: DomSanitizer) {
+  }
 
-  public transform(image: any): SafeResourceUrl {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(image);
-    // "'data:image/jpg;base64, ' + /**/"
+  public transform(image: string): SafeResourceUrl {
+    if (image.startsWith('data:image/jpg;base64, ')) {
+      return this.sanitizer.bypassSecurityTrustResourceUrl(image);
+    } else {
+      return this.sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64, ' + image);
+    }
   }
 }
