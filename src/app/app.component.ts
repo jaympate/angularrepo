@@ -3,6 +3,8 @@ import {NavigationEnd, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {filter} from 'rxjs/operators';
 
+declare var gtag;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -18,8 +20,8 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     // subscribe to router events and send page views to Google Analytics
     this.routerSubscription = this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe(() => {
-        (window as any).gtag('event', 'page_view', { 'send_to': 'UA-169820783-1' });
+      .subscribe((event: NavigationEnd) => {
+        gtag('config', 'UA-169820783-1', {'page_path': event.urlAfterRedirects});
       });
   }
 
