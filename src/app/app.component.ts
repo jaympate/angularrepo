@@ -3,7 +3,7 @@ import {NavigationEnd, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {filter} from 'rxjs/operators';
 
-declare var gtag;
+declare var gtag: Function;
 
 @Component({
   selector: 'app-root',
