@@ -17,7 +17,8 @@ import {CertificateOverviewComponent} from './pages/certificate/certificate.over
       {path: 'projects', component: ProjectComponent},
       {path: 'blogposts', component: BlogpostsComponent},
       {path: 'books', component: BooksComponent},
-      {path: 'certificates', component: CertificateOverviewComponent}
+      {path: 'certificates', component: CertificateOverviewComponent},
+      {path: '**', redirectTo: ''}
     ])
   ],
   exports: [
