@@ -18,6 +18,9 @@ export class ChangeLanguageButtonComponent {
 
   useLanguage(language: string): void {
     this.languageService.updateCurrentLanguage(language);
-    gtag('event', 'click', {'event_category': 'language_change', 'event_label': language});
+    gtag('event', 'click', {
+      'event_category': 'language_change',
+      'event_label': language
+    });
   }
 }
