@@ -25,7 +25,11 @@ import {Component} from '@angular/core';
                 </a>
               </li>
               <li>
-                <a href="https://gitlab.com/djFooFoo"><i class="fa fa-gitlab"></i>
+                <a href="https://gitlab.com/dieterj"><i class="fa fa-gitlab"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/djFooFoo"><i class="fa fa-github"></i>
                 </a>
               </li>
               <li>
