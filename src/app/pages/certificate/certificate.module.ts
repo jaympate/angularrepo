@@ -7,17 +7,8 @@ import {DateModule} from '../../common/date.module';
 import {CertificateOverviewComponent} from './certificate.overview.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    TranslateModule,
-    NgbModule,
-    DataModule,
-    DateModule
-  ],
-  declarations: [
-    CertificateOverviewComponent
-  ]
+  imports: [CommonModule, TranslateModule, NgbModule, DataModule, DateModule],
+  declarations: [CertificateOverviewComponent]
 })
 export class CertificateModule {
-
 }

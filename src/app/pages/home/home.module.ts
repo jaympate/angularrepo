@@ -5,14 +5,8 @@ import {CommonModule} from '@angular/common';
 import {AppRoutingModule} from '../../app-routing.module';
 
 @NgModule({
-  imports: [
-    TranslationModule,
-    CommonModule,
-    AppRoutingModule
-  ],
-  declarations: [
-    HomeComponent
-  ]
+  imports: [TranslationModule, CommonModule, AppRoutingModule],
+  declarations: [HomeComponent]
 })
 export class HomeModule {
 }

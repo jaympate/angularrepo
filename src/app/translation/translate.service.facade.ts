@@ -3,7 +3,6 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {distinctUntilChanged} from 'rxjs/operators';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -28,7 +27,8 @@ export class TranslateServiceFacade {
   }
 
   getCurrentLanguage$(): Observable<string> {
-    return this.translateService.stream('current.language')
+    return this.translateService
+      .stream('current.language')
       .pipe(distinctUntilChanged());
   }
 

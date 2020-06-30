@@ -5,11 +5,10 @@ import {Pipe, PipeTransform} from '@angular/core';
   name: 'safeBase64Image'
 })
 export class SafeBase64Image implements PipeTransform {
-
   constructor(protected sanitizer: DomSanitizer) {
   }
 
   public transform(image: string): SafeResourceUrl {
-      return this.sanitizer.bypassSecurityTrustResourceUrl(image);
+    return this.sanitizer.bypassSecurityTrustResourceUrl(image);
   }
 }

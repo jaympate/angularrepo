@@ -11,23 +11,34 @@ import {compare} from '../data/compare';
   selector: 'my-books',
   template: `
     <div class="container pt-4 pb-4">
-      <h1>{{'website.books' | translate}}</h1>
+      <h1>{{ 'website.books' | translate }}</h1>
       <ng-container *ngIf="books$ | async as books">
         <table class="table table-striped table-responsive">
           <thead class="thead-dark">
           <tr>
             <th scope="col">#</th>
-            <th scope="col">{{'book.cover' | translate}}</th>
-            <th scope="col" sortable="title" (sort)="onSort($event)">{{'book.title' | translate}}</th>
-            <th scope="col" sortable="authors" (sort)="onSort($event)">{{'book.authors' | translate}}</th>
-            <th scope="col" sortable="yearRead" (sort)="onSort($event)">{{'book.year.read' | translate}}</th>
-            <th scope="col" sortable="rating" (sort)="onSort($event)">{{'book.rating' | translate}}</th>
+            <th scope="col">{{ 'book.cover' | translate }}</th>
+            <th scope="col" sortable="title" (sort)="onSort($event)">
+              {{ 'book.title' | translate }}
+            </th>
+            <th scope="col" sortable="authors" (sort)="onSort($event)">
+              {{ 'book.authors' | translate }}
+            </th>
+            <th scope="col" sortable="yearRead" (sort)="onSort($event)">
+              {{ 'book.year.read' | translate }}
+            </th>
+            <th scope="col" sortable="rating" (sort)="onSort($event)">
+              {{ 'book.rating' | translate }}
+            </th>
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let book of books; index as zeroBasedRowNumber" book-row
-              [book]="book"
-              [rowNumber]="zeroBasedRowNumber+1"></tr>
+          <tr
+            *ngFor="let book of books; index as zeroBasedRowNumber"
+            book-row
+            [book]="book"
+            [rowNumber]="zeroBasedRowNumber + 1"
+          ></tr>
           </tbody>
         </table>
       </ng-container>
@@ -36,13 +47,13 @@ import {compare} from '../data/compare';
   styles: [
       `
       .asc::before {
-        content: "\\25be";
+        content: '\\25be';
         float: right;
         color: gray;
       }
 
       .desc::before {
-        content: "\\25b4";
+        content: '\\25b4';
         float: right;
         color: gray;
       }
@@ -56,30 +67,30 @@ export class BooksComponent implements OnInit {
   @ViewChildren(SortableHeaderDirective)
   sortableHeaderDirectives: QueryList<SortableHeaderDirective>;
 
-  private sortEventBehaviorSubject = new BehaviorSubject<SortEvent>(SortEvent.unsortedEvent());
+  private sortEventBehaviorSubject = new BehaviorSubject<SortEvent>(
+    SortEvent.unsortedEvent()
+  );
 
   constructor(private bookService: BookService) {
-
   }
 
   ngOnInit(): void {
     const books$ = this.bookService.getBooks$();
 
-    const sortEventObservable$ = this.sortEventBehaviorSubject.asObservable().pipe(
-      tap(sortEvent => this.resetHeadersToUnsorted(sortEvent))
-    );
+    const sortEventObservable$ = this.sortEventBehaviorSubject
+      .asObservable()
+      .pipe(tap((sortEvent) => this.resetHeadersToUnsorted(sortEvent)));
 
-    this.books$ = combineLatest([books$, sortEventObservable$])
-      .pipe(
-        map(([books, sortEvent]) => this.sortBooks(books, sortEvent))
-      );
+    this.books$ = combineLatest([books$, sortEventObservable$]).pipe(
+      map(([books, sortEvent]) => this.sortBooks(books, sortEvent))
+    );
   }
 
   private resetHeadersToUnsorted(sortEvent: SortEvent): void {
     if (!!this.sortableHeaderDirectives) {
       this.sortableHeaderDirectives
-        .filter(header => !sortEvent.isEqualTo(header.sortable))
-        .forEach(header => header.clearDirection());
+        .filter((header) => !sortEvent.isEqualTo(header.sortable))
+        .forEach((header) => header.clearDirection());
     }
   }
 
@@ -94,7 +105,10 @@ export class BooksComponent implements OnInit {
     return this.sortBooksAccordingToDirectionOfSortEvent(books, sortEvent);
   }
 
-  private sortBooksAccordingToDirectionOfSortEvent(books: Book[], sortEvent: SortEvent): Book[] {
+  private sortBooksAccordingToDirectionOfSortEvent(
+    books: Book[],
+    sortEvent: SortEvent
+  ): Book[] {
     return [...books].sort((book1, book2) => {
       const sortablePropertyName = sortEvent.sortablePropertyName;
 

@@ -8,13 +8,11 @@ export class DateLocaleFilter implements PipeTransform {
   }
 
   private static formatLocalDate(date: Date, dateFormat: string) {
-    return DateLocaleFilter.getLocaleDate(date)
-      .format(dateFormat);
+    return DateLocaleFilter.getLocaleDate(date).format(dateFormat);
   }
 
   private static getLocaleDate(value: Date) {
-    return moment.utc(value)
-      .local();
+    return moment.utc(value).local();
   }
 
   transform(date: Date, dateFormat: string): any {

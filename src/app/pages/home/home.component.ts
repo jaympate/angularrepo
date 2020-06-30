@@ -8,8 +8,12 @@ import moment from 'moment';
       <div class="row d-flex justify-content-center">
         <div class="home">
           <p class="website">...</p>
-          <p class="lead introductionMessage">{{'website.introduction.message' | translate}}</p>
-          <p class="detailsMessage">{{'website.details.message' | translate:param}}</p>
+          <p class="lead introductionMessage">
+            {{ 'website.introduction.message' | translate }}
+          </p>
+          <p class="detailsMessage">
+            {{ 'website.details.message' | translate: param }}
+          </p>
         </div>
       </div>
     </div>

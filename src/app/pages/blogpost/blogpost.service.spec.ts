@@ -26,13 +26,13 @@ describe('BlogpostService', () => {
         BlogpostService,
         {
           provide: HttpClient,
-          useValue: { get },
+          useValue: {get}
         },
         {
           provide: TranslateServiceFacade,
-          useValue: { getTranslationKnowingTheyAreLoaded, getCurrentLanguage$ },
-        },
-      ],
+          useValue: {getTranslationKnowingTheyAreLoaded, getCurrentLanguage$}
+        }
+      ]
     });
   });
 
@@ -45,7 +45,7 @@ describe('BlogpostService', () => {
         httpClient.get
       ).toHaveBeenCalledWith(
         'https://dj-website-backend.herokuapp.com/api/blogposts',
-        { headers: expect.any(HttpHeaders) }
+        {headers: expect.any(HttpHeaders)}
       );
     });
   });
@@ -133,7 +133,7 @@ describe('BlogpostService', () => {
           .title('my backend blogpost')
           .publicationDate(new Date('2020-02-15'))
           .category('backend')
-          .build(),
+          .build()
       ]);
 
       currentLanguage = 'nl';

@@ -11,22 +11,35 @@ import {compare} from '../data/compare';
   selector: 'my-blogposts',
   template: `
     <div class="container pt-4 pb-4">
-      <h1>{{'website.blogposts' | translate}}</h1>
+      <h1>{{ 'website.blogposts' | translate }}</h1>
       <ng-container *ngIf="blogposts$ | async as blogposts">
         <table class="table table-striped table-responsive">
           <thead class="thead-dark">
           <tr>
             <th scope="col">#</th>
-            <th scope="col">{{'article.preview' | translate}}</th>
-            <th scope="col" sortable="publicationDate" (sort)="onSort($event)">{{'blogpost.publicationDate' | translate}}</th>
-            <th scope="col" sortable="title" (sort)="onSort($event)">{{'blogpost.title' | translate}}</th>
-            <th scope="col" sortable="category" (sort)="onSort($event)">{{'blogpost.category' | translate}}</th>
+            <th scope="col">{{ 'article.preview' | translate }}</th>
+            <th
+              scope="col"
+              sortable="publicationDate"
+              (sort)="onSort($event)"
+            >
+              {{ 'blogpost.publicationDate' | translate }}
+            </th>
+            <th scope="col" sortable="title" (sort)="onSort($event)">
+              {{ 'blogpost.title' | translate }}
+            </th>
+            <th scope="col" sortable="category" (sort)="onSort($event)">
+              {{ 'blogpost.category' | translate }}
+            </th>
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let blogpost of blogposts; index as zeroBasedRowNumber" blogpost-row
-              [blogpost]="blogpost"
-              [rowNumber]="zeroBasedRowNumber+1"></tr>
+          <tr
+            *ngFor="let blogpost of blogposts; index as zeroBasedRowNumber"
+            blogpost-row
+            [blogpost]="blogpost"
+            [rowNumber]="zeroBasedRowNumber + 1"
+          ></tr>
           </tbody>
         </table>
       </ng-container>
@@ -35,13 +48,13 @@ import {compare} from '../data/compare';
   styles: [
       `
       .asc::before {
-        content: "\\25be";
+        content: '\\25be';
         float: right;
         color: gray;
       }
 
       .desc::before {
-        content: "\\25b4";
+        content: '\\25b4';
         float: right;
         color: gray;
       }
@@ -55,30 +68,30 @@ export class BlogpostsComponent implements OnInit {
   @ViewChildren(SortableHeaderDirective)
   sortableHeaderDirectives: QueryList<SortableHeaderDirective>;
 
-  private sortEventBehaviorSubject = new BehaviorSubject<SortEvent>(SortEvent.unsortedEvent());
+  private sortEventBehaviorSubject = new BehaviorSubject<SortEvent>(
+    SortEvent.unsortedEvent()
+  );
 
   constructor(private blogpostService: BlogpostService) {
-
   }
 
   ngOnInit(): void {
     const blogposts$ = this.blogpostService.getBlogposts$();
 
-    const sortEventObservable$ = this.sortEventBehaviorSubject.asObservable().pipe(
-      tap(sortEvent => this.resetHeadersToUnsorted(sortEvent))
-    );
+    const sortEventObservable$ = this.sortEventBehaviorSubject
+      .asObservable()
+      .pipe(tap((sortEvent) => this.resetHeadersToUnsorted(sortEvent)));
 
-    this.blogposts$ = combineLatest([blogposts$, sortEventObservable$])
-      .pipe(
-        map(([blogposts, sortEvent]) => this.sortBlogposts(blogposts, sortEvent))
-      );
+    this.blogposts$ = combineLatest([blogposts$, sortEventObservable$]).pipe(
+      map(([blogposts, sortEvent]) => this.sortBlogposts(blogposts, sortEvent))
+    );
   }
 
   private resetHeadersToUnsorted(sortEvent: SortEvent): void {
     if (!!this.sortableHeaderDirectives) {
       this.sortableHeaderDirectives
-        .filter(header => !sortEvent.isEqualTo(header.sortable))
-        .forEach(header => header.clearDirection());
+        .filter((header) => !sortEvent.isEqualTo(header.sortable))
+        .forEach((header) => header.clearDirection());
     }
   }
 
@@ -90,10 +103,16 @@ export class BlogpostsComponent implements OnInit {
     if (sortEvent.isUnsorted()) {
       return [...blogposts];
     }
-    return this.sortBlogpostsAccordingToDirectionOfSortEvent(blogposts, sortEvent);
+    return this.sortBlogpostsAccordingToDirectionOfSortEvent(
+      blogposts,
+      sortEvent
+    );
   }
 
-  private sortBlogpostsAccordingToDirectionOfSortEvent(blogposts: Blogpost[], sortEvent: SortEvent): Blogpost[] {
+  private sortBlogpostsAccordingToDirectionOfSortEvent(
+    blogposts: Blogpost[],
+    sortEvent: SortEvent
+  ): Blogpost[] {
     return [...blogposts].sort((blogpost1, blogpost2) => {
       const sortablePropertyName = sortEvent.sortablePropertyName;
 

@@ -13,22 +13,27 @@ export class CertificateService {
   private readonly translatedCertificates$: Observable<Certificate[]>;
   private readonly baseUrl = `https://dj-website-backend.herokuapp.com/api/certificates`;
 
-  constructor(private http: HttpClient, private translateService: TranslateServiceFacade) {
+  constructor(
+    private http: HttpClient,
+    private translateService: TranslateServiceFacade
+  ) {
     const currentLanguage$ = translateService.getCurrentLanguage$();
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': 'Basic YWRtaW46d2FjaHR3b29yZFZvb3JCb2VrZW4='
+        Authorization: 'Basic YWRtaW46d2FjaHR3b29yZFZvb3JCb2VrZW4='
       })
     };
     const certificates$: Observable<Certificate[]> = this.http.get<Certificate[]>(this.baseUrl, httpOptions);
 
-    this.translatedCertificates$ = combineLatest([certificates$, currentLanguage$])
-      .pipe(
-        map(([certificates]) => certificates),
-        tap(certificates => this.cacheCertificates(certificates)),
-        map(() => this.translateCertificates())
-      );
+    this.translatedCertificates$ = combineLatest([
+      certificates$,
+      currentLanguage$
+    ]).pipe(
+      map(([certificates]) => certificates),
+      tap((certificates) => this.cacheCertificates(certificates)),
+      map(() => this.translateCertificates())
+    );
   }
 
   getCertificates$(): Observable<Certificate[]> {
@@ -42,10 +47,11 @@ export class CertificateService {
   }
 
   private translateCertificates(): Certificate[] {
-    return this.untranslatedCertificates.map(certificate =>
-      ({
-        ...certificate,
-        name: this.translateService.getTranslationKnowingTheyAreLoaded(certificate.name)
-      }));
+    return this.untranslatedCertificates.map((certificate) => ({
+      ...certificate,
+      name: this.translateService.getTranslationKnowingTheyAreLoaded(
+        certificate.name
+      )
+    }));
   }
 }

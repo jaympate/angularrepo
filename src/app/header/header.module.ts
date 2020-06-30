@@ -15,16 +15,8 @@ import {AppRoutingModule} from '../app-routing.module';
     HeaderComponent,
     NavOptionsComponent
   ],
-  exports: [
-    HeaderComponent
-  ],
-  imports: [
-    CommonModule,
-    TranslationModule,
-    NgbModule,
-    AppRoutingModule
-  ]
+  exports: [HeaderComponent],
+  imports: [CommonModule, TranslationModule, NgbModule, AppRoutingModule]
 })
 export class HeaderModule {
-
 }

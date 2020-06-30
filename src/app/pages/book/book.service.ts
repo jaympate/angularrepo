@@ -13,23 +13,28 @@ export class BookService {
   private readonly translatedBooks$: Observable<Book[]>;
   private readonly baseUrl = `https://dj-website-backend.herokuapp.com/api/books`;
 
-  constructor(private http: HttpClient, private translateService: TranslateServiceFacade) {
+  constructor(
+    private http: HttpClient,
+    private translateService: TranslateServiceFacade
+  ) {
     const currentLanguage$ = translateService.getCurrentLanguage$();
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': 'Basic YWRtaW46d2FjaHR3b29yZFZvb3JCb2VrZW4='
+        Authorization: 'Basic YWRtaW46d2FjaHR3b29yZFZvb3JCb2VrZW4='
       })
     };
-    const books$: Observable<Book[]> = this.http.get<Book[]>(this.baseUrl, httpOptions);
+    const books$: Observable<Book[]> = this.http.get<Book[]>(
+      this.baseUrl,
+      httpOptions
+    );
 
-    this.translatedBooks$ = combineLatest([books$, currentLanguage$])
-      .pipe(
-        filter( ([, currentLanguage]) => !!currentLanguage),
-        map(([books]) => books),
-        tap(books => this.cacheBooks(books)),
-        map(() => this.translateBooks())
-      );
+    this.translatedBooks$ = combineLatest([books$, currentLanguage$]).pipe(
+      filter(([, currentLanguage]) => !!currentLanguage),
+      map(([books]) => books),
+      tap((books) => this.cacheBooks(books)),
+      map(() => this.translateBooks())
+    );
   }
 
   getBooks$(): Observable<Book[]> {
@@ -43,10 +48,14 @@ export class BookService {
   }
 
   private translateBooks(): Book[] {
-    return this.untranslatedBooks.map(book => ({
+    return this.untranslatedBooks.map((book) => ({
       ...book,
-      title: this.translateService.getTranslationKnowingTheyAreLoaded(book.title),
-      authors: this.translateService.getTranslationKnowingTheyAreLoaded(book.authors)
+      title: this.translateService.getTranslationKnowingTheyAreLoaded(
+        book.title
+      ),
+      authors: this.translateService.getTranslationKnowingTheyAreLoaded(
+        book.authors
+      )
     }));
   }
 }

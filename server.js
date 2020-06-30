@@ -2,16 +2,15 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const compression = require('compression')
+const compression = require('compression');
 
 // Serve only the static files form the dist directory
 app.use(express.static(__dirname + '/dist/website'));
-app.use(compression())
+app.use(compression());
 
-app.route('/sitemap.xml')
-  .get((req, res) => {
-    res.sendFile(path.resolve(path.join(__dirname,'/sitemap.xml')));
-  });
+app.route('/sitemap.xml').get((req, res) => {
+  res.sendFile(path.resolve(path.join(__dirname, '/sitemap.xml')));
+});
 
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname + '/dist/website/index.html'));

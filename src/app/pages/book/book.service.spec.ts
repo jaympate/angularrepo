@@ -26,13 +26,13 @@ describe('BookService', () => {
         BookService,
         {
           provide: HttpClient,
-          useValue: { get },
+          useValue: {get}
         },
         {
           provide: TranslateServiceFacade,
-          useValue: { getTranslationKnowingTheyAreLoaded, getCurrentLanguage$ },
-        },
-      ],
+          useValue: {getTranslationKnowingTheyAreLoaded, getCurrentLanguage$}
+        }
+      ]
     });
   });
 
@@ -45,7 +45,7 @@ describe('BookService', () => {
         httpClient.get
       ).toHaveBeenCalledWith(
         'https://dj-website-backend.herokuapp.com/api/books',
-        { headers: expect.any(HttpHeaders) }
+        {headers: expect.any(HttpHeaders)}
       );
     });
   });
@@ -136,7 +136,7 @@ describe('BookService', () => {
           .authors('jose and aimee')
           .yearRead(2009)
           .isbn(2314313)
-          .build(),
+          .build()
       ]);
 
       currentLanguage = 'nl';

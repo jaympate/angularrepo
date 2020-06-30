@@ -15,35 +15,16 @@ describe('ChangeLanguageButtonComponent', () => {
         {
           provide: LanguageService,
           useValue: {
-            updateCurrentLanguage: updateCurrentLanguage,
-          },
-        },
-      ],
+            updateCurrentLanguage: updateCurrentLanguage
+          }
+        }
+      ]
     });
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ChangeLanguageButtonComponent);
     component = fixture.debugElement.componentInstance;
-  });
-
-  it('should render the button', () => {
-    fixture.componentInstance.language = 'en';
-    fixture.detectChanges();
-
-    expect(fixture).toMatchInlineSnapshot(`
-      <app-change-language-button
-        language={[Function String]}
-        languageService={[Function Object]}
-      >
-        <button
-          class="dropdown-item changeLanguage"
-          data-change-language-button=""
-        >
-          EN
-        </button>
-      </app-change-language-button>
-    `);
   });
 
   it('should update the current language', () => {

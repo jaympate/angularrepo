@@ -29,16 +29,16 @@ describe('BooksComponent', () => {
         SortableHeaderDirective,
         MockComponent(BookComponent),
         TranslatePipeMock,
-        DateLocaleFilter,
+        DateLocaleFilter
       ],
       providers: [
         {
           provide: BookService,
           useValue: {
-            getBooks$: books$,
-          },
-        },
-      ],
+            getBooks$: books$
+          }
+        }
+      ]
     });
   });
 
@@ -51,7 +51,7 @@ describe('BooksComponent', () => {
     it('passes the books from the service to the book row components as input and not sorted', () => {
       const books = [
         Builder<Book>().title('first book').build(),
-        Builder<Book>().title('second book').build(),
+        Builder<Book>().title('second book').build()
       ];
 
       bookSubject.next(books);
@@ -69,7 +69,7 @@ describe('BooksComponent', () => {
       const books = [
         Builder<Book>().build(),
         Builder<Book>().build(),
-        Builder<Book>().build(),
+        Builder<Book>().build()
       ];
 
       bookSubject.next(books);
@@ -89,7 +89,7 @@ describe('BooksComponent', () => {
       const books = [
         Builder<Book>().yearRead(2018).title('the good book').build(),
         Builder<Book>().yearRead(2020).title('the bad book').build(),
-        Builder<Book>().yearRead(2019).title('the ugly book').build(),
+        Builder<Book>().yearRead(2019).title('the ugly book').build()
       ];
 
       bookSubject.next(books);
@@ -178,7 +178,7 @@ describe('BooksComponent', () => {
     });
   });
 
-  function clickSortableColumn(columnName: string, times: number = 1): void {
+  function clickSortableColumn(columnName: string, times = 1): void {
     const sortableColumn: HTMLElement = fixture.nativeElement.querySelector(
       `[sortable="${columnName}"]`
     );

@@ -6,7 +6,6 @@ import {Observable, of} from 'rxjs';
   providedIn: 'root'
 })
 export class CardService {
-
   wellCraftedSoftwareCard: Card = {
     src: '/assets/images/cogs.png',
     alt: 'my.vision.well.crafted.software.alt',

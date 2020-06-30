@@ -5,14 +5,8 @@ import {TranslationModule} from '../../translation/translation.module';
 import {CommonModule} from '@angular/common';
 
 @NgModule({
-  imports: [
-    TranslationModule,
-    CommonModule
-  ],
-  declarations: [
-    SoftwareCraftsmanshipCardComponent,
-    VisionComponent
-  ]
+  imports: [TranslationModule, CommonModule],
+  declarations: [SoftwareCraftsmanshipCardComponent, VisionComponent]
 })
 export class VisionModule {
 }

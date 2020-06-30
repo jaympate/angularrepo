@@ -21,9 +21,7 @@ import {CertificateOverviewComponent} from './pages/certificate/certificate.over
       {path: '**', redirectTo: ''}
     ])
   ],
-  exports: [
-    RouterModule
-  ]
+  exports: [RouterModule]
 })
 export class AppRoutingModule {
 }

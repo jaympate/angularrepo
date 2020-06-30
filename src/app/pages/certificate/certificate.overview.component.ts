@@ -7,33 +7,50 @@ import {Certificate} from './certificate';
   selector: 'certificate-overview',
   template: `
     <div class="container pt-4 pb-4">
-      <h1>{{'website.certificates' | translate}}</h1>
+      <h1>{{ 'website.certificates' | translate }}</h1>
       <ng-container *ngIf="certificates$ | async as certificates">
         <table class="table table-striped table-responsive">
           <thead class="thead-dark">
           <tr>
             <th scope="col">#</th>
-            <th scope="col">{{'certificate.name' | translate}}</th>
-            <th scope="col">{{'certificate.organization' | translate}}</th>
-            <th scope="col">{{'certificate.issueDate' | translate}}</th>
-            <th scope="col">{{'certificate.type' | translate}}</th>
+            <th scope="col">{{ 'certificate.name' | translate }}</th>
+            <th scope="col">{{ 'certificate.organization' | translate }}</th>
+            <th scope="col">{{ 'certificate.issueDate' | translate }}</th>
+            <th scope="col">{{ 'certificate.type' | translate }}</th>
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let certificate of certificates ; index as i">
+          <tr *ngFor="let certificate of certificates; index as i">
             <th scope="row">{{ i + 1 }}</th>
             <td>
-              <ngb-highlight class="certificate-name" [result]="certificate.name"></ngb-highlight>
-              <a class="ml-1" target="_blank" href="{{certificate.credentialUrl}}"><i class="fa fa-external-link"></i></a>
+              <ngb-highlight
+                class="certificate-name"
+                [result]="certificate.name"
+              ></ngb-highlight>
+              <a
+                class="ml-1"
+                target="_blank"
+                href="{{ certificate.credentialUrl }}"
+              ><i class="fa fa-external-link"></i
+              ></a>
             </td>
             <td>
-              <ngb-highlight class="certificate-organization" [result]="certificate.organization"></ngb-highlight>
+              <ngb-highlight
+                class="certificate-organization"
+                [result]="certificate.organization"
+              ></ngb-highlight>
             </td>
             <td>
-              <ngb-highlight class="certificate-issue-date" [result]="certificate.issueDate | dateLocale : 'MMMM YYYY'"></ngb-highlight>
+              <ngb-highlight
+                class="certificate-issue-date"
+                [result]="certificate.issueDate | dateLocale: 'MMMM YYYY'"
+              ></ngb-highlight>
             </td>
             <td>
-              <ngb-highlight class="certificate-type" [result]="certificate.certificateType"></ngb-highlight>
+              <ngb-highlight
+                class="certificate-type"
+                [result]="certificate.certificateType"
+              ></ngb-highlight>
             </td>
           </tr>
           </tbody>
@@ -41,18 +58,18 @@ import {Certificate} from './certificate';
       </ng-container>
     </div>
   `,
-  styles: [`
-    .certificate-type {
-      text-transform: capitalize;
-    }
-  `
+  styles: [
+      `
+      .certificate-type {
+        text-transform: capitalize;
+      }
+    `
   ]
 })
 export class CertificateOverviewComponent implements OnInit {
   certificates$: Observable<Certificate[]>;
 
   constructor(private certificateService: CertificateService) {
-
   }
 
   ngOnInit(): void {

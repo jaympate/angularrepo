@@ -6,10 +6,7 @@ import {CommonModule} from '@angular/common';
 import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    TranslateModule
-  ],
+  imports: [CommonModule, TranslateModule],
   declarations: [
     ProjectComponent,
     ProjectCardComponent,
@@ -17,5 +14,4 @@ import {TranslateModule} from '@ngx-translate/core';
   ]
 })
 export class ProjectModule {
-
 }

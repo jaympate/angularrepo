@@ -1,7 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {LanguageService} from '../../../translation/language.service';
 
-declare var gtag: Function;
+declare let gtag: any;
 
 @Component({
   selector: 'app-change-language-button',
@@ -9,7 +9,6 @@ declare var gtag: Function;
   templateUrl: './change-language-button.component.html'
 })
 export class ChangeLanguageButtonComponent {
-
   @Input()
   language: string;
 
@@ -19,8 +18,8 @@ export class ChangeLanguageButtonComponent {
   useLanguage(language: string): void {
     this.languageService.updateCurrentLanguage(language);
     gtag('event', 'click', {
-      'event_category': 'language_change',
-      'event_label': language
+      event_category: 'language_change',
+      event_label: language
     });
   }
 }

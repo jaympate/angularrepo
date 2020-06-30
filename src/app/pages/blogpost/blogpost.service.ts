@@ -13,23 +13,31 @@ export class BlogpostService {
   private readonly translatedBlogposts$: Observable<Blogpost[]>;
   private readonly baseUrl = `https://dj-website-backend.herokuapp.com/api/blogposts`;
 
-  constructor(private http: HttpClient, private translateService: TranslateServiceFacade) {
+  constructor(
+    private http: HttpClient,
+    private translateService: TranslateServiceFacade
+  ) {
     const currentLanguage$ = translateService.getCurrentLanguage$();
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': 'Basic YWRtaW46d2FjaHR3b29yZFZvb3JCb2VrZW4='
+        Authorization: 'Basic YWRtaW46d2FjaHR3b29yZFZvb3JCb2VrZW4='
       })
     };
-    const blogposts$: Observable<Blogpost[]> = this.http.get<Blogpost[]>(this.baseUrl, httpOptions);
+    const blogposts$: Observable<Blogpost[]> = this.http.get<Blogpost[]>(
+      this.baseUrl,
+      httpOptions
+    );
 
-    this.translatedBlogposts$ = combineLatest([blogposts$, currentLanguage$])
-      .pipe(
-        filter( ([, currentLanguage]) => !!currentLanguage),
-        map(([blogposts]) => blogposts),
-        tap(blogposts => this.cacheBlogposts(blogposts)),
-        map(() => this.translateBlogposts())
-      );
+    this.translatedBlogposts$ = combineLatest([
+      blogposts$,
+      currentLanguage$
+    ]).pipe(
+      filter(([, currentLanguage]) => !!currentLanguage),
+      map(([blogposts]) => blogposts),
+      tap((blogposts) => this.cacheBlogposts(blogposts)),
+      map(() => this.translateBlogposts())
+    );
   }
 
   getBlogposts$(): Observable<Blogpost[]> {
@@ -43,9 +51,11 @@ export class BlogpostService {
   }
 
   private translateBlogposts(): Blogpost[] {
-    return this.untranslatedBlogposts.map(blogpost => ({
+    return this.untranslatedBlogposts.map((blogpost) => ({
       ...blogpost,
-      title: this.translateService.getTranslationKnowingTheyAreLoaded(blogpost.title)
+      title: this.translateService.getTranslationKnowingTheyAreLoaded(
+        blogpost.title
+      )
     }));
   }
 }

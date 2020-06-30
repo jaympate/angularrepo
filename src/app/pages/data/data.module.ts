@@ -8,26 +8,17 @@ import {NumberToStringPipe} from './no.comma.pipe';
 import {DateModule} from '../../common/date.module';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        TranslateModule,
-        FormsModule,
-        ReactiveFormsModule,
-        NgbModule,
-        DateModule
-    ],
-    declarations: [
-        SortableHeaderDirective,
-        NumberToStringPipe
-    ],
-    exports: [
-        SortableHeaderDirective,
-        NumberToStringPipe
-    ],
-    providers: [
-        DecimalPipe
-    ]
+  imports: [
+    CommonModule,
+    TranslateModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgbModule,
+    DateModule
+  ],
+  declarations: [SortableHeaderDirective, NumberToStringPipe],
+  exports: [SortableHeaderDirective, NumberToStringPipe],
+  providers: [DecimalPipe]
 })
 export class DataModule {
-
 }

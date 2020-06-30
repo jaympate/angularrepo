@@ -6,7 +6,6 @@ import {SortDirection} from './sort.direction';
   selector: 'th[sortable]'
 })
 export class SortableHeaderDirective {
-
   @Input() sortable: string;
   @Input() direction: SortDirection = 'unsorted';
   @Output() sort = new EventEmitter<SortEvent>();
@@ -41,5 +40,3 @@ export class SortableHeaderDirective {
     this.direction = 'unsorted';
   }
 }
-
-

@@ -10,7 +10,7 @@ describe('NavOptionsComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule],
-      declarations: [NavOptionsComponent, TranslatePipeMock],
+      declarations: [NavOptionsComponent, TranslatePipeMock]
     });
   });
 

@@ -11,16 +11,11 @@ import {NgxLocalStorageModule} from 'ngx-localstorage';
       loader: {
         provide: TranslateLoader,
         useFactory: CustomTranslateLoaderFactory,
-        deps: [
-          TranslationService
-        ]
+        deps: [TranslationService]
       }
     })
   ],
-  exports: [
-    TranslateModule
-  ]
+  exports: [TranslateModule]
 })
 export class TranslationModule {
-
 }

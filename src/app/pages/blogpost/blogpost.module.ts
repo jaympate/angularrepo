@@ -18,12 +18,7 @@ import {MonitorComponent} from './monitor.component';
     DateModule,
     ImageModule
   ],
-  declarations: [
-    BlogpostComponent,
-    BlogpostsComponent,
-    MonitorComponent
-  ]
+  declarations: [BlogpostComponent, BlogpostsComponent, MonitorComponent]
 })
 export class BlogpostModule {
-
 }

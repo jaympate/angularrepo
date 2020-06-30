@@ -9,19 +9,8 @@ import {BookRatingComponent} from './book.rating.component';
 import {ImageModule} from '../../common/image.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    TranslateModule,
-    NgbModule,
-    DataModule,
-    ImageModule
-  ],
-  declarations: [
-    BookComponent,
-    BooksComponent,
-    BookRatingComponent
-  ]
+  imports: [CommonModule, TranslateModule, NgbModule, DataModule, ImageModule],
+  declarations: [BookComponent, BooksComponent, BookRatingComponent]
 })
 export class BookModule {
-
 }

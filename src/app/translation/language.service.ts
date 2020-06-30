@@ -11,8 +11,13 @@ export class LanguageService {
   private readonly LANGUAGE_KEY = 'website.locale';
   private currentAndOtherLanguagesBehaviorSubject: BehaviorSubject<Languages>;
 
-  constructor(private translateService: TranslateServiceFacade, private localStorage: LocalStorageService) {
-    const currentLanguage = localStorage.get(this.LANGUAGE_KEY) || this.translateService.getDefaultLanguage();
+  constructor(
+    private translateService: TranslateServiceFacade,
+    private localStorage: LocalStorageService
+  ) {
+    const currentLanguage =
+      localStorage.get(this.LANGUAGE_KEY) ||
+      this.translateService.getDefaultLanguage();
     this.currentAndOtherLanguagesBehaviorSubject = new BehaviorSubject<Languages>(this.getLanguages(currentLanguage));
     this.translateService.use(currentLanguage);
   }
@@ -24,10 +29,15 @@ export class LanguageService {
   updateCurrentLanguage(currentLanguage: string): void {
     this.localStorage.set(this.LANGUAGE_KEY, currentLanguage);
     this.translateService.use(currentLanguage);
-    this.currentAndOtherLanguagesBehaviorSubject.next(this.getLanguages(currentLanguage));
+    this.currentAndOtherLanguagesBehaviorSubject.next(
+      this.getLanguages(currentLanguage)
+    );
   }
 
   private getLanguages(currentLanguage: string): Languages {
-    return Languages.from(currentLanguage, this.translateService.getSupportedLanguages());
+    return Languages.from(
+      currentLanguage,
+      this.translateService.getSupportedLanguages()
+    );
   }
 }

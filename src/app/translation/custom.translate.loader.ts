@@ -3,7 +3,6 @@ import {TranslationService} from './translation.service';
 import {Observable} from 'rxjs';
 import {TranslationKeyValues} from './translation.key.values';
 
-
 export class CustomTranslateLoader implements TranslateLoader {
   private constructor(private translationService: TranslationService) {
   }

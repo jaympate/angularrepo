@@ -189,7 +189,7 @@ describe('BlogpostsComponent', () => {
     });
   });
 
-  function clickSortableColumn(columnName: string, times: number = 1): void {
+  function clickSortableColumn(columnName: string, times = 1): void {
     const sortableColumn: HTMLElement = fixture.nativeElement.querySelector(
       `[sortable="${columnName}"]`
     );
@@ -203,6 +203,8 @@ describe('BlogpostsComponent', () => {
   function getBlogpostRowComponents(): BlogpostComponent[] {
     return fixture.debugElement
       .queryAll(By.directive(BlogpostComponent))
-      .map(blogpostRowComponent => blogpostRowComponent.componentInstance) as BlogpostComponent[];
+      .map(
+        (blogpostRowComponent) => blogpostRowComponent.componentInstance
+      ) as BlogpostComponent[];
   }
 });

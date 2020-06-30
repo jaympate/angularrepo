@@ -14,9 +14,7 @@ import {BookModule} from './pages/book/book.module';
 import {CertificateModule} from './pages/certificate/certificate.module';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -32,9 +30,7 @@ import {CertificateModule} from './pages/certificate/certificate.module';
     FontAwesomeModule
   ],
   exports: [],
-  bootstrap: [
-    AppComponent
-  ]
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }

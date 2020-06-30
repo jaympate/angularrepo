@@ -9,17 +9,24 @@ import {Observable} from 'rxjs';
     <div class="container-fluid pt-4">
       <div class="card text-center">
         <div class="card-header">
-          {{'my.vision.what.to.expect.of.me' | translate}}
+          {{ 'my.vision.what.to.expect.of.me' | translate }}
         </div>
         <div class="card-body">
-          <h5 class="card-title">{{'my.vision.what.is.my.vision' | translate}}</h5>
-          <p class="card-text">{{'my.vision.what.is.my.mission' | translate}}</p>
+          <h5 class="card-title">
+            {{ 'my.vision.what.is.my.vision' | translate }}
+          </h5>
+          <p class="card-text">
+            {{ 'my.vision.what.is.my.mission' | translate }}
+          </p>
         </div>
       </div>
       <div class="software-craftsmanship-values">
         <div class="card-deck">
           <ng-container *ngFor="let card of cards$ | async">
-            <app-software-craftsmanship-card class="card" [card]="card"></app-software-craftsmanship-card>
+            <app-software-craftsmanship-card
+              class="card"
+              [card]="card"
+            ></app-software-craftsmanship-card>
           </ng-container>
         </div>
       </div>

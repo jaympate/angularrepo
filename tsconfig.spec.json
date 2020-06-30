@@ -1,5 +1,5 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "emitDecoratorMetadata": true,
     "outDir": "./out-tsc/spec",
@@ -16,4 +16,3 @@
     "src/**/*.d.ts"
   ]
 }
-

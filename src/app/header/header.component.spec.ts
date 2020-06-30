@@ -16,8 +16,8 @@ describe('HeaderComponent', () => {
       declarations: [
         HeaderComponent,
         MockComponent(LanguageSelectorComponent),
-        MockComponent(NavOptionsComponent),
-      ],
+        MockComponent(NavOptionsComponent)
+      ]
     });
   });
 

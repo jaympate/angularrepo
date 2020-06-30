@@ -5,7 +5,6 @@ import {TranslateServiceFacade} from '../../translation/translate.service.facade
 import {map, tap} from 'rxjs/operators';
 import {Project} from './project';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -13,22 +12,30 @@ export class ProjectService {
   private untranslatedProjects: Project[];
   private readonly translatedProjects$: Observable<Project[]>;
 
-  constructor(private http: HttpClient, private translateService: TranslateServiceFacade) {
+  constructor(
+    private http: HttpClient,
+    private translateService: TranslateServiceFacade
+  ) {
     const currentLanguage$ = translateService.getCurrentLanguage$();
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': 'Basic YWRtaW46d2FjaHR3b29yZFZvb3JCb2VrZW4='
+        Authorization: 'Basic YWRtaW46d2FjaHR3b29yZFZvb3JCb2VrZW4='
       })
     };
-    const projects$: Observable<Project[]> = this.http.get<Project[]>(this.baseUrl, httpOptions);
+    const projects$: Observable<Project[]> = this.http.get<Project[]>(
+      this.baseUrl,
+      httpOptions
+    );
 
-    this.translatedProjects$ = combineLatest([projects$, currentLanguage$])
-      .pipe(
-        map(([projects]) => projects),
-        tap(projects => this.cacheProjects(projects)),
-        map(() => this.translateProjects())
-      );
+    this.translatedProjects$ = combineLatest([
+      projects$,
+      currentLanguage$
+    ]).pipe(
+      map(([projects]) => projects),
+      tap((projects) => this.cacheProjects(projects)),
+      map(() => this.translateProjects())
+    );
   }
 
   private readonly baseUrl = `https://dj-website-backend.herokuapp.com/api/projects`;
@@ -44,13 +51,20 @@ export class ProjectService {
   }
 
   private translateProjects(): Project[] {
-    return this.untranslatedProjects.map(project =>
-      ({
-        ...project,
-        client: this.translateService.getTranslationKnowingTheyAreLoaded(project.client),
-        jobTitle: this.translateService.getTranslationKnowingTheyAreLoaded(project.jobTitle),
-        jobDescription: this.translateService.getTranslationKnowingTheyAreLoaded(project.jobDescription),
-        timeSpan: this.translateService.getTranslationKnowingTheyAreLoaded(project.timeSpan)
-      }));
+    return this.untranslatedProjects.map((project) => ({
+      ...project,
+      client: this.translateService.getTranslationKnowingTheyAreLoaded(
+        project.client
+      ),
+      jobTitle: this.translateService.getTranslationKnowingTheyAreLoaded(
+        project.jobTitle
+      ),
+      jobDescription: this.translateService.getTranslationKnowingTheyAreLoaded(
+        project.jobDescription
+      ),
+      timeSpan: this.translateService.getTranslationKnowingTheyAreLoaded(
+        project.timeSpan
+      )
+    }));
   }
 }

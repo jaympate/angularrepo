@@ -2,16 +2,18 @@ import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {Book} from './book';
 
 @Component({
-  // tslint:disable-next-line:component-selector
   selector: '[book-row]',
   template: `
     <th scope="row">{{ rowNumber }}</th>
     <td>
       <div class="img-wrapper">
         <div class="book-cover-line"></div>
-        <img loading=lazy class="img-book"
-             [src]="'data:image/jpg;base64,' + book.base64image | safeBase64Image"
-             alt="Book cover of {{book.title}}"/>
+        <img
+          loading="lazy"
+          class="img-book"
+          [src]="'data:image/jpg;base64,' + book.base64image | safeBase64Image"
+          alt="Book cover of {{ book.title }}"
+        />
       </div>
     </td>
     <td>
