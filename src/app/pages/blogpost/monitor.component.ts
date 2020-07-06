@@ -7,7 +7,7 @@ import {ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild} from '
       <a href="{{ url }}">
         <img
           class="blogpost"
-          [src]="image | safeBase64Image"
+          [src]="'data:image/jpg;base64,' + image | safeBase64Image"
           alt="Preview of {{ title }}"
         />
         <img
