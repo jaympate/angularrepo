@@ -8,16 +8,18 @@ import {DateModule} from '../../common/date.module';
 import {BlogpostComponent} from './blogpost.component';
 import {ImageModule} from '../../common/image.module';
 import {MonitorComponent} from './monitor.component';
+import {LazyLoadImageModule} from 'ng-lazyload-image';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    TranslateModule,
-    NgbModule,
-    DataModule,
-    DateModule,
-    ImageModule
-  ],
+    imports: [
+        CommonModule,
+        TranslateModule,
+        NgbModule,
+        DataModule,
+        DateModule,
+        ImageModule,
+        LazyLoadImageModule
+    ],
   declarations: [BlogpostComponent, BlogpostsComponent, MonitorComponent]
 })
 export class BlogpostModule {

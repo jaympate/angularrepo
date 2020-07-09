@@ -8,7 +8,8 @@ import {Component} from '@angular/core';
         <div class="col-sm-4 cv-left border-right">
           <div class="container-fluid pt-3">
             <img
-              src="../../../assets/images/dieter.jpg"
+              defaultImage="assets/images/placeholder.png"
+              lazyLoad="assets/images/dieter.jpg"
               class="img-fluid cv-image"
               alt="{{ 'cv.image' | translate }}"
             />

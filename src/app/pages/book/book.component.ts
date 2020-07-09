@@ -9,9 +9,9 @@ import {Book} from './book';
       <div class="img-wrapper">
         <div class="book-cover-line"></div>
         <img
-          loading="lazy"
           class="img-book"
-          [src]="'data:image/jpg;base64,' + book.base64image | safeBase64Image"
+          defaultImage="assets/images/placeholder.png"
+          [lazyLoad]="'data:image/jpg;base64,' + book.base64image"
           alt="Book cover of {{ book.title }}"
         />
       </div>
