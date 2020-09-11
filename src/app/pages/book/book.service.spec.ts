@@ -37,14 +37,14 @@ describe('BookService', () => {
   });
 
   describe('constructor', () => {
-    it('retrieves the books from backend url `https://dj-website-backend.herokuapp.com/api/books`', () => {
+    it('retrieves the books from backend url `http://80.201.59.168:10002/api/books`', () => {
       const httpClient = TestBed.inject(HttpClient);
       bookService = TestBed.inject(BookService);
 
       expect(
         httpClient.get
       ).toHaveBeenCalledWith(
-        'https://dj-website-backend.herokuapp.com/api/books',
+        'http://80.201.59.168:10002/api/books',
         {headers: expect.any(HttpHeaders)}
       );
     });

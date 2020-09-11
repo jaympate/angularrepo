@@ -38,7 +38,7 @@ export class ProjectService {
     );
   }
 
-  private readonly baseUrl = `https://dj-website-backend.herokuapp.com/api/projects`;
+  private readonly baseUrl = `http://80.201.59.168:10002/api/projects`;
 
   getProjects$(): Observable<Project[]> {
     return this.translatedProjects$;

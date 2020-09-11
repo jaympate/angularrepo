@@ -11,7 +11,7 @@ import {filter, map, tap} from 'rxjs/operators';
 export class BookService {
   private untranslatedBooks: Book[];
   private readonly translatedBooks$: Observable<Book[]>;
-  private readonly baseUrl = `https://dj-website-backend.herokuapp.com/api/books`;
+  private readonly baseUrl = `http://80.201.59.168:10002/api/books`;
 
   constructor(
     private http: HttpClient,
