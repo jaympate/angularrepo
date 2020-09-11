@@ -11,7 +11,7 @@ import {filter, map, tap} from 'rxjs/operators';
 export class BlogpostService {
   private untranslatedBlogposts: Blogpost[];
   private readonly translatedBlogposts$: Observable<Blogpost[]>;
-  private readonly baseUrl = `http://80.201.59.168:10002/api/blogposts`;
+  private readonly baseUrl = `https://80.201.59.168:10002/api/blogposts`;
 
   constructor(
     private http: HttpClient,

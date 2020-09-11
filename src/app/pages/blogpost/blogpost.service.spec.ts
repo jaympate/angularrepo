@@ -37,14 +37,14 @@ describe('BlogpostService', () => {
   });
 
   describe('constructor', () => {
-    it('retrieves the blogposts from backend url `http://80.201.59.168:10002/api/blogposts`', () => {
+    it('retrieves the blogposts from backend url `https://80.201.59.168:10002/api/blogposts`', () => {
       const httpClient = TestBed.inject(HttpClient);
       blogpostService = TestBed.inject(BlogpostService);
 
       expect(
         httpClient.get
       ).toHaveBeenCalledWith(
-        'http://80.201.59.168:10002/api/blogposts',
+        'https://80.201.59.168:10002/api/blogposts',
         {headers: expect.any(HttpHeaders)}
       );
     });
