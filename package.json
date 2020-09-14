@@ -4,14 +4,12 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
-    "build": "ng build",
+    "start": "ng serve",
+    "build": "ng build --aot --prod",
     "test": "jest",
     "test-with-coverage": "jest --collect-coverage",
     "test-watch": "jest --watch",
-    "lint": "tsc --noEmit && eslint . --ext ts,json --quiet --fix",
-    "e2e": "ng e2e",
-    "heroku-postbuild": "ng build --aot --prod"
+    "lint": "tsc --noEmit && eslint . --ext ts,json --quiet --fix"
   },
   "private": true,
   "dependencies": {
