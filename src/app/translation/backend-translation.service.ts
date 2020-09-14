@@ -9,7 +9,7 @@ export class BackendTranslationService {
   constructor(private http: HttpClient) {
   }
 
-  private readonly baseUrl = `https://80.201.59.168:10002/api/translations`;
+  private readonly baseUrl = `http://www.dieterjordens.be:10002/api/translations`;
 
   getBackendTranslations$() {
     const httpOptions = {
