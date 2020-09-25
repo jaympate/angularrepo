@@ -15,7 +15,7 @@ export class BackendTranslationService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': 'Basic ZGlldGVyOkVlbkVlZW52b3VkaWdXYWNodHdvb3Jk'
+        'Authorization': 'Basic ZGlldGVyOkVlbkVlbnZvdWRpZ1dhY2h0d29vcmQ='
       })
     };
     return this.http.get<BackendTranslations>(this.baseUrl, httpOptions);
