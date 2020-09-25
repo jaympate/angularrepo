@@ -3,4 +3,5 @@ export interface Blogpost {
   publicationDate: Date;
   url: string;
   category: string;
+  key?: string;
 }

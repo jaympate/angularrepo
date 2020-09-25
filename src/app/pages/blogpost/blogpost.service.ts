@@ -21,7 +21,7 @@ export class BlogpostService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        Authorization: 'Basic ZGlldGVyOkVlbkVlbnZvdWRpZ1dhY2h0d29vcmQ='
+        Authorization: 'Basic YWRtaW46RWVuRWVudm91ZGlnV2FjaHR3b29yZA=='
       })
     };
     const blogposts$: Observable<Blogpost[]> = this.http.get<Blogpost[]>(
@@ -53,6 +53,7 @@ export class BlogpostService {
   private translateBlogposts(): Blogpost[] {
     return this.untranslatedBlogposts.map((blogpost) => ({
       ...blogpost,
+      key: blogpost.title,
       title: this.translateService.getTranslationKnowingTheyAreLoaded(
         blogpost.title
       )

@@ -21,7 +21,7 @@ export class CertificateService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        Authorization: 'Basic ZGlldGVyOkVlbkVlbnZvdWRpZ1dhY2h0d29vcmQ='
+        Authorization: 'Basic YWRtaW46RWVuRWVudm91ZGlnV2FjaHR3b29yZA=='
       })
     };
     const certificates$: Observable<Certificate[]> = this.http.get<Certificate[]>(this.baseUrl, httpOptions);

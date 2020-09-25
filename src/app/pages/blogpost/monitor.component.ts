@@ -7,8 +7,8 @@ import {ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild} from '
       <a href="{{ url }}">
         <img
           class="blogpost"
-          defaultImage="assets/images/placeholder.png"
-          lazyLoad="http://www.dieterjordens:10001/{{title}}"
+          defaultImage="assets/images/loading.gif"
+          lazyLoad="http://www.dieterjordens.be:10001/articles/{{key}}"
           alt="Preview of {{ title }}"
         />
         <img
@@ -26,8 +26,6 @@ import {ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild} from '
       `
       .blogpost {
         position: absolute;
-        height: 200px;
-        width: 170px;
       }
 
       .blogpost-view {
@@ -84,6 +82,9 @@ import {ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild} from '
 export class MonitorComponent {
   @Input()
   url: string;
+
+  @Input()
+  key: string;
 
   @Input()
   title: string;

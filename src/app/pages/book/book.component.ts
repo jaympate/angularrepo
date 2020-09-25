@@ -9,8 +9,8 @@ import {Book} from './book';
       <div class="img-wrapper">
         <div class="book-cover-line"></div>
         <img class="img-book"
-             defaultImage="assets/images/placeholder.png"
-             lazyLoad="http://www.dieterjordens.be:10000/{{ book.isbn }}"
+             defaultImage="assets/images/loading.gif"
+             lazyLoad="http://www.dieterjordens.be:10000/books/{{ book.isbn }}"
              alt="Book cover of {{ book.title }}"/>
       </div>
     </td>
