@@ -8,7 +8,7 @@ import {ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild} from '
         <img
           class="blogpost"
           defaultImage="assets/images/placeholder.png"
-          [lazyLoad]="'data:image/jpg;base64,' + image"
+          lazyLoad="http://www.dieterjordens:10001/{{title}}"
           alt="Preview of {{ title }}"
         />
         <img
@@ -84,9 +84,6 @@ import {ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild} from '
 export class MonitorComponent {
   @Input()
   url: string;
-
-  @Input()
-  image: string;
 
   @Input()
   title: string;

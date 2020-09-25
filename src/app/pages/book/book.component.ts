@@ -8,12 +8,10 @@ import {Book} from './book';
     <td>
       <div class="img-wrapper">
         <div class="book-cover-line"></div>
-        <img
-          class="img-book"
-          defaultImage="assets/images/placeholder.png"
-          [lazyLoad]="'data:image/jpg;base64,' + book.base64image"
-          alt="Book cover of {{ book.title }}"
-        />
+        <img class="img-book"
+             defaultImage="assets/images/placeholder.png"
+             lazyLoad="http://www.dieterjordens.be:10000/{{ book.isbn }}"
+             alt="Book cover of {{ book.title }}"/>
       </div>
     </td>
     <td>

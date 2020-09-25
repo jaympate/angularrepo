@@ -7,7 +7,6 @@ import {Blogpost} from './blogpost';
     <th scope="row">{{ rowNumber }}</th>
     <td>
       <app-monitor
-        [image]="blogpost.base64image"
         [title]="blogpost.title"
         [url]="blogpost.url"
       ></app-monitor>
