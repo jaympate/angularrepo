@@ -1,41 +1,41 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
-import {Blogpost} from './blogpost';
+import {Article} from './article';
 
 @Component({
-  selector: '[blogpost-row]',
+  selector: '[article-row]',
   template: `
     <th scope="row">{{ rowNumber }}</th>
     <td>
       <app-monitor
-        [key]="blogpost.key"
-        [title]="blogpost.title"
-        [url]="blogpost.url"
+        [key]="article.key"
+        [title]="article.title"
+        [url]="article.url"
       ></app-monitor>
     </td>
     <td>
       <ngb-highlight
-        class="blogpost-publication-date"
-        [result]="blogpost.publicationDate | dateLocale: 'DD MMMM YYYY'"
+        class="article-publication-date"
+        [result]="article.publicationDate | dateLocale: 'DD MMMM YYYY'"
       ></ngb-highlight>
     </td>
     <td>
       <ngb-highlight
-        class="blogpost-title"
-        [result]="blogpost.title"
+        class="article-title"
+        [result]="article.title"
       ></ngb-highlight>
     </td>
     <td>
       <ngb-highlight
-        class="blogpost-category"
-        [result]="blogpost.category"
+        class="article-category"
+        [result]="article.category"
       ></ngb-highlight>
     </td>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BlogpostComponent {
+export class ArticleComponent {
   @Input()
-  blogpost: Blogpost;
+  article: Article;
 
   @Input()
   rowNumber: number;

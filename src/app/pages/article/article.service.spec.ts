@@ -1,19 +1,19 @@
 import {fakeAsync, TestBed, tick} from '@angular/core/testing';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {BlogpostService} from './blogpost.service';
+import {ArticleService} from './article.service';
 import {TranslateServiceFacade} from '../../translation/translate.service.facade';
 import {BehaviorSubject} from 'rxjs';
-import {Blogpost} from './blogpost';
+import {Article} from './article';
 import {Builder} from 'builder-pattern';
 
-describe('BlogpostService', () => {
-  let blogpostService: BlogpostService;
+describe('ArticleService', () => {
+  let articleService: ArticleService;
   const currentLanguageSubject = new BehaviorSubject<string>(undefined);
-  const blogpostSubject = new BehaviorSubject<Blogpost[]>(undefined);
+  const articleSubject = new BehaviorSubject<Article[]>(undefined);
   let currentLanguage: string;
 
   beforeEach(() => {
-    const get = jest.fn().mockReturnValue(blogpostSubject.asObservable());
+    const get = jest.fn().mockReturnValue(articleSubject.asObservable());
     const getTranslationKnowingTheyAreLoaded = jest
       .fn()
       .mockImplementation((title: string) => title + '.' + currentLanguage);
@@ -23,7 +23,7 @@ describe('BlogpostService', () => {
 
     TestBed.configureTestingModule({
       providers: [
-        BlogpostService,
+        ArticleService,
         {
           provide: HttpClient,
           useValue: {get}
@@ -37,68 +37,68 @@ describe('BlogpostService', () => {
   });
 
   describe('constructor', () => {
-    it('retrieves the blogposts from backend url `http://www.dieterjordens.be:10002/api/blogposts`', () => {
+    it('retrieves the articles from backend url `http://www.dieterjordens.be:10002/api/articles`', () => {
       const httpClient = TestBed.inject(HttpClient);
-      blogpostService = TestBed.inject(BlogpostService);
+      articleService = TestBed.inject(ArticleService);
 
       expect(
         httpClient.get
       ).toHaveBeenCalledWith(
-        'http://www.dieterjordens.be:10002/api/blogposts',
+        'http://www.dieterjordens.be:10002/api/articles',
         {headers: expect.any(HttpHeaders)}
       );
     });
   });
 
-  describe('getBlogposts$', () => {
+  describe('getArticles$', () => {
     it('does not emit anything before translations are loaded', fakeAsync(() => {
       let dataEmitted;
 
-      const aFrontendBlogpost = Builder<Blogpost>()
-        .title('my frontend blogpost')
+      const aFrontendArticle = Builder<Article>()
+        .title('my frontend article')
         .url('www.medium.com/life-is-fun')
         .publicationDate(new Date('2020-03-21'))
         .category('frontend')
         .build();
 
-      blogpostService = TestBed.inject(BlogpostService);
+      articleService = TestBed.inject(ArticleService);
 
-      blogpostSubject.next([aFrontendBlogpost]);
+      articleSubject.next([aFrontendArticle]);
 
-      blogpostService
-        .getBlogposts$()
-        .subscribe((actualBlogposts) => (dataEmitted = actualBlogposts));
+      articleService
+        .getArticles$()
+        .subscribe((actualArticles) => (dataEmitted = actualArticles));
       tick();
 
       expect(dataEmitted).toBeUndefined();
     }));
 
-    it('returns translated blogposts (e.g. for English translations)', fakeAsync(() => {
+    it('returns translated articles (e.g. for English translations)', fakeAsync(() => {
       let dataEmitted;
 
       currentLanguage = 'en';
 
-      const aFrontendBlogpost = Builder<Blogpost>()
-        .title('my frontend blogpost')
+      const aFrontendArticle = Builder<Article>()
+        .title('my frontend article')
         .url('www.medium.com/life-is-fun')
         .publicationDate(new Date('2020-03-21'))
         .category('frontend')
         .build();
-      const aBackendBlogpost = Builder<Blogpost>()
-        .title('my backend blogpost')
+      const aBackendArticle = Builder<Article>()
+        .title('my backend article')
         .publicationDate(new Date('2020-02-15'))
         .category('backend')
         .build();
-      const untranslatedBlogposts = [aFrontendBlogpost, aBackendBlogpost];
+      const untranslatedArticles = [aFrontendArticle, aBackendArticle];
 
       currentLanguageSubject.next(currentLanguage);
-      blogpostSubject.next(untranslatedBlogposts);
+      articleSubject.next(untranslatedArticles);
 
-      blogpostService = TestBed.inject(BlogpostService);
+      articleService = TestBed.inject(ArticleService);
 
-      blogpostService
-        .getBlogposts$()
-        .subscribe((actualBlogposts) => (dataEmitted = actualBlogposts));
+      articleService
+        .getArticles$()
+        .subscribe((actualArticles) => (dataEmitted = actualArticles));
       tick();
 
       expect(dataEmitted).toMatchInlineSnapshot(`
@@ -106,13 +106,13 @@ describe('BlogpostService', () => {
           Object {
             "category": "frontend",
             "publicationDate": 2020-03-21T00:00:00.000Z,
-            "title": "my frontend blogpost.en",
+            "title": "my frontend article.en",
             "url": "www.medium.com/life-is-fun",
           },
           Object {
             "category": "backend",
             "publicationDate": 2020-02-15T00:00:00.000Z,
-            "title": "my backend blogpost.en",
+            "title": "my backend article.en",
           },
         ]
       `);
@@ -121,16 +121,16 @@ describe('BlogpostService', () => {
     it('re-translates correctly (e.g. from English to French)', fakeAsync(() => {
       let dataEmitted;
 
-      blogpostService = TestBed.inject(BlogpostService);
-      blogpostSubject.next([
-        Builder<Blogpost>()
-          .title('my frontend blogpost')
+      articleService = TestBed.inject(ArticleService);
+      articleSubject.next([
+        Builder<Article>()
+          .title('my frontend article')
           .url('www.medium.com/life-is-fun')
           .publicationDate(new Date('2020-03-21'))
           .category('frontend')
           .build(),
-        Builder<Blogpost>()
-          .title('my backend blogpost')
+        Builder<Article>()
+          .title('my backend article')
           .publicationDate(new Date('2020-02-15'))
           .category('backend')
           .build()
@@ -139,9 +139,9 @@ describe('BlogpostService', () => {
       currentLanguage = 'nl';
       currentLanguageSubject.next(currentLanguage);
 
-      blogpostService
-        .getBlogposts$()
-        .subscribe((actualBlogposts) => (dataEmitted = actualBlogposts));
+      articleService
+        .getArticles$()
+        .subscribe((actualArticles) => (dataEmitted = actualArticles));
       tick();
 
       expect(dataEmitted).toMatchInlineSnapshot(`
@@ -149,13 +149,13 @@ describe('BlogpostService', () => {
           Object {
             "category": "frontend",
             "publicationDate": 2020-03-21T00:00:00.000Z,
-            "title": "my frontend blogpost.nl",
+            "title": "my frontend article.nl",
             "url": "www.medium.com/life-is-fun",
           },
           Object {
             "category": "backend",
             "publicationDate": 2020-02-15T00:00:00.000Z,
-            "title": "my backend blogpost.nl",
+            "title": "my backend article.nl",
           },
         ]
       `);
@@ -163,9 +163,9 @@ describe('BlogpostService', () => {
       currentLanguage = 'fr';
       currentLanguageSubject.next(currentLanguage);
 
-      blogpostService
-        .getBlogposts$()
-        .subscribe((actualBlogposts) => (dataEmitted = actualBlogposts));
+      articleService
+        .getArticles$()
+        .subscribe((actualArticles) => (dataEmitted = actualArticles));
       tick();
 
       expect(dataEmitted).toMatchInlineSnapshot(`
@@ -173,13 +173,13 @@ describe('BlogpostService', () => {
           Object {
             "category": "frontend",
             "publicationDate": 2020-03-21T00:00:00.000Z,
-            "title": "my frontend blogpost.fr",
+            "title": "my frontend article.fr",
             "url": "www.medium.com/life-is-fun",
           },
           Object {
             "category": "backend",
             "publicationDate": 2020-02-15T00:00:00.000Z,
-            "title": "my backend blogpost.fr",
+            "title": "my backend article.fr",
           },
         ]
       `);

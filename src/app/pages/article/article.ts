@@ -1,4 +1,4 @@
-export interface Blogpost {
+export interface Article {
   title: string;
   publicationDate: Date;
   url: string;

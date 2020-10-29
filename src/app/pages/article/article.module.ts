@@ -1,11 +1,11 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {BlogpostsComponent} from './blogposts.component';
+import {ArticlesComponent} from './articles.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {DataModule} from '../data/data.module';
 import {DateModule} from '../../common/date.module';
-import {BlogpostComponent} from './blogpost.component';
+import {ArticleComponent} from './article.component';
 import {ImageModule} from '../../common/image.module';
 import {MonitorComponent} from './monitor.component';
 import {LazyLoadImageModule} from 'ng-lazyload-image';
@@ -20,7 +20,7 @@ import {LazyLoadImageModule} from 'ng-lazyload-image';
         ImageModule,
         LazyLoadImageModule
     ],
-  declarations: [BlogpostComponent, BlogpostsComponent, MonitorComponent]
+  declarations: [ArticleComponent, ArticlesComponent, MonitorComponent]
 })
-export class BlogpostModule {
+export class ArticleModule {
 }

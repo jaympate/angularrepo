@@ -6,13 +6,13 @@ import {ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild} from '
     <div class="monitor" #monitor (scroll)="marginTop = monitor.scrollTop">
       <a href="{{ url }}">
         <img
-          class="blogpost"
+          class="article"
           defaultImage="assets/images/loading.gif"
           lazyLoad="http://www.dieterjordens.be:10001/articles/{{key}}"
           alt="Preview of {{ title }}"
         />
         <img
-          class="blogpost-view"
+          class="article-view"
           src="assets/images/eye.png"
           [ngStyle]="{ top: marginTop + 'px' }"
         />
@@ -24,11 +24,11 @@ import {ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild} from '
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: [
       `
-      .blogpost {
+      .article {
         position: absolute;
       }
 
-      .blogpost-view {
+      .article-view {
         opacity: 0;
         position: absolute;
         height: 130px;
@@ -36,7 +36,7 @@ import {ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild} from '
         z-index: 1;
       }
 
-      .blogpost-view:hover {
+      .article-view:hover {
         opacity: 60%;
       }
 
