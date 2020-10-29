@@ -29,8 +29,8 @@ export class NavOptionsComponent {
         .build(),
       Builder<NavigationOption>().path('books').text('website.books').build(),
       Builder<NavigationOption>()
-        .path('certificates')
-        .text('website.certificates')
+        .path('data')
+        .text('website.data')
         .build()
     ];
   }

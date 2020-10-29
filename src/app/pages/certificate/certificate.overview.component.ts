@@ -27,7 +27,7 @@ import {Certificate} from './certificate';
                 class="certificate-name"
                 [result]="certificate.name"
               ></ngb-highlight>
-              <a
+              <a *ngIf="certificate.credentialUrl.length > 0"
                 class="ml-1"
                 target="_blank"
                 href="{{ certificate.credentialUrl }}"
