@@ -24,8 +24,8 @@ export class NavOptionsComponent {
         .text('website.projects')
         .build(),
       Builder<NavigationOption>()
-        .path('blogposts')
-        .text('website.blogposts')
+        .path('articles')
+        .text('website.articles')
         .build(),
       Builder<NavigationOption>().path('books').text('website.books').build(),
       Builder<NavigationOption>()

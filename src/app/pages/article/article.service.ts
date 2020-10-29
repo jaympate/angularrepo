@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {combineLatest, Observable} from 'rxjs';
-import {Blogpost} from './blogpost';
+import {Article} from './article';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {TranslateServiceFacade} from '../../translation/translate.service.facade';
 import {filter, map, tap} from 'rxjs/operators';
@@ -8,10 +8,10 @@ import {filter, map, tap} from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class BlogpostService {
-  private untranslatedBlogposts: Blogpost[];
-  private readonly translatedBlogposts$: Observable<Blogpost[]>;
-  private readonly baseUrl = `http://www.dieterjordens.be:10002/api/blogposts`;
+export class ArticleService {
+  private untranslatedArticles: Article[];
+  private readonly translatedArticles$: Observable<Article[]>;
+  private readonly baseUrl = `http://www.dieterjordens.be:10002/api/articles`;
 
   constructor(
     private http: HttpClient,
@@ -24,38 +24,38 @@ export class BlogpostService {
         Authorization: 'Basic YWRtaW46RWVuRWVudm91ZGlnV2FjaHR3b29yZA=='
       })
     };
-    const blogposts$: Observable<Blogpost[]> = this.http.get<Blogpost[]>(
+    const articles$: Observable<Article[]> = this.http.get<Article[]>(
       this.baseUrl,
       httpOptions
     );
 
-    this.translatedBlogposts$ = combineLatest([
-      blogposts$,
+    this.translatedArticles$ = combineLatest([
+      articles$,
       currentLanguage$
     ]).pipe(
       filter(([, currentLanguage]) => !!currentLanguage),
-      map(([blogposts]) => blogposts),
-      tap((blogposts) => this.cacheBlogposts(blogposts)),
-      map(() => this.translateBlogposts())
+      map(([articles]) => articles),
+      tap((articles) => this.cacheArticles(articles)),
+      map(() => this.translateArticles())
     );
   }
 
-  getBlogposts$(): Observable<Blogpost[]> {
-    return this.translatedBlogposts$;
+  getArticles$(): Observable<Article[]> {
+    return this.translatedArticles$;
   }
 
-  private cacheBlogposts(blogposts: Blogpost[]) {
-    if (!this.untranslatedBlogposts) {
-      this.untranslatedBlogposts = blogposts;
+  private cacheArticles(articles: Article[]) {
+    if (!this.untranslatedArticles) {
+      this.untranslatedArticles = articles;
     }
   }
 
-  private translateBlogposts(): Blogpost[] {
-    return this.untranslatedBlogposts.map((blogpost) => ({
-      ...blogpost,
-      key: blogpost.title,
+  private translateArticles(): Article[] {
+    return this.untranslatedArticles.map((article) => ({
+      ...article,
+      key: article.title,
       title: this.translateService.getTranslationKnowingTheyAreLoaded(
-        blogpost.title
+        article.title
       )
     }));
   }
