@@ -28,7 +28,7 @@ describe('HeaderComponent', () => {
 
   it('navigation bar is collapsed by default', () => {
     fixture.detectChanges();
-    expect(component.isCollapsed).toBe(true);
+    expect(component.collapse).toBe(true);
   });
 
   it('the toggle button should allow to undo collapse', () => {
@@ -37,28 +37,28 @@ describe('HeaderComponent', () => {
     getToggleButton().click();
     fixture.detectChanges();
 
-    expect(component.isCollapsed).toBe(false);
+    expect(component.collapse).toBe(false);
   });
 
   it('should allow to collapse by the nav options component on navigation', () => {
-    component.isCollapsed = false;
+    component.collapse = false;
     fixture.detectChanges();
 
     getNavOptionsComponent().navigated.emit();
 
     fixture.detectChanges();
 
-    expect(component.isCollapsed).toBe(true);
+    expect(component.collapse).toBe(true);
   });
 
   it('the toggle button should allow to collapse', () => {
-    component.isCollapsed = false;
+    component.collapse = false;
     fixture.detectChanges();
 
     getToggleButton().click();
     fixture.detectChanges();
 
-    expect(component.isCollapsed).toBe(true);
+    expect(component.collapse).toBe(true);
   });
 
   function getToggleButton(): HTMLButtonElement {

@@ -11,3 +11,23 @@
 .navbar-brand:hover, .navbar-brand:visited, .navbar-brand:active, .navbar-brand:focus {
   color: $black-color;
 }
+
+.hamburger {
+  outline: unset;
+}
+
+.displayRight{
+  right: 0;
+}
+
+@media (min-width: 1001px) {
+  .hidden-desktop {
+    display:none;
+  }
+}
+
+@media (max-width: 1000px) {
+  .hidden-mobile {
+    display: none;
+  }
+}
