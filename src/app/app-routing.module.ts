@@ -11,15 +11,15 @@ import {CertificateOverviewComponent} from './pages/certificate/certificate.over
 @NgModule({
   imports: [
     RouterModule.forRoot([
-      {path: '', component: HomeComponent},
-      {path: 'vision', component: VisionComponent},
-      {path: 'cv', component: CvComponent},
-      {path: 'projects', component: ProjectComponent},
-      {path: 'articles', component: ArticlesComponent},
-      {path: 'books', component: BooksComponent},
-      {path: 'data', component: CertificateOverviewComponent},
-      {path: '**', redirectTo: ''}
-    ])
+    { path: '', component: HomeComponent },
+    { path: 'vision', component: VisionComponent },
+    { path: 'cv', component: CvComponent },
+    { path: 'projects', component: ProjectComponent },
+    { path: 'articles', component: ArticlesComponent },
+    { path: 'books', component: BooksComponent },
+    { path: 'data', component: CertificateOverviewComponent },
+    { path: '**', redirectTo: '' }
+], { relativeLinkResolution: 'legacy' })
   ],
   exports: [RouterModule]
 })
