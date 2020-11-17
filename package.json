@@ -26,7 +26,7 @@
     "@angular/router": "~10.0.3",
     "@fortawesome/angular-fontawesome": "~0.7.0",
     "@fortawesome/fontawesome-svg-core": "~1.2.29",
-    "@ng-bootstrap/ng-bootstrap": "~6.2.0",
+    "@ng-bootstrap/ng-bootstrap": "~8.0.0",
     "@ngx-translate/core": "~13.0.0",
     "bootstrap": "~4.5.0",
     "builder-pattern": "~1.2.4",
