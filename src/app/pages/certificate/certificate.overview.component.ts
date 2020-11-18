@@ -6,7 +6,7 @@ import {Certificate} from './certificate';
 @Component({
   selector: 'certificate-overview',
   template: `
-    <div class="container pt-4 pb-4">
+    <div class="container pt-2 pb-2">
       <h1>{{ 'website.certificates' | translate }}</h1>
       <ng-container *ngIf="certificates$ | async as certificates">
         <table class="table table-striped table-responsive">

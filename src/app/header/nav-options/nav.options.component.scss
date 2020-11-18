@@ -1,17 +1,22 @@
 @import "../../../colors";
 
+.hvr-overline-from-center:before {
+  background: #ffffff;
+  overflow: hidden;
+}
+
 .nav-item {
   font-size: 1.2rem;
 }
 
 .nav-item :not(.active) {
-  color: $carbon;
+  color: #FFFFFF;
 }
 
 .nav-item:hover :not(.active) {
-  color: $watermelon;
+  color: #FFFFFF;
 }
 
 .nav-item.active .nav-link.navigation {
-  color: $watermelon;
+  color: #FFFFFF;
 }

@@ -6,7 +6,7 @@ import {Observable} from 'rxjs';
 @Component({
   selector: 'app-vision',
   template: `
-    <div class="container-fluid pt-4">
+    <div class="container-fluid pt-2">
       <div class="card text-center">
         <div class="card-header">
           {{ 'my.vision.what.to.expect.of.me' | translate }}

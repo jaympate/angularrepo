@@ -4,10 +4,9 @@ import moment from 'moment';
 @Component({
   selector: 'app-home',
   template: `
-    <div class="container pt-4">
+    <div class="container pt-2">
       <div class="row d-flex justify-content-center">
         <div class="home">
-          <p class="website">...</p>
           <p class="lead introductionMessage">
             {{ 'website.introduction.message' | translate }}
           </p>
@@ -21,7 +20,7 @@ import moment from 'moment';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  param = {age: HomeComponent.getAge()};
+  param = { age: HomeComponent.getAge() };
 
   static getAge(): number {
     return moment().diff(moment('12-25-1992', 'MM-DD-YYYY'), 'years');

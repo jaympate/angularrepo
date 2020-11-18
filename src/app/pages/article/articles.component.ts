@@ -10,7 +10,7 @@ import {compare} from '../data/compare';
 @Component({
   selector: 'my-articles',
   template: `
-    <div class="container pt-4 pb-4">
+    <div class="container pt-2 pb-2">
       <h1>{{ 'website.articles' | translate }}</h1>
       <ng-container *ngIf="articles$ | async as articles">
         <table class="table table-striped table-responsive">

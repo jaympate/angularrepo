@@ -1,7 +1,7 @@
 <ul class="navbar-nav">
   <ng-container *ngFor="let navigationOption of navigationOptions">
     <li class="nav-item" [ngClass]="getActive(navigationOption.path)">
-      <a class="nav-link navigation"
+      <a class="nav-link navigation hvr-overline-from-center"
          [attr.data-navigation-option]="navigationOption.text"
          (click)="clickNavigation()"
          routerLink="{{navigationOption.path}}">{{navigationOption.text | translate}}</a>

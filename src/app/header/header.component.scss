@@ -1,15 +1,30 @@
 @import "../../colors";
 
-.navbar-dark {
-  background-color: $background-color;
+.hamburger, .hamburger.is-active {
+  .hamburger-inner{
+    background-color: white;
+  }
+  .hamburger-inner::before{
+    background-color: white;
+  }
+  .hamburger-inner::after{
+    background-color: white;
+  }
 }
 
-.navbar-brand {
-  color: $black-color;
+.language-selector{
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+}
+
+.theme {
+  color: #FFFFFF;
+  background-color: #398AD7;
 }
 
 .navbar-brand:hover, .navbar-brand:visited, .navbar-brand:active, .navbar-brand:focus {
-  color: $black-color;
+  color: #FFFFFF;
 }
 
 .hamburger {

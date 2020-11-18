@@ -1,6 +1,6 @@
 <ng-container *ngIf="currentAndOtherLanguage$ | async as languages">
   <div ngbDropdown class="d-inline-block dropdown">
-    <button class="btn btn-outline-dark dropdown-toggle changeLanguageButton" id="languageSelectorDropdown"
+    <button class="btn btn-outline-light dropdown-toggle changeLanguageButton" id="languageSelectorDropdown"
             ngbDropdownToggle>{{languages.current | uppercase}}</button>
     <div ngbDropdownMenu aria-labelledby="languageSelectorDropdown" class="dropdown-menu">
       <app-change-language-button *ngFor="let otherLanguage of languages.other" [language]="otherLanguage"></app-change-language-button>
