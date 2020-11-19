@@ -6,6 +6,5 @@ export interface BackendTranslations {
 
 export interface TranslationsForLanguage {
   en: TranslationKeyValues;
-  fr: TranslationKeyValues;
   nl: TranslationKeyValues;
 }

@@ -3,9 +3,18 @@
 .home {
   color: $black-color;
   background-color: $background-color;
-  max-width: 900px;
-  text-align: center;
-  font-weight: bolder;
+}
+
+.quote {
+  color: #c4d6e2;
+}
+
+.title {
+  border-bottom: 1.2px #c4d6e2 solid;
+  display: inline-block;
+  text-transform: uppercase;
+  color: #333;
+  font-size: 2em;
 }
 
 .welcomeMessage {
@@ -14,14 +23,20 @@
 }
 
 .detailsMessage {
-  font-size: 1.8rem;
+  font-size: 1.2rem;
 }
 
 .introductionMessage {
-  font-size: 1.6rem;
+  font-size: 1.2rem;
 }
 
 .website {
   color: $watermelon;
   font-size: 3rem;
+}
+
+@media (max-width: 1000px) {
+  .hidden-mobile {
+    display: none;
+  }
 }

@@ -65,29 +65,6 @@ import {Component} from '@angular/core';
           <div class="container">
             <div class="row border-bottom pt-3 pl-3">
               <div class="col">
-                <h2 class="section-title">{{ 'cv.expertise' | translate }}</h2>
-                <div class="row">
-                  <div class="col-sm-6 item">
-                    <h3>{{ 'cv.back-end' | translate }}</h3>
-                    <p>{{ 'cv.back-end.detail' | translate }}</p>
-                  </div>
-                  <div class="col-sm-6 item">
-                    <h3>{{ 'cv.front-end' | translate }}</h3>
-                    <p>{{ 'cv.front-end.detail' | translate }}</p>
-                  </div>
-                  <div class="col-sm-6 item">
-                    <h3>{{ 'cv.quality-management' | translate }}</h3>
-                    <p>{{ 'cv.quality-management.detail' | translate }}</p>
-                  </div>
-                  <div class="col-sm-6 item">
-                    <h3>{{ 'cv.data-technologies' | translate }}</h3>
-                    <p>{{ 'cv.data-technologies.detail' | translate }}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row border-bottom pt-3 pl-3">
-              <div class="col">
                 <h2 class="section-title">
                   {{ 'cv.work.experience' | translate }}
                 </h2>

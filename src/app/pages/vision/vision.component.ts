@@ -8,9 +8,6 @@ import {Observable} from 'rxjs';
   template: `
     <div class="container-fluid pt-2">
       <div class="card text-center">
-        <div class="card-header">
-          {{ 'my.vision.what.to.expect.of.me' | translate }}
-        </div>
         <div class="card-body">
           <h5 class="card-title">
             {{ 'my.vision.what.is.my.vision' | translate }}

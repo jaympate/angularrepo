@@ -1,24 +1,25 @@
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {combineLatest, Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
-import {BackendTranslationService} from './backend-translation.service';
-import {BackendTranslations} from './backend.translations';
-import {TranslationKeyValues} from './translation.key.values';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { combineLatest, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { BackendTranslationService } from './backend-translation.service';
+import { BackendTranslations } from './backend.translations';
+import { TranslationKeyValues } from './translation.key.values';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TranslationService {
-  private staticTranslationCache: Map<string,
-    Promise<TranslationKeyValues>> = new Map();
+  private staticTranslationCache: Map<
+    string,
+    Promise<TranslationKeyValues>
+  > = new Map();
   private backendTranslationCache: Promise<BackendTranslations>;
 
   constructor(
     private httpClient: HttpClient,
     private backendTranslationService: BackendTranslationService
-  ) {
-  }
+  ) {}
 
   getTranslation(language: string): Observable<TranslationKeyValues> {
     return combineLatest([
@@ -31,8 +32,6 @@ export class TranslationService {
       }))
     );
   }
-
-  // TODO: add test to verify that every translation file contains the same amount of entries
 
   private getStaticTranslation(
     language: string

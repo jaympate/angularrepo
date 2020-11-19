@@ -8,7 +8,7 @@ import {distinctUntilChanged} from 'rxjs/operators';
 })
 export class TranslateServiceFacade {
   private readonly defaultLanguage = 'en';
-  private readonly supportedLanguages: Array<string> = ['en', 'nl', 'fr'];
+  private readonly supportedLanguages: Array<string> = ['en', 'nl'];
 
   constructor(private translateService: TranslateService) {
     this.translateService.setDefaultLang(this.defaultLanguage);
