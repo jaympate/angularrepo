@@ -6,7 +6,7 @@ import moment from 'moment';
   template: `
     <div class="container pt-2 home">
       <div class="row align-items-center">
-        <div class="col-6 ml-auto mr-auto">
+        <div class="col-xl-6 ml-auto mr-auto">
           <div class="mt-3">
             <i class="fa fa-quote-left quote"></i>&nbsp;
             <span class="blockquote">{{ 'home.data.quote' | translate }}</span
@@ -28,7 +28,7 @@ import moment from 'moment';
           </p>
         </div>
         <div class="col-3 hidden-mobile d-flex justify-content-center">
-          <img src="../../../assets/images/dieter.jpg" height="250" />
+          <img src="../../../assets/images/me.png" height="200" />
         </div>
       </div>
       <div class="row align-items-center mt-3">
