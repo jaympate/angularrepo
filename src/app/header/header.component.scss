@@ -35,13 +35,13 @@
   right: 0;
 }
 
-@media (min-width: 1001px) {
+@media only screen and (min-width: 1001px) {
   .hidden-desktop {
     display:none;
   }
 }
 
-@media (max-width: 1000px) {
+@media only screen and (max-width: 1000px) {
   .hidden-mobile {
     display: none;
   }
