@@ -28,7 +28,7 @@ import moment from 'moment';
           </p>
         </div>
         <div class="col-3 hidden-mobile d-flex justify-content-center">
-          <img src="../../../assets/images/dieter.jpg" height="250" />
+          <img src="../../../assets/images/me.png" height="200" />
         </div>
       </div>
       <div class="row align-items-center mt-3">
