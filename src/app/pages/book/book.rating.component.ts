@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'book-rating',
@@ -22,7 +22,7 @@ import {Component, Input} from '@angular/core';
     </div>
   `,
   styles: [
-      `
+    `
       .fa-star,
       .fa-star-half-empty,
       .fa-star-o {

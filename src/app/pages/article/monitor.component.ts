@@ -1,4 +1,10 @@
-import {ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  Input,
+  ViewChild
+} from '@angular/core';
 
 @Component({
   selector: 'app-monitor',
@@ -8,7 +14,7 @@ import {ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild} from '
         <img
           class="article"
           defaultImage="assets/images/loading.gif"
-          lazyLoad="http://www.dieterjordens.be:10001/articles/{{key}}"
+          lazyLoad="http://www.dieterjordens.be:10001/articles/{{ key }}"
           alt="Preview of {{ title }}"
         />
         <img
@@ -23,7 +29,7 @@ import {ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild} from '
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: [
-      `
+    `
       .article {
         position: absolute;
       }

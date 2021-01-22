@@ -1,9 +1,9 @@
-import {NgModule} from '@angular/core';
-import {ProjectComponent} from './project.component';
-import {ProjectCardComponent} from './project.card.component';
-import {ProjectTriangleComponent} from './project.triangle.component';
-import {CommonModule} from '@angular/common';
-import {TranslateModule} from '@ngx-translate/core';
+import { NgModule } from '@angular/core';
+import { ProjectComponent } from './project.component';
+import { ProjectCardComponent } from './project.card.component';
+import { ProjectTriangleComponent } from './project.triangle.component';
+import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [CommonModule, TranslateModule],
@@ -13,5 +13,4 @@ import {TranslateModule} from '@ngx-translate/core';
     ProjectTriangleComponent
   ]
 })
-export class ProjectModule {
-}
+export class ProjectModule {}

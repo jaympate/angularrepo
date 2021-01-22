@@ -1,18 +1,18 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {HttpClientModule} from '@angular/common/http';
-import {TranslateModule} from '@ngx-translate/core';
-import {BooksComponent} from './books.component';
-import {TranslatePipeMock} from '../../translation/translate.pipe.mock';
-import {DateLocaleFilter} from '../../common/date.locale.filter';
-import {BookService} from './book.service';
-import {BehaviorSubject} from 'rxjs';
-import {Book} from './book';
-import {Builder} from 'builder-pattern';
-import {MockComponent} from 'ng-mocks';
-import {BookComponent} from './book.component';
-import {By} from '@angular/platform-browser';
-import {SortableHeaderDirective} from '../data/sortable-header.directive';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
+import { TranslateModule } from '@ngx-translate/core';
+import { BooksComponent } from './books.component';
+import { TranslatePipeMock } from '../../translation/translate.pipe.mock';
+import { DateLocaleFilter } from '../../common/date.locale.filter';
+import { BookService } from './book.service';
+import { BehaviorSubject } from 'rxjs';
+import { Book } from './book';
+import { Builder } from 'builder-pattern';
+import { MockComponent } from 'ng-mocks';
+import { BookComponent } from './book.component';
+import { By } from '@angular/platform-browser';
+import { SortableHeaderDirective } from '../data/sortable-header.directive';
 
 describe('BooksComponent', () => {
   let component: BooksComponent;

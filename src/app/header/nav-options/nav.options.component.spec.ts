@@ -1,7 +1,7 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {NavOptionsComponent} from './nav.options.component';
-import {RouterTestingModule} from '@angular/router/testing';
-import {TranslatePipeMock} from '../../translation/translate.pipe.mock';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NavOptionsComponent } from './nav.options.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { TranslatePipeMock } from '../../translation/translate.pipe.mock';
 
 describe('NavOptionsComponent', () => {
   let component: NavOptionsComponent;

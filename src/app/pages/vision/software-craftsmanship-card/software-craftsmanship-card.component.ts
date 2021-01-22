@@ -1,12 +1,11 @@
-import {Component, Input} from '@angular/core';
-import {Card} from './card';
+import { Component, Input } from '@angular/core';
+import { Card } from './card';
 
 @Component({
   selector: 'app-software-craftsmanship-card',
   template: `
     <div class="text-center">
-      <img src="{{ card.src }}" height="200" alt="{{ card.alt | translate }}"
-      />
+      <img src="{{ card.src }}" height="200" alt="{{ card.alt | translate }}" />
     </div>
     <div class="card-body">
       <h5 class="card-title">{{ card.title | translate }}</h5>
@@ -16,7 +15,7 @@ import {Card} from './card';
     </div>
   `,
   styles: [
-      `
+    `
       .card-body {
         padding-top: 0;
         font-size: 1rem;

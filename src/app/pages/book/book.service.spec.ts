@@ -1,10 +1,10 @@
-import {fakeAsync, TestBed, tick} from '@angular/core/testing';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {BookService} from './book.service';
-import {TranslateServiceFacade} from '../../translation/translate.service.facade';
-import {BehaviorSubject} from 'rxjs';
-import {Book} from './book';
-import {Builder} from 'builder-pattern';
+import { fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BookService } from './book.service';
+import { TranslateServiceFacade } from '../../translation/translate.service.facade';
+import { BehaviorSubject } from 'rxjs';
+import { Book } from './book';
+import { Builder } from 'builder-pattern';
 
 describe('BookService', () => {
   let bookService: BookService;
@@ -26,11 +26,11 @@ describe('BookService', () => {
         BookService,
         {
           provide: HttpClient,
-          useValue: {get}
+          useValue: { get }
         },
         {
           provide: TranslateServiceFacade,
-          useValue: {getTranslationKnowingTheyAreLoaded, getCurrentLanguage$}
+          useValue: { getTranslationKnowingTheyAreLoaded, getCurrentLanguage$ }
         }
       ]
     });
@@ -41,11 +41,11 @@ describe('BookService', () => {
       const httpClient = TestBed.inject(HttpClient);
       bookService = TestBed.inject(BookService);
 
-      expect(
-        httpClient.get
-      ).toHaveBeenCalledWith(
+      expect(httpClient.get).toHaveBeenCalledWith(
         'http://www.dieterjordens.be:10002/api/books',
-        {headers: expect.any(HttpHeaders)}
+        {
+          headers: expect.any(HttpHeaders)
+        }
       );
     });
   });

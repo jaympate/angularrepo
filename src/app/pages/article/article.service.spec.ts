@@ -1,10 +1,10 @@
-import {fakeAsync, TestBed, tick} from '@angular/core/testing';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {ArticleService} from './article.service';
-import {TranslateServiceFacade} from '../../translation/translate.service.facade';
-import {BehaviorSubject} from 'rxjs';
-import {Article} from './article';
-import {Builder} from 'builder-pattern';
+import { fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { ArticleService } from './article.service';
+import { TranslateServiceFacade } from '../../translation/translate.service.facade';
+import { BehaviorSubject } from 'rxjs';
+import { Article } from './article';
+import { Builder } from 'builder-pattern';
 
 describe('ArticleService', () => {
   let articleService: ArticleService;
@@ -26,11 +26,11 @@ describe('ArticleService', () => {
         ArticleService,
         {
           provide: HttpClient,
-          useValue: {get}
+          useValue: { get }
         },
         {
           provide: TranslateServiceFacade,
-          useValue: {getTranslationKnowingTheyAreLoaded, getCurrentLanguage$}
+          useValue: { getTranslationKnowingTheyAreLoaded, getCurrentLanguage$ }
         }
       ]
     });
@@ -41,11 +41,11 @@ describe('ArticleService', () => {
       const httpClient = TestBed.inject(HttpClient);
       articleService = TestBed.inject(ArticleService);
 
-      expect(
-        httpClient.get
-      ).toHaveBeenCalledWith(
+      expect(httpClient.get).toHaveBeenCalledWith(
         'http://www.dieterjordens.be:10002/api/articles',
-        {headers: expect.any(HttpHeaders)}
+        {
+          headers: expect.any(HttpHeaders)
+        }
       );
     });
   });
@@ -105,12 +105,14 @@ describe('ArticleService', () => {
         Array [
           Object {
             "category": "frontend",
+            "key": "my frontend article",
             "publicationDate": 2020-03-21T00:00:00.000Z,
             "title": "my frontend article.en",
             "url": "www.medium.com/life-is-fun",
           },
           Object {
             "category": "backend",
+            "key": "my backend article",
             "publicationDate": 2020-02-15T00:00:00.000Z,
             "title": "my backend article.en",
           },
@@ -148,12 +150,14 @@ describe('ArticleService', () => {
         Array [
           Object {
             "category": "frontend",
+            "key": "my frontend article",
             "publicationDate": 2020-03-21T00:00:00.000Z,
             "title": "my frontend article.nl",
             "url": "www.medium.com/life-is-fun",
           },
           Object {
             "category": "backend",
+            "key": "my backend article",
             "publicationDate": 2020-02-15T00:00:00.000Z,
             "title": "my backend article.nl",
           },
@@ -172,12 +176,14 @@ describe('ArticleService', () => {
         Array [
           Object {
             "category": "frontend",
+            "key": "my frontend article",
             "publicationDate": 2020-03-21T00:00:00.000Z,
             "title": "my frontend article.fr",
             "url": "www.medium.com/life-is-fun",
           },
           Object {
             "category": "backend",
+            "key": "my backend article",
             "publicationDate": 2020-02-15T00:00:00.000Z,
             "title": "my backend article.fr",
           },

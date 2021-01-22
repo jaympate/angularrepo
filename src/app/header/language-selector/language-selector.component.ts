@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
-import {LanguageService} from '../../translation/language.service';
-import {Observable} from 'rxjs';
-import {Languages} from '../../translation/languages';
+import { Component } from '@angular/core';
+import { LanguageService } from '../../translation/language.service';
+import { Observable } from 'rxjs';
+import { Languages } from '../../translation/languages';
 
 @Component({
   selector: 'app-language-selector',

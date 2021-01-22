@@ -1,5 +1,5 @@
-import {Component, Input} from '@angular/core';
-import {Project} from './project';
+import { Component, Input } from '@angular/core';
+import { Project } from './project';
 
 @Component({
   selector: 'app-projects-card',
@@ -12,7 +12,7 @@ import {Project} from './project';
       >
         <div class="card-header">
           <span
-          ><i class="fa" [ngClass]="project.icon"></i>
+            ><i class="fa" [ngClass]="project.icon"></i>
             {{ project.client }}</span
           >
         </div>
@@ -23,13 +23,13 @@ import {Project} from './project';
             <span
               *ngFor="let technology of project.technologies"
               class="badge badge-pill badge-dark ml-1"
-            >{{ technology }}</span
+              >{{ technology }}</span
             >
           </div>
         </div>
         <span [ngClass]="left ? 'date-right' : 'date-left'">{{
           project.timeSpan
-          }}</span>
+        }}</span>
         <app-projects-triangle [left]="left"></app-projects-triangle>
       </div>
     </div>

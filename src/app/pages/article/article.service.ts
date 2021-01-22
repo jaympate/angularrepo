@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core';
-import {combineLatest, Observable} from 'rxjs';
-import {Article} from './article';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {TranslateServiceFacade} from '../../translation/translate.service.facade';
-import {filter, map, tap} from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { combineLatest, Observable } from 'rxjs';
+import { Article } from './article';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { TranslateServiceFacade } from '../../translation/translate.service.facade';
+import { filter, map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

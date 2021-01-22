@@ -1,11 +1,10 @@
-import {Pipe, PipeTransform} from '@angular/core';
-import {TranslateServiceFacade} from '../translation/translate.service.facade';
+import { Pipe, PipeTransform } from '@angular/core';
+import { TranslateServiceFacade } from '../translation/translate.service.facade';
 import * as moment from 'moment';
 
-@Pipe({name: 'dateLocale'})
+@Pipe({ name: 'dateLocale' })
 export class DateLocaleFilter implements PipeTransform {
-  constructor(private translate: TranslateServiceFacade) {
-  }
+  constructor(private translate: TranslateServiceFacade) {}
 
   private static formatLocalDate(date: Date, dateFormat: string) {
     return DateLocaleFilter.getLocaleDate(date).format(dateFormat);

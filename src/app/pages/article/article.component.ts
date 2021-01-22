@@ -1,5 +1,5 @@
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
-import {Article} from './article';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Article } from './article';
 
 @Component({
   selector: '[article-row]',

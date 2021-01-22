@@ -1,7 +1,7 @@
-import {Component, EventEmitter, Output} from '@angular/core';
-import {Router} from '@angular/router';
-import {Builder} from 'builder-pattern/dist/src/Builder';
-import {NavigationOption} from './navigation.option';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { Builder } from 'builder-pattern/dist/src/Builder';
+import { NavigationOption } from './navigation.option';
 
 @Component({
   selector: 'app-nav-options',
@@ -28,10 +28,7 @@ export class NavOptionsComponent {
         .text('website.articles')
         .build(),
       Builder<NavigationOption>().path('books').text('website.books').build(),
-      Builder<NavigationOption>()
-        .path('data')
-        .text('website.data')
-        .build()
+      Builder<NavigationOption>().path('data').text('website.data').build()
     ];
   }
 

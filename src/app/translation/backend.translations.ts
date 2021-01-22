@@ -1,4 +1,4 @@
-import {TranslationKeyValues} from './translation.key.values';
+import { TranslationKeyValues } from './translation.key.values';
 
 export interface BackendTranslations {
   translations: TranslationsForLanguage;

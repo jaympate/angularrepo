@@ -1,8 +1,8 @@
-import {NgModule} from '@angular/core';
-import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {CustomTranslateLoaderFactory} from './custom.translate.loader.factory';
-import {TranslationService} from './translation.service';
-import {NgxLocalStorageModule} from 'ngx-localstorage';
+import { NgModule } from '@angular/core';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { CustomTranslateLoaderFactory } from './custom.translate.loader.factory';
+import { TranslationService } from './translation.service';
+import { NgxLocalStorageModule } from 'ngx-localstorage';
 
 @NgModule({
   imports: [
@@ -17,5 +17,4 @@ import {NgxLocalStorageModule} from 'ngx-localstorage';
   ],
   exports: [TranslateModule]
 })
-export class TranslationModule {
-}
+export class TranslationModule {}

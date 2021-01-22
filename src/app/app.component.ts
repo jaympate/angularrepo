@@ -1,7 +1,7 @@
-import {AfterViewInit, Component, OnDestroy} from '@angular/core';
-import {NavigationEnd, Router} from '@angular/router';
-import {Subscription} from 'rxjs';
-import {filter} from 'rxjs/operators';
+import { AfterViewInit, Component, OnDestroy } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 declare let gtag: any;
 
@@ -13,8 +13,7 @@ declare let gtag: any;
 export class AppComponent implements AfterViewInit, OnDestroy {
   private routerSubscription: Subscription;
 
-  constructor(private router: Router) {
-  }
+  constructor(private router: Router) {}
 
   ngAfterViewInit(): void {
     // subscribe to router events and send page views to Google Analytics

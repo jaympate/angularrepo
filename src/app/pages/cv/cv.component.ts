@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-cv',
@@ -23,32 +23,32 @@ import {Component} from '@angular/core';
             <ul class="social-media-list">
               <li>
                 <a href="https://www.facebook.com/dieter.jordens"
-                ><i class="fa fa-facebook"></i>
+                  ><i class="fa fa-facebook"></i>
                 </a>
               </li>
               <li>
                 <a href="https://www.linkedin.com/in/dieterjordens"
-                ><i class="fa fa-linkedin"></i>
+                  ><i class="fa fa-linkedin"></i>
                 </a>
               </li>
               <li>
                 <a href="https://gitlab.com/dieterj"
-                ><i class="fa fa-gitlab"></i>
+                  ><i class="fa fa-gitlab"></i>
                 </a>
               </li>
               <li>
                 <a href="https://github.com/djFooFoo"
-                ><i class="fa fa-github"></i>
+                  ><i class="fa fa-github"></i>
                 </a>
               </li>
               <li>
                 <a href="https://twitter.com/Dieter_Jordens"
-                ><i class="fa fa-twitter"></i>
+                  ><i class="fa fa-twitter"></i>
                 </a>
               </li>
               <li>
                 <a href="mailto:dieter.jordens.website@gmail.com"
-                ><i class="fa fa-envelope"></i>
+                  ><i class="fa fa-envelope"></i>
                 </a>
               </li>
             </ul>
@@ -57,7 +57,7 @@ import {Component} from '@angular/core';
                 'cv.body' | translate
               }}"
               class="btn btn-outline-dark btn-lg cvButton"
-            ><i class="fa fa-download"></i> {{ 'cv.receive' | translate }}</a
+              ><i class="fa fa-download"></i> {{ 'cv.receive' | translate }}</a
             >
           </div>
         </div>
@@ -104,5 +104,4 @@ import {Component} from '@angular/core';
   `,
   styleUrls: ['./cv.component.scss']
 })
-export class CvComponent {
-}
+export class CvComponent {}

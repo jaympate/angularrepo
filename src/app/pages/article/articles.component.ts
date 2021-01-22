@@ -1,11 +1,17 @@
-import {ChangeDetectionStrategy, Component, OnInit, QueryList, ViewChildren} from '@angular/core';
-import {Article} from './article';
-import {ArticleService} from './article.service';
-import {BehaviorSubject, combineLatest, Observable} from 'rxjs';
-import {SortEvent} from '../data/sort.event';
-import {SortableHeaderDirective} from '../data/sortable-header.directive';
-import {map, tap} from 'rxjs/operators';
-import {compare} from '../data/compare';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  QueryList,
+  ViewChildren
+} from '@angular/core';
+import { Article } from './article';
+import { ArticleService } from './article.service';
+import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
+import { SortEvent } from '../data/sort.event';
+import { SortableHeaderDirective } from '../data/sortable-header.directive';
+import { map, tap } from 'rxjs/operators';
+import { compare } from '../data/compare';
 
 @Component({
   selector: 'my-articles',
@@ -15,38 +21,38 @@ import {compare} from '../data/compare';
       <ng-container *ngIf="articles$ | async as articles">
         <table class="table table-striped table-responsive">
           <thead class="thead-dark">
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">{{ 'article.preview' | translate }}</th>
-            <th
-              scope="col"
-              sortable="publicationDate"
-              (sort)="onSort($event)"
-            >
-              {{ 'article.publicationDate' | translate }}
-            </th>
-            <th scope="col" sortable="title" (sort)="onSort($event)">
-              {{ 'article.title' | translate }}
-            </th>
-            <th scope="col" sortable="category" (sort)="onSort($event)">
-              {{ 'article.category' | translate }}
-            </th>
-          </tr>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">{{ 'article.preview' | translate }}</th>
+              <th
+                scope="col"
+                sortable="publicationDate"
+                (sort)="onSort($event)"
+              >
+                {{ 'article.publicationDate' | translate }}
+              </th>
+              <th scope="col" sortable="title" (sort)="onSort($event)">
+                {{ 'article.title' | translate }}
+              </th>
+              <th scope="col" sortable="category" (sort)="onSort($event)">
+                {{ 'article.category' | translate }}
+              </th>
+            </tr>
           </thead>
           <tbody>
-          <tr
-            *ngFor="let article of articles; index as zeroBasedRowNumber"
-            article-row
-            [article]="article"
-            [rowNumber]="zeroBasedRowNumber + 1"
-          ></tr>
+            <tr
+              *ngFor="let article of articles; index as zeroBasedRowNumber"
+              article-row
+              [article]="article"
+              [rowNumber]="zeroBasedRowNumber + 1"
+            ></tr>
           </tbody>
         </table>
       </ng-container>
     </div>
   `,
   styles: [
-      `
+    `
       .asc::before {
         content: '\\25be';
         float: right;
@@ -72,8 +78,7 @@ export class ArticlesComponent implements OnInit {
     SortEvent.unsortedEvent()
   );
 
-  constructor(private articleService: ArticleService) {
-  }
+  constructor(private articleService: ArticleService) {}
 
   ngOnInit(): void {
     const articles$ = this.articleService.getArticles$();

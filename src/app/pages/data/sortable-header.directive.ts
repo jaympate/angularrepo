@@ -1,6 +1,13 @@
-import {Directive, EventEmitter, HostBinding, HostListener, Input, Output} from '@angular/core';
-import {SortEvent} from './sort.event';
-import {SortDirection} from './sort.direction';
+import {
+  Directive,
+  EventEmitter,
+  HostBinding,
+  HostListener,
+  Input,
+  Output
+} from '@angular/core';
+import { SortEvent } from './sort.event';
+import { SortDirection } from './sort.direction';
 
 @Directive({
   selector: 'th[sortable]'

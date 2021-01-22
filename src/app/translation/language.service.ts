@@ -1,8 +1,8 @@
-import {Injectable} from '@angular/core';
-import {BehaviorSubject, Observable} from 'rxjs';
-import {Languages} from './languages';
-import {TranslateServiceFacade} from './translate.service.facade';
-import {LocalStorageService} from 'ngx-localstorage';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Languages } from './languages';
+import { TranslateServiceFacade } from './translate.service.facade';
+import { LocalStorageService } from 'ngx-localstorage';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,9 @@ export class LanguageService {
     const currentLanguage =
       localStorage.get(this.LANGUAGE_KEY) ||
       this.translateService.getDefaultLanguage();
-    this.currentAndOtherLanguagesBehaviorSubject = new BehaviorSubject<Languages>(this.getLanguages(currentLanguage));
+    this.currentAndOtherLanguagesBehaviorSubject = new BehaviorSubject<Languages>(
+      this.getLanguages(currentLanguage)
+    );
     this.translateService.use(currentLanguage);
   }
 

@@ -1,11 +1,17 @@
-import {ChangeDetectionStrategy, Component, OnInit, QueryList, ViewChildren} from '@angular/core';
-import {Book} from './book';
-import {BookService} from './book.service';
-import {BehaviorSubject, combineLatest, Observable} from 'rxjs';
-import {SortEvent} from '../data/sort.event';
-import {SortableHeaderDirective} from '../data/sortable-header.directive';
-import {map, tap} from 'rxjs/operators';
-import {compare} from '../data/compare';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  QueryList,
+  ViewChildren
+} from '@angular/core';
+import { Book } from './book';
+import { BookService } from './book.service';
+import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
+import { SortEvent } from '../data/sort.event';
+import { SortableHeaderDirective } from '../data/sortable-header.directive';
+import { map, tap } from 'rxjs/operators';
+import { compare } from '../data/compare';
 
 @Component({
   selector: 'my-books',
@@ -15,37 +21,37 @@ import {compare} from '../data/compare';
       <ng-container *ngIf="books$ | async as books">
         <table class="table table-striped table-responsive">
           <thead class="thead-dark">
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">{{ 'book.cover' | translate }}</th>
-            <th scope="col" sortable="title" (sort)="onSort($event)">
-              {{ 'book.title' | translate }}
-            </th>
-            <th scope="col" sortable="authors" (sort)="onSort($event)">
-              {{ 'book.authors' | translate }}
-            </th>
-            <th scope="col" sortable="yearRead" (sort)="onSort($event)">
-              {{ 'book.year.read' | translate }}
-            </th>
-            <th scope="col" sortable="rating" (sort)="onSort($event)">
-              {{ 'book.rating' | translate }}
-            </th>
-          </tr>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">{{ 'book.cover' | translate }}</th>
+              <th scope="col" sortable="title" (sort)="onSort($event)">
+                {{ 'book.title' | translate }}
+              </th>
+              <th scope="col" sortable="authors" (sort)="onSort($event)">
+                {{ 'book.authors' | translate }}
+              </th>
+              <th scope="col" sortable="yearRead" (sort)="onSort($event)">
+                {{ 'book.year.read' | translate }}
+              </th>
+              <th scope="col" sortable="rating" (sort)="onSort($event)">
+                {{ 'book.rating' | translate }}
+              </th>
+            </tr>
           </thead>
           <tbody>
-          <tr
-            *ngFor="let book of books; index as zeroBasedRowNumber"
-            book-row
-            [book]="book"
-            [rowNumber]="zeroBasedRowNumber + 1"
-          ></tr>
+            <tr
+              *ngFor="let book of books; index as zeroBasedRowNumber"
+              book-row
+              [book]="book"
+              [rowNumber]="zeroBasedRowNumber + 1"
+            ></tr>
           </tbody>
         </table>
       </ng-container>
     </div>
   `,
   styles: [
-      `
+    `
       .asc::before {
         content: '\\25be';
         float: right;
@@ -71,8 +77,7 @@ export class BooksComponent implements OnInit {
     SortEvent.unsortedEvent()
   );
 
-  constructor(private bookService: BookService) {
-  }
+  constructor(private bookService: BookService) {}
 
   ngOnInit(): void {
     const books$ = this.bookService.getBooks$();

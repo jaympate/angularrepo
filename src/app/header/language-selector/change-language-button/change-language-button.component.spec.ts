@@ -1,14 +1,18 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {ChangeLanguageButtonComponent} from './change-language-button.component';
-import {LanguageService} from '../../../translation/language.service';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ChangeLanguageButtonComponent } from './change-language-button.component';
+import { LanguageService } from '../../../translation/language.service';
+import { GoogleAnalyticsService } from '../../../google.analytics.service';
 
 describe('ChangeLanguageButtonComponent', () => {
   let component: ChangeLanguageButtonComponent;
   let fixture: ComponentFixture<ChangeLanguageButtonComponent>;
   let updateCurrentLanguage: jest.Mock;
+  let click: jest.Mock;
 
   beforeEach(() => {
     updateCurrentLanguage = jest.fn();
+    click = jest.fn();
+
     TestBed.configureTestingModule({
       declarations: [ChangeLanguageButtonComponent],
       providers: [
@@ -16,6 +20,12 @@ describe('ChangeLanguageButtonComponent', () => {
           provide: LanguageService,
           useValue: {
             updateCurrentLanguage: updateCurrentLanguage
+          }
+        },
+        {
+          provide: GoogleAnalyticsService,
+          useValue: {
+            click: click
           }
         }
       ]

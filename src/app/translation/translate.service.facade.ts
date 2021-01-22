@@ -1,7 +1,7 @@
-import {TranslateService} from '@ngx-translate/core';
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
-import {distinctUntilChanged} from 'rxjs/operators';
+import { TranslateService } from '@ngx-translate/core';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

@@ -1,9 +1,9 @@
-import {Injectable} from '@angular/core';
-import {combineLatest, Observable} from 'rxjs';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {TranslateServiceFacade} from '../../translation/translate.service.facade';
-import {map, tap} from 'rxjs/operators';
-import {Certificate} from './certificate';
+import { Injectable } from '@angular/core';
+import { combineLatest, Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { TranslateServiceFacade } from '../../translation/translate.service.facade';
+import { map, tap } from 'rxjs/operators';
+import { Certificate } from './certificate';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +24,9 @@ export class CertificateService {
         Authorization: 'Basic YWRtaW46RWVuRWVudm91ZGlnV2FjaHR3b29yZA=='
       })
     };
-    const certificates$: Observable<Certificate[]> = this.http.get<Certificate[]>(this.baseUrl, httpOptions);
+    const certificates$: Observable<Certificate[]> = this.http.get<
+      Certificate[]
+    >(this.baseUrl, httpOptions);
 
     this.translatedCertificates$ = combineLatest([
       certificates$,

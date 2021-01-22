@@ -1,11 +1,10 @@
-import {SortDirection} from './sort.direction';
+import { SortDirection } from './sort.direction';
 
 export class SortEvent {
   private constructor(
     public sortablePropertyName: string,
     public direction: SortDirection
-  ) {
-  }
+  ) {}
 
   static of(sortablePropertyName: string, direction: SortDirection) {
     return new SortEvent(sortablePropertyName, direction);

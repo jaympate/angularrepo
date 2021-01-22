@@ -1,5 +1,5 @@
-import {TranslationService} from './translation.service';
-import {CustomTranslateLoader} from './custom.translate.loader';
+import { TranslationService } from './translation.service';
+import { CustomTranslateLoader } from './custom.translate.loader';
 
 export function CustomTranslateLoaderFactory(
   translationService: TranslationService

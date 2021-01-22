@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
-import {Card} from './software-craftsmanship-card/card';
-import {CardService} from './software-craftsmanship-card/card.service';
-import {Observable} from 'rxjs';
+import { Component } from '@angular/core';
+import { Card } from './software-craftsmanship-card/card';
+import { CardService } from './software-craftsmanship-card/card.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-vision',

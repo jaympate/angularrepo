@@ -1,18 +1,18 @@
-import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {HttpClientModule} from '@angular/common/http';
-import {TranslateModule} from '@ngx-translate/core';
-import {ArticlesComponent} from './articles.component';
-import {TranslatePipeMock} from '../../translation/translate.pipe.mock';
-import {DateLocaleFilter} from '../../common/date.locale.filter';
-import {BehaviorSubject} from 'rxjs';
-import {Article} from './article';
-import {Builder} from 'builder-pattern';
-import {MockComponent} from 'ng-mocks';
-import {ArticleComponent} from './article.component';
-import {By} from '@angular/platform-browser';
-import {SortableHeaderDirective} from '../data/sortable-header.directive';
-import {ArticleService} from './article.service';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
+import { TranslateModule } from '@ngx-translate/core';
+import { ArticlesComponent } from './articles.component';
+import { TranslatePipeMock } from '../../translation/translate.pipe.mock';
+import { DateLocaleFilter } from '../../common/date.locale.filter';
+import { BehaviorSubject } from 'rxjs';
+import { Article } from './article';
+import { Builder } from 'builder-pattern';
+import { MockComponent } from 'ng-mocks';
+import { ArticleComponent } from './article.component';
+import { By } from '@angular/platform-browser';
+import { SortableHeaderDirective } from '../data/sortable-header.directive';
+import { ArticleService } from './article.service';
 
 describe('ArticlesComponent', () => {
   let component: ArticlesComponent;
@@ -20,9 +20,7 @@ describe('ArticlesComponent', () => {
   const articleSubject = new BehaviorSubject<Article[]>(null);
 
   beforeEach(() => {
-    const articles$ = jest
-      .fn()
-      .mockReturnValue(articleSubject.asObservable());
+    const articles$ = jest.fn().mockReturnValue(articleSubject.asObservable());
 
     TestBed.configureTestingModule({
       imports: [NgbModule, HttpClientModule, TranslateModule.forRoot()],

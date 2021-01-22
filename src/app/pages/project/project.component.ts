@@ -1,7 +1,7 @@
-import {Component} from '@angular/core';
-import {Project} from './project';
-import {ProjectService} from './project.service';
-import {Observable} from 'rxjs';
+import { Component } from '@angular/core';
+import { Project } from './project';
+import { ProjectService } from './project.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-projects',
@@ -27,7 +27,7 @@ import {Observable} from 'rxjs';
     </div>
   `,
   styles: [
-      `
+    `
       .project-wrapper {
         padding-left: 10%;
         padding-right: 10%;
