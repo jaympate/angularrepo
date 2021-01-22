@@ -22,13 +22,13 @@ pipeline {
       steps {
         script {
           // configure registry
-          //docker.withRegistry('https://082272919318.dkr.ecr.eu-west-3.amazonaws.com', 'aws.dieter.jordens') {
-          // build image
-          def customImage = docker.build('dieter_jordens:latest')
+          docker.withRegistry('https://082272919318.dkr.ecr.eu-west-3.amazonaws.com', 'aws.dieter.jordens') {
+            // build image
+            def customImage = docker.build('dieter_jordens:latest')
 
-          // push image
-          customImage.push()
-          //}
+            // push image
+            customImage.push()
+          }
         }
       }
     }
