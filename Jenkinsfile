@@ -20,14 +20,10 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        script {
+        node {
           // configure registry
-          withDockerRegistry(url: 'https://082272919318.dkr.ecr.eu-west-3.amazonaws.com', credentialsId: 'ecr:eu-west-3:aws.dieter.jordens') {
-            // build image
-            def customImage = docker.build('dieter_jordens')
-
-            // push image
-            customImage.push('latest')
+          docker.withRegistry('https://082272919318.dkr.ecr.eu-west-3.amazonaws.com', 'ecr:eu-west-3:aws.dieter.jordens') {
+            docker.build('dieter_jordens').push('latest')
           }
         }
       }
