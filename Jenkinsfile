@@ -17,18 +17,14 @@ pipeline {
         }
       }
     }
+    node('docker') {
+      stage('Deploy') {
+        docker.withRegistry('https://082272919318.dkr.ecr.eu-west-3.amazonaws.com', 'ecr:eu-west-3:aws.dieter.jordens') {
+          // build image
+          def customImage = docker.build('dieter_jordens')
 
-    stage('Deploy') {
-      steps {
-        script {
-          // configure registry
-          docker.withRegistry('https://082272919318.dkr.ecr.eu-west-3.amazonaws.com', 'ecr:eu-west-3:aws.dieter.jordens') {
-            // build image
-            def customImage = docker.build('dieter_jordens')
-
-            // push image
-            customImage.push('latest')
-          }
+          // push image
+          customImage.push('latest')
         }
       }
     }
