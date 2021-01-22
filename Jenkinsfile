@@ -21,8 +21,11 @@ pipeline {
     stage('Deploy') {
       steps {
         script {
-          def customImage = docker.build("082272919318.dkr.ecr.eu-west-3.amazonaws.com/dieter_jordens")
-          customImage.push("latest")
+            // build image
+            def customImage = docker.build('dieter_jordens')
+
+            // push image
+            customImage.push('latest')
         }
       }
     }
