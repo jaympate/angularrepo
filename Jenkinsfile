@@ -19,7 +19,13 @@ pipeline {
     }
 
     stage('Build') {
-      steps { sh 'npm run-script build-docker-image' }
+      agent {
+        docker { image 'node:latest' }
+      }
+      steps {
+        sh 'docker build . --tag 082272919318.dkr.ecr.eu-west-3.amazonaws.com/dieter_jordens:latest'
+        sh 'docker push 082272919318.dkr.ecr.eu-west-3.amazonaws.com/dieter_jordens:latest'
+      }
     }
   }
 }
