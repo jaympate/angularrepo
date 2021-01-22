@@ -30,7 +30,8 @@ pipeline {
         script {
           // configure registry
           docker.withRegistry('https://082272919318.dkr.ecr.eu-west-3.amazonaws.com', 'ecr:eu-west-3:aws.dieter.jordens') {
-            docker.image('dieter_jordens').push('latest')
+            def myImage = docker.build('dieter_jordens')
+            myImage.push('latest')
           }
         }
       }
