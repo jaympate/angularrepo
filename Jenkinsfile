@@ -20,7 +20,7 @@ pipeline {
 
     stage('Build') {
       agent {
-        docker { image 'node:latest' }
+        docker { image 'docker:latest' }
       }
       steps {
         sh 'docker build . --tag 082272919318.dkr.ecr.eu-west-3.amazonaws.com/dieter_jordens:latest'
