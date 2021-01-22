@@ -17,9 +17,12 @@ pipeline {
         }
       }
     }
-    node('docker') {
-      stage('Deploy') {
-        docker.withRegistry('https://082272919318.dkr.ecr.eu-west-3.amazonaws.com', 'ecr:eu-west-3:aws.dieter.jordens') {
+
+    stage('Deploy') {
+      steps {
+        node {
+          checkout scm
+          // configure registry
           // build image
           def customImage = docker.build('dieter_jordens')
 
