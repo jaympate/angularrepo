@@ -22,7 +22,6 @@ pipeline {
       steps {
         script {
           // configure registry
-          sh('aws ecr get-login-password --region eu-west-3 | docker login --username AWS --password-stdin 082272919318.dkr.ecr.eu-west-3.amazonaws.com')
           docker.withRegistry('https://082272919318.dkr.ecr.eu-west-3.amazonaws.com', 'ecr:eu-west-3:aws.dieter.jordens') {
             docker.image('dieter_jordens').push('latest')
           }
