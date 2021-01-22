@@ -9,7 +9,7 @@
     "test": "jest",
     "test-with-coverage": "jest --collect-coverage",
     "test-watch": "jest --watch",
-    "lint": "tsc --noEmit && eslint . --ext ts,json --quiet --fix",
+    "lint": "npx tsc --noEmit && eslint . --ext ts,json --quiet --fix",
     "build-docker-image": "docker build . --tag 082272919318.dkr.ecr.eu-west-3.amazonaws.com/dieter_jordens:latest",
     "docker-push": "docker push 082272919318.dkr.ecr.eu-west-3.amazonaws.com/dieter_jordens:latest"
   },
