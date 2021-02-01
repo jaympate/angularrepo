@@ -8,7 +8,6 @@ RUN npm ci && npm run-script build
 # stage 2
 
 FROM nginx:alpine
-COPY /nginx/nginx.conf /etc/nginx/nginx.conf
 RUN rm -rf /usr/share/nginx/html/*
 COPY --from=my-app-build /app/dist/website /usr/share/nginx/html/website
 EXPOSE 80
