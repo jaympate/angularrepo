@@ -9,6 +9,7 @@ import moment from 'moment';
         <div class="col-xl-6 ml-auto mr-auto">
           <div class="mt-3">
             <i class="fa fa-quote-left quote"></i>&nbsp;
+            <p>Currently moving to AWS, come back soon!</p>
             <span class="blockquote">{{ 'home.data.quote' | translate }}</span
             >&nbsp;<i class="fa fa-quote-right quote"></i>
           </div>

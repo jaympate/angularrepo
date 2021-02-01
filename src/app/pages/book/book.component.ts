@@ -11,7 +11,7 @@ import { Book } from './book';
         <img
           class="img-book"
           defaultImage="assets/images/loading.gif"
-          lazyLoad="http://www.dieterjordens.be:10000/books/{{ book.isbn }}"
+          lazyLoad="https://www.dieterjordens.com:10000/books/{{ book.isbn }}"
           alt="Book cover of {{ book.title }}"
         />
       </div>

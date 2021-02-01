@@ -38,7 +38,7 @@ export class ProjectService {
     );
   }
 
-  private readonly baseUrl = `http://www.dieterjordens.be:10002/api/projects`;
+  private readonly baseUrl = `https://www.dieterjordens.com:10002/api/projects`;
 
   getProjects$(): Observable<Project[]> {
     return this.translatedProjects$;
