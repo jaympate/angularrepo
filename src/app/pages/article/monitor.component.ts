@@ -14,7 +14,7 @@ import {
         <img
           class="article"
           defaultImage="assets/images/loading.gif"
-          lazyLoad="https://www.dieterjordens.com:10001/articles/{{ key }}"
+          lazyLoad="https://www.dieterjordens.com/dj-website-image-store/articles/{{ key }}"
           alt="Preview of {{ title }}"
         />
         <img
