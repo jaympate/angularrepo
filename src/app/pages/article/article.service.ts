@@ -11,7 +11,7 @@ import { filter, map, tap } from 'rxjs/operators';
 export class ArticleService {
   private untranslatedArticles: Article[];
   private readonly translatedArticles$: Observable<Article[]>;
-  private readonly baseUrl = `https://www.dieterjordens.com/dj-website-backend/articles`;
+  private readonly baseUrl = `https://www.dieterjordens.com:10002/api/articles`;
 
   constructor(
     private http: HttpClient,
