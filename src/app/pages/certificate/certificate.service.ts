@@ -11,7 +11,7 @@ import { Certificate } from './certificate';
 export class CertificateService {
   private untranslatedCertificates: Certificate[];
   private readonly translatedCertificates$: Observable<Certificate[]>;
-  private readonly baseUrl = `https://www.dieterjordens.com:10002/api/certificates`;
+  private readonly baseUrl = `http://www.dieterjordens.com:10002/api/certificates`;
 
   constructor(
     private http: HttpClient,
