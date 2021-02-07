@@ -5,20 +5,23 @@ import { Component } from '@angular/core';
   template: `
     <div class="container pt-3 pb-2">
       <div class="row cv border pb-3">
-        <div class="col-sm-4 cv-left border-right">
-          <div class="container-fluid pt-3">
+        <div class="col-sm-4 cv-left border-right image-container">
+          <div class="container-fluid pt-3 ">
             <img
               defaultImage="assets/images/loading.gif"
-              lazyLoad="assets/images/dieter.jpg"
+              lazyLoad="assets/images/profile_picture_small.jpg"
               class="img-fluid cv-image"
               alt="{{ 'cv.image' | translate }}"
             />
           </div>
           <div class="container-fluid pt-3">
             <h1 class="name">Dieter Jordens</h1>
-            <span class="lead">{{ 'cv.current.role' | translate }}</span>
+            <span class="lead">Software & Data Craftsman</span>
             <div class="about pt-3">
-              <p>{{ 'cv.about' | translate }}</p>
+              <p class="text-justify">
+                Dieter is software developer with about 5 years of professional experience. He proudly bears
+                the title of Civil Engineer. Dieter currently works as a craftsman at Continuum Consulting NV.
+              </p>
             </div>
             <ul class="social-media-list">
               <li>
