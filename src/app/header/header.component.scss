@@ -20,7 +20,11 @@
 
 .theme {
   color: #FFFFFF;
-  background-color: #398AD7;
+  background-color: #31525B;
+}
+
+.dropdown-nav-options{
+  max-width:768px;
 }
 
 .navbar-brand:hover, .navbar-brand:visited, .navbar-brand:active, .navbar-brand:focus {
@@ -36,12 +40,18 @@
 }
 
 @media only screen and (min-width: 1001px) {
+  .image-banner{
+    height: 100px;
+  }
   .hidden-desktop {
     display:none;
   }
 }
 
 @media only screen and (max-width: 1000px) {
+  .image-banner{
+    height: 74px;
+  }
   .hidden-mobile {
     display: none;
   }

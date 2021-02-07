@@ -1,11 +1,9 @@
 <header class="header">
-  <div class="theme">
-    <h1 class="pt-5 d-flex justify-content-center">Dieter Jordens</h1>
-    <h3 class="d-flex justify-content-center">Software & Data Engineer</h3>
-    <div class="d-flex justify-content-center"><img src="assets/images/dieter.gif" height="75px"></div>
+  <div class="theme pt-3">
+    <div class="d-flex justify-content-center"><img class="image-banner" src="assets/images/banner.png"></div>
   </div>
   <nav class="navbar navbar-expand-lg navbar-light theme">
-    <div class="displayRight hidden-desktop">
+    <div class="mr-auto ml-auto hidden-desktop">
       <button class="hamburger hamburger--spring" [class.is-active]="!collapse" type="button" (click)="toggle()">
         <span class="hamburger-box">
           <span class="hamburger-inner"></span>
@@ -16,8 +14,7 @@
       <app-nav-options class="mr-auto ml-auto"></app-nav-options>
     </div>
   </nav>
-  <app-language-selector class="language-selector"></app-language-selector>
-  <div class="container hidden-desktop theme" [@collapse]="collapse">
+  <div class="container hidden-desktop theme dropdown-nav-options" [@collapse]="collapse">
     <div class="row">
       <div class="col d-flex justify-content-center">
         <app-nav-options class="mr-auto" (navigated)="toggle()"></app-nav-options>

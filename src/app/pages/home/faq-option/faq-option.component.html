@@ -1,0 +1,12 @@
+<div class="card mb-2">
+  <div class="card-header">
+    <h5>
+      <div class="question" [innerHTML]="question"></div>
+      <button class="toggle-answer-button" type="button" (click)="toggle()"><i class="fa" [ngClass]="collapse ? 'fa-plus' : 'fa-minus'"></i></button>
+    </h5>
+  </div>
+
+  <div [@collapse]="collapse">
+    <div class="card-body" [innerHTML]="answer"></div>
+  </div>
+</div>

@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BackendTranslations } from './backend.translations';
+import {BackendTranslations, TranslationsForLanguage} from './backend.translations';
+import {catchError} from 'rxjs/operators';
+import {of} from 'rxjs';
+import {Builder} from 'builder-pattern';
+import {TranslationKeyValues} from './translation.key.values';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +21,13 @@ export class BackendTranslationService {
         Authorization: 'Basic YWRtaW46RWVuRWVudm91ZGlnV2FjaHR3b29yZA=='
       })
     };
-    return this.http.get<BackendTranslations>(this.baseUrl, httpOptions);
+    return this.http.get<BackendTranslations>(this.baseUrl, httpOptions).pipe(catchError(() => of(
+      Builder<BackendTranslations>()
+        .translations(Builder<TranslationsForLanguage>()
+          .en(Builder<TranslationKeyValues>().build())
+          .nl(Builder<TranslationKeyValues>().build())
+          .build())
+        .build()
+    )));
   }
 }
