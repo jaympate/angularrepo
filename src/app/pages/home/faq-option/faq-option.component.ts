@@ -1,5 +1,12 @@
-import {Component, Input} from '@angular/core';
-import {animate, AUTO_STYLE, state, style, transition, trigger} from '@angular/animations';
+import { Component, Input } from '@angular/core';
+import {
+  animate,
+  AUTO_STYLE,
+  state,
+  style,
+  transition,
+  trigger
+} from '@angular/animations';
 
 @Component({
   selector: 'app-faq-option',

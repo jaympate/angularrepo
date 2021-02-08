@@ -1,5 +1,12 @@
-import {Component} from '@angular/core';
-import {animate, AUTO_STYLE, state, style, transition, trigger} from '@angular/animations';
+import { Component } from '@angular/core';
+import {
+  animate,
+  AUTO_STYLE,
+  state,
+  style,
+  transition,
+  trigger
+} from '@angular/animations';
 
 @Component({
   selector: 'app-header',

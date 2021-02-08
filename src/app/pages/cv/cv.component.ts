@@ -19,8 +19,10 @@ import { Component } from '@angular/core';
             <span class="lead">Software & Data Craftsman</span>
             <div class="about pt-3">
               <p class="text-justify">
-                Dieter is a software developer with about 5 years of professional experience. He proudly bears
-                the title of Civil Engineer. Dieter currently works as a craftsman at Continuum Consulting NV.
+                Dieter is a software developer with about 5 years of
+                professional experience. He proudly bears the title of Civil
+                Engineer. Dieter currently works as a craftsman at Continuum
+                Consulting NV.
               </p>
             </div>
             <ul class="social-media-list">

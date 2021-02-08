@@ -20,7 +20,7 @@ import { Project } from './project';
           <h5 class="card-title">{{ project.jobTitle }}</h5>
           <ul class="card-text" *ngIf="project.responsibilities">
             <li *ngFor="let responsibility of project.responsibilities">
-              {{responsibility}}
+              {{ responsibility }}
             </li>
           </ul>
           <div *ngIf="project.technologies" class="text-center">

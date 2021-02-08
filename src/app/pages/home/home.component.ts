@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import moment from 'moment';
 
 @Component({
@@ -21,23 +21,28 @@ import moment from 'moment';
         ></app-faq-option>
         <app-faq-option
           question="How much backend experience does he have?"
-          [answer]="backend">
+          [answer]="backend"
+        >
         </app-faq-option>
         <app-faq-option
           question="Does Dieter have frontend experience?"
-          [answer]="frontend">
+          [answer]="frontend"
+        >
         </app-faq-option>
         <app-faq-option
           question="Does he know how to deliver software?"
-          [answer]="softwareDelivery">
+          [answer]="softwareDelivery"
+        >
         </app-faq-option>
         <app-faq-option
           question="What is his experience with Artificial Intelligence?"
-          [answer]="ai">
+          [answer]="ai"
+        >
         </app-faq-option>
         <app-faq-option
           question="What does Dieter do for the community?"
-          [answer]="givingBack">
+          [answer]="givingBack"
+        >
         </app-faq-option>
       </div>
     </div>
@@ -56,7 +61,10 @@ export class HomeComponent {
             Dieter has been actively involved in software development for 10 years, of which 5 years professionally.
             He wants to make a positive contribution to the world, which has been changing ever faster.
             He wants to create value.
-            Dieter is now ${moment().diff(moment('12-25-1992', 'MM-DD-YYYY'), 'years')} years old.
+            Dieter is now ${moment().diff(
+              moment('12-25-1992', 'MM-DD-YYYY'),
+              'years'
+            )} years old.
             During his career as a consultant, he was involved in various projects.
             Each time a new challenge arose, Dieter trained himself for the success of the projects.
           </p>
