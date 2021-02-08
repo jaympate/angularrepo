@@ -18,8 +18,12 @@ import { Project } from './project';
         </div>
         <div class="card-body">
           <h5 class="card-title">{{ project.jobTitle }}</h5>
-          <p class="card-text" [innerHTML]="project.jobDescription"></p>
-          <div *ngIf="!!project.technologies" class="text-center">
+          <ul class="card-text" *ngIf="project.responsibilities">
+            <li *ngFor="let responsibility of project.responsibilities">
+              {{responsibility}}
+            </li>
+          </ul>
+          <div *ngIf="project.technologies" class="text-center">
             <span
               *ngFor="let technology of project.technologies"
               class="badge badge-pill badge-dark ml-1"
