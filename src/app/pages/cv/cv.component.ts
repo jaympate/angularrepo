@@ -27,17 +27,17 @@ import { Component } from '@angular/core';
             </div>
             <ul class="social-media-list">
               <li>
-                <a href="https://www.facebook.com/dieter.jordens"
+                <a href="www.facebook.com/dieter.jordens"
                   ><i class="fa fa-facebook"></i>
                 </a>
               </li>
               <li>
-                <a href="https://www.linkedin.com/in/dieterjordens"
+                <a href="www.linkedin.com/in/dieterjordens"
                   ><i class="fa fa-linkedin"></i>
                 </a>
               </li>
               <li>
-                <a href="https://gitlab.com/dieterj"
+                <a href="gitlab.com/dieterj"
                   ><i class="fa fa-gitlab"></i>
                 </a>
               </li>
