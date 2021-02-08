@@ -37,12 +37,12 @@ describe('ArticleService', () => {
   });
 
   describe('constructor', () => {
-    it('retrieves the articles from backend url `www.dieterjordens.com:10002/api/articles`', () => {
+    it('retrieves the articles from backend url `https://www.dieterjordens.com/articles`', () => {
       const httpClient = TestBed.inject(HttpClient);
       articleService = TestBed.inject(ArticleService);
 
       expect(httpClient.get).toHaveBeenCalledWith(
-        'www.dieterjordens.com:10002/api/articles',
+        'https://www.dieterjordens.com/articles',
         {
           headers: expect.any(HttpHeaders)
         }
