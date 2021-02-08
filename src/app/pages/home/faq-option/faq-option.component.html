@@ -7,6 +7,7 @@
   </div>
 
   <div [@collapse]="collapse">
-    <div class="card-body" [innerHTML]="answer"></div>
+    <div class="card-body" *ngIf="!collapse" [innerHTML]="answer">
+    </div>
   </div>
 </div>
