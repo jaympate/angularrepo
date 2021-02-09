@@ -7,7 +7,7 @@ import { Article } from './article';
     <th scope="row">{{ rowNumber }}</th>
     <td>
       <app-monitor
-        [key]="article.key"
+        [key]="article.title"
         [title]="article.title"
         [url]="article.url"
       ></app-monitor>

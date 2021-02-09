@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CvComponent } from './cv.component';
-import { TranslationModule } from '../../translation/translation.module';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 
 @NgModule({
-  imports: [TranslationModule, LazyLoadImageModule],
+  imports: [LazyLoadImageModule],
   declarations: [CvComponent]
 })
 export class CvModule {}

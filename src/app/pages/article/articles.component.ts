@@ -17,26 +17,20 @@ import { compare } from '../data/compare';
   selector: 'my-articles',
   template: `
     <div class="container pt-2 pb-2">
-      <h1>{{ 'website.articles' | translate }}</h1>
+      <h1>Articles</h1>
       <ng-container *ngIf="articles$ | async as articles">
         <table class="table table-striped table-responsive">
           <thead class="thead-dark">
             <tr>
               <th scope="col">#</th>
-              <th scope="col">{{ 'article.preview' | translate }}</th>
+              <th scope="col">Preview</th>
               <th
                 scope="col"
                 sortable="publicationDate"
                 (sort)="onSort($event)"
-              >
-                {{ 'article.publicationDate' | translate }}
-              </th>
-              <th scope="col" sortable="title" (sort)="onSort($event)">
-                {{ 'article.title' | translate }}
-              </th>
-              <th scope="col" sortable="category" (sort)="onSort($event)">
-                {{ 'article.category' | translate }}
-              </th>
+              >Date of publication</th>
+              <th scope="col" sortable="title" (sort)="onSort($event)">Title</th>
+              <th scope="col" sortable="category" (sort)="onSort($event)">Category</th>
             </tr>
           </thead>
           <tbody>

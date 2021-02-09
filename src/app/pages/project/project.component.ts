@@ -8,10 +8,13 @@ import { Observable } from 'rxjs';
   template: `
     <div class="container-fluid pt-2">
       <div class="project-wrapper">
-        <h1>{{ 'projects.title' | translate }}</h1>
+        <h1>Projects</h1>
         <div class="card">
           <div class="card-body">
-            <p class="pb-2">{{ 'projects.description' | translate }}</p>
+            <p class="pb-2">
+              Here you can find all professional projects Dieter has done in his career as a consultant.
+              The projects are sorted by start date, the most recent one first.
+            </p>
             <div *ngIf="projects$ | async as projects" class="projects">
               <div class="projects-line"></div>
               <ng-container *ngFor="let project of projects; let index = index">

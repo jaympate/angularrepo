@@ -8,43 +8,43 @@ import { Observable, of } from 'rxjs';
 export class CardService {
   wellCraftedSoftwareCard: Card = {
     src: '/assets/images/cogs.png',
-    alt: 'my.vision.well.crafted.software.alt',
-    title: 'my.vision.well.crafted.software.title',
+    alt: 'Well-crafted software',
+    title: 'Well-crafted software',
     paragraphs: [
-      'my.vision.well.crafted.software.part1',
-      'my.vision.well.crafted.software.part2',
-      'my.vision.well.crafted.software.part3'
+      `It is Dieter's mission to deliver high quality software. He is humble about his expertise and honest about his capabilities.`,
+      `Dieter strives to become a master of his craft and he'd like to master the technologies and techniques he needs to perform his work.`,
+      `Dieter takes full responsibility for the correctness of the code written in his team. He doesn't tolerate avoidable bugs. He has an eye for detail in code reviews and tests code thoroughly with a strong preference for test-driven development.`
     ]
   };
 
   addingValueCard: Card = {
     src: '/assets/images/adding_value.png',
-    alt: 'my.vision.steadily.adding.value.alt',
-    title: 'my.vision.steadily.adding.value.title',
+    alt: 'Steadily adding value',
+    title: 'Steadily adding value',
     paragraphs: [
-      'my.vision.steadily.adding.value.part1',
-      'my.vision.steadily.adding.value.part2'
+      `Dieter makes estimations with diligence. He's not easily influenced by pressure or fear. He makes sure everything is clear before giving his estimation.`,
+      `Dieter strives to give his best effort at a sustainable pace.`
     ]
   };
 
   communityOfProfessionalsCard: Card = {
     src: '/assets/images/professional.png',
-    alt: 'my.vision.community.of.professionals.alt',
-    title: 'my.vision.community.of.professionals.title',
+    alt: 'A community of professionals',
+    title: 'A community of professionals',
     paragraphs: [
-      'my.vision.community.of.professionals.part1',
-      'my.vision.community.of.professionals.part2'
+      `Dieter embraces different opinions and personalities. He doesn't let the current way of working impede improvements.`,
+      `Dieter is willing to share his knowledge with anyone who has the willingness to learn. He shares good practices, his knowledge and likes to learn from others.`
     ]
   };
 
   productivePartnershipsCard: Card = {
     src: '/assets/images/partnership.png',
-    alt: 'my.vision.productive.partnerships.alt',
-    title: 'my.vision.productive.partnerships.title',
+    alt: 'Productive partnerships',
+    title: 'Productive partnerships',
     paragraphs: [
-      'my.vision.productive.partnerships.part1',
-      'my.vision.productive.partnerships.part2',
-      'my.vision.productive.partnerships.part3'
+      `Dieter shows respect for the customer and fellow software crafters. He behaves professionally and ethically.`,
+      `Dieter is open and honest to customers. He doesn't conceal or embellish.`,
+      `He thinks of the client's interest in building a long-term relationship.`
     ]
   };
 

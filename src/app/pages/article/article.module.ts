@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ArticlesComponent } from './articles.component';
-import { TranslateModule } from '@ngx-translate/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DataModule } from '../data/data.module';
 import { DateModule } from '../../common/date.module';
@@ -13,7 +12,6 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
 @NgModule({
   imports: [
     CommonModule,
-    TranslateModule,
     NgbModule,
     DataModule,
     DateModule,

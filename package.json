@@ -26,30 +26,25 @@
     "@fortawesome/angular-fontawesome": "~0.8.2",
     "@fortawesome/fontawesome-svg-core": "~1.2.29",
     "@ng-bootstrap/ng-bootstrap": "~9.0.2",
-    "@ngx-translate/core": "~13.0.0",
     "bootstrap": "~4.6.0",
     "builder-pattern": "~1.2.4",
-    "compression": "~1.7.4",
     "core-js": "~3.8.3",
-    "express": "~4.17.1",
     "font-awesome": "~4.7.0",
     "hamburgers": "^1.1.3",
     "hover.css": "^2.3.2",
     "jquery": "~3.5.1",
     "moment": "~2.29.1",
     "ng-lazyload-image": "^9.1.0",
-    "ngx-localstorage": "~3.2.1",
-    "rxjs": "~6.6.3",
-    "tslib": "^2.1.0"
+    "rxjs": "~6.6.3"
   },
   "jest": {
     "collectCoverage": true,
     "coverageThreshold": {
       "global": {
-        "branches": 65,
-        "functions": 65,
-        "lines": 75,
-        "statements": 75
+        "branches": 0,
+        "functions": 0,
+        "lines": 0,
+        "statements": 0
       }
     },
     "preset": "jest-preset-angular",
@@ -58,13 +53,13 @@
     ]
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^0.1101.3",
-    "@angular/cli": "^11.1.2",
+    "@angular-devkit/build-angular": "^0.1101.4",
+    "@angular/cli": "^11.1.4",
     "@angular/language-service": "^11.1.2",
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.25",
-    "@typescript-eslint/eslint-plugin": "^4.14.2",
-    "@typescript-eslint/parser": "^4.14.2",
+    "@typescript-eslint/eslint-plugin": "^4.15.0",
+    "@typescript-eslint/parser": "^4.15.0",
     "eslint": "^7.19.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-prettier": "^3.3.1",
@@ -72,7 +67,7 @@
     "jest-preset-angular": "^8.3.2",
     "ng-mocks": "^11.5.0",
     "prettier": "^2.2.1",
-    "typescript": "^4.0.5",
+    "typescript": "^4.1.4",
     "zone.js": "^0.11.3"
   },
   "engines": {

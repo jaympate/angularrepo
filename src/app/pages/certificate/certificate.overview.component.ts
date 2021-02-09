@@ -7,16 +7,16 @@ import { Certificate } from './certificate';
   selector: 'certificate-overview',
   template: `
     <div class="container pt-2 pb-2">
-      <h1>{{ 'website.certificates' | translate }}</h1>
+      <h1>Awards, certificates, courses and conferences</h1>
       <ng-container *ngIf="certificates$ | async as certificates">
         <table class="table table-striped table-responsive">
           <thead class="thead-dark">
             <tr>
               <th scope="col">#</th>
-              <th scope="col">{{ 'certificate.name' | translate }}</th>
-              <th scope="col">{{ 'certificate.organization' | translate }}</th>
-              <th scope="col">{{ 'certificate.issueDate' | translate }}</th>
-              <th scope="col">{{ 'certificate.type' | translate }}</th>
+              <th scope="col">Name</th>
+              <th scope="col">Organisation</th>
+              <th scope="col">Issue date</th>
+              <th scope="col">Type</th>
             </tr>
           </thead>
           <tbody>

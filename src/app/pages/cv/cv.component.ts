@@ -11,7 +11,7 @@ import { Component } from '@angular/core';
               defaultImage="assets/images/loading.gif"
               lazyLoad="assets/images/profile_picture_small.jpg"
               class="img-fluid cv-image"
-              alt="{{ 'cv.image' | translate }}"
+              alt="Curriculum Vitae image"
             />
           </div>
           <div class="container-fluid pt-3">
@@ -19,10 +19,9 @@ import { Component } from '@angular/core';
             <span class="lead">Software & Data Craftsman</span>
             <div class="about pt-3">
               <p class="text-justify">
-                Dieter is a software developer with about 5 years of
-                professional experience. He proudly bears the title of Civil
-                Engineer. Dieter currently works as a craftsman at Continuum
-                Consulting NV.
+                Dieter is a software developer with 5 years of professional experience.
+                He holds the title of Civil Engineer.
+                Dieter currently works as a software and data craftsman at Continuum Consulting NV.
               </p>
             </div>
             <ul class="social-media-list">
@@ -58,11 +57,9 @@ import { Component } from '@angular/core';
               </li>
             </ul>
             <a
-              href="mailto:dieter.jordens.website@gmail.com?subject=CV&body={{
-                'cv.body' | translate
-              }}"
+              href="mailto:dieter.jordens.website@gmail.com?subject=CV&body=Hi Dieter%0A%0AI%20would%20like%20access%20to%20your%20personal%20resume%20for%20<insert-reason>.%0AKind%20regards%0A%0A<insert-name>"
               class="btn btn-outline-dark btn-lg cvButton"
-              ><i class="fa fa-download"></i> {{ 'cv.receive' | translate }}</a
+              ><i class="fa fa-download"></i> Receive full resume</a
             >
           </div>
         </div>
@@ -70,34 +67,32 @@ import { Component } from '@angular/core';
           <div class="container">
             <div class="row border-bottom pt-3 pl-3">
               <div class="col">
-                <h2 class="section-title">
-                  {{ 'cv.work.experience' | translate }}
-                </h2>
+                <h2 class="section-title">Work experience</h2>
                 <div class="row">
                   <div class="col-12 item">
-                    <small>{{ 'cv.work.experience1.date' | translate }}</small>
-                    <h3>{{ 'cv.work.experience1.title' | translate }}</h3>
-                    <h4>{{ 'cv.work.experience1.employer' | translate }}</h4>
-                    <p>{{ 'cv.work.experience1.place' | translate }}</p>
+                    <small>2016 - present</small>
+                    <h3>Software & Data Craftsman</h3>
+                    <h4>Continuum Consulting NV</h4>
+                    <p>Lummen, Belgium</p>
                   </div>
                 </div>
               </div>
             </div>
             <div class="row pt-3 pl-3">
               <div class="col">
-                <h2 class="section-title">{{ 'cv.education' | translate }}</h2>
+                <h2 class="section-title">Education</h2>
                 <div class="row">
                   <div class="col-12 item">
-                    <small>{{ 'cv.education1.date' | translate }}</small>
-                    <h3>{{ 'cv.education1.title' | translate }}</h3>
-                    <h4>{{ 'cv.education1.employer' | translate }}</h4>
-                    <p>{{ 'cv.education1.place' | translate }}</p>
+                    <small>2016</small>
+                    <h3>Master of Engineering: Computer Science, Artificial Intelligence</h3>
+                    <h4>University of Leuven</h4>
+                    <p>Leuven, Belgium</p>
                   </div>
                   <div class="col-12 item">
-                    <small>{{ 'cv.education2.date' | translate }}</small>
-                    <h3>{{ 'cv.education2.title' | translate }}</h3>
-                    <h4>{{ 'cv.education2.employer' | translate }}</h4>
-                    <p>{{ 'cv.education2.place' | translate }}</p>
+                    <small>2014</small>
+                    <h3>Bachelor of Science: Computer Science, ICT</h3>
+                    <h4>University of Hasselt</h4>
+                    <p>Diepenbeek, Belgium</p>
                   </div>
                 </div>
               </div>

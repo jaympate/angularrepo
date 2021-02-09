@@ -5,12 +5,12 @@ import { Card } from './card';
   selector: 'app-software-craftsmanship-card',
   template: `
     <div class="text-center">
-      <img src="{{ card.src }}" height="200" alt="{{ card.alt | translate }}" />
+      <img [src]="card.src" height="200" [alt]="card.alt" />
     </div>
     <div class="card-body">
-      <h5 class="card-title">{{ card.title | translate }}</h5>
+      <h5 class="card-title">{{card.title}}</h5>
       <ng-container *ngFor="let paragraph of card.paragraphs">
-        <p class="card-text">{{ paragraph | translate }}</p>
+        <p class="card-text">{{ paragraph }}</p>
       </ng-container>
     </div>
   `,
