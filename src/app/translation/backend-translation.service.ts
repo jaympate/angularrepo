@@ -15,7 +15,7 @@ import { TranslationKeyValues } from './translation.key.values';
 export class BackendTranslationService {
   constructor(private http: HttpClient) {}
 
-  private readonly baseUrl = `https://www.dieterjordens.com/translations`;
+  private readonly baseUrl = `https://www.dieterjordens.com/api/translations`;
 
   getBackendTranslations$() {
     const httpOptions = {

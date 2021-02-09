@@ -37,12 +37,12 @@ describe('BookService', () => {
   });
 
   describe('constructor', () => {
-    it('retrieves the books from backend url `https://www.dieterjordens.com/books`', () => {
+    it('retrieves the books from backend url `https://www.dieterjordens.com/api/books`', () => {
       const httpClient = TestBed.inject(HttpClient);
       bookService = TestBed.inject(BookService);
 
       expect(httpClient.get).toHaveBeenCalledWith(
-        'https://www.dieterjordens.com/books',
+        'https://www.dieterjordens.com/api/books',
         {
           headers: expect.any(HttpHeaders)
         }

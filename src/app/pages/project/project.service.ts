@@ -7,7 +7,7 @@ import { Project } from './project';
   providedIn: 'root'
 })
 export class ProjectService {
-  private readonly baseUrl = `https://www.dieterjordens.com/projects`;
+  private readonly baseUrl = `https://www.dieterjordens.com/api/projects`;
   private readonly projects$: Observable<Project[]>;
 
   constructor(private http: HttpClient) {
