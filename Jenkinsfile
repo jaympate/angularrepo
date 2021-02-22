@@ -29,7 +29,7 @@ pipeline {
               args '-v /root/.npm:/root/.npm'
             }
           }
-          steps { sh 'npm run-script test' }
+          steps { sh 'npm test' }
         }
       }
     }
