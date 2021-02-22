@@ -7,11 +7,12 @@ import { CvModule } from './pages/cv/cv.module';
 import { ProjectModule } from './pages/project/project.module';
 import { VisionModule } from './pages/vision/vision.module';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
-import { ArticleModule } from './pages/article/article.module';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import { ArticleModule } from './pages/article-page/article.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BookModule } from './pages/book/book.module';
 import { CertificateModule } from './pages/certificate/certificate.module';
+import {ArticleHttpInterceptor} from './pages/article-page/article.http.interceptor';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,6 +31,11 @@ import { CertificateModule } from './pages/certificate/certificate.module';
     FontAwesomeModule
   ],
   exports: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: ArticleHttpInterceptor,
+    multi: true
+  }],
 })
 export class AppModule {}

@@ -29,7 +29,7 @@ describe('ArticleService', () => {
     ];
 
     const get = jest.fn().mockReturnValue(of(articlesBackend));
-    TestBed.overrideProvider(HttpClient, { useFactory: () => ({get})});
+    TestBed.overrideProvider(HttpClient, { useValue: {get}});
 
     const articleService = TestBed.inject(ArticleService);
 
@@ -40,7 +40,7 @@ describe('ArticleService', () => {
 
   it('calls the backend with the right configuration', async () => {
     const get = jest.fn().mockReturnValue(of([]));
-    TestBed.overrideProvider(HttpClient, { useFactory: () => ({get})});
+    TestBed.overrideProvider(HttpClient, { useValue: {get}});
 
     const articleService = TestBed.inject(ArticleService);
     const httpClient = TestBed.inject(HttpClient);
@@ -59,7 +59,7 @@ describe('ArticleService', () => {
     const errorSpy = spyOn(console, 'error');
     const message = 'An error';
     const get = jest.fn().mockReturnValue(throwError({message}));
-    TestBed.overrideProvider(HttpClient, { useFactory: () => ({get})});
+    TestBed.overrideProvider(HttpClient, { useValue: {get}});
 
     const articleService = TestBed.inject(ArticleService);
 
@@ -71,7 +71,7 @@ describe('ArticleService', () => {
   it('returns an empty array of articles when an error occurs', async () => {
     spyOn(console, 'error');
     const get = jest.fn().mockReturnValue(throwError({}));
-    TestBed.overrideProvider(HttpClient, { useFactory: () => ({get})});
+    TestBed.overrideProvider(HttpClient, { useValue: {get}});
     const articleService = TestBed.inject(ArticleService);
 
     const actualArticles = await articleService.getArticles$().toPromise();

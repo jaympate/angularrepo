@@ -1,0 +1,33 @@
+.articles-title{
+  text-align: center;
+  font-family: arial, sans-serif;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  color: #31525B;
+}
+
+.articles-container {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+@media screen and (min-width: 960px) {
+  .articles-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .article-container {
+    padding-left: 3em;
+    padding-right: 3em;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .articles-container {
+    grid-template-columns: repeat(3, 1fr);
+    padding-left: 5em;
+    padding-right: 5em;
+  }
+}
