@@ -6,7 +6,7 @@ pipeline {
         docker { image 'node:latest' }
       }
       steps {
-        sh 'npm install'
+        sh 'npm ci'
         sh 'npm run-script lint'
         sh 'npm run-script test'
       }
