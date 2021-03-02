@@ -13,6 +13,11 @@
   grid-template-columns: 1fr;
 }
 
+.article-container {
+  margin: auto;
+  max-width: 450px;
+}
+
 @media screen and (min-width: 960px) {
   .articles-container {
     grid-template-columns: repeat(2, 1fr);
