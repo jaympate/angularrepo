@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BooksComponent } from './books.component';
+import { BooksPageComponent } from './books-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DataModule } from '../data/data.module';
 import { BookComponent } from './book.component';
@@ -18,7 +18,7 @@ import { LazyLoadImageModule } from 'ng-lazyload-image';
   ],
   declarations: [
     BookComponent,
-    BooksComponent,
+    BooksPageComponent,
     BookRatingComponent
   ]
 })

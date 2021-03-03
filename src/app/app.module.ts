@@ -10,7 +10,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { ArticleModule } from './pages/article-page/article.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { BookModule } from './pages/book/book.module';
+import { BookModule } from './pages/book-page/book.module';
 import { CertificateModule } from './pages/certificate/certificate.module';
 import {ArticleHttpInterceptor} from './pages/article-page/article.http.interceptor';
 
