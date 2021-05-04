@@ -62,7 +62,6 @@
     "@typescript-eslint/parser": "^4",
     "eslint": "^7",
     "eslint-config-prettier": "^8",
-    "eslint-plugin-prettier": "^3",
     "jest": "^26",
     "jest-cli": "^26",
     "jest-preset-angular": "^8",

@@ -14,7 +14,7 @@ export class NavOptionsComponent {
   @Output()
   navigated = new EventEmitter<void>();
 
-  constructor(public router: Router) {
+  constructor(private router: Router) {
     this.navigationOptions = [
       Builder<NavigationOption>().path('').text('FAQ').build(),
       Builder<NavigationOption>().path('vision').text('Vision').build(),

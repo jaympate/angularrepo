@@ -56,9 +56,9 @@ describe('ArticleComponent', () => {
       expect(htmlElement.alt).toEqual(title);
     });
 
-    it('with a lazy load image for example `https://www.dieterjordens.com/images/id', () => {
+    it('with a lazy loaded image', () => {
       const id = '123';
-      const expectedImageUrl = `https://www.dieterjordens.com/images/${id}`;
+      const expectedImageUrl = `https://djarticles.s3.eu-west-3.amazonaws.com/${id}.jpeg`;
 
       const fixture = TestBed.createComponent(ArticleComponent);
       const component = fixture.componentInstance;

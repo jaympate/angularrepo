@@ -39,10 +39,13 @@
   right: 0;
 }
 
+.image-banner {
+  height: 180px;
+  outline: 0;
+  cursor: pointer;
+}
+
 @media only screen and (min-width: 1001px) {
-  .image-banner{
-    height: 100px;
-  }
   .hidden-desktop {
     display:none;
   }
