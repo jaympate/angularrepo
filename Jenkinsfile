@@ -16,8 +16,8 @@ pipeline {
       steps {
         script {
           // configure registry
-          docker.withRegistry('${ECR_REGISTRY_URL}', '${ECR_CREDENTIALS_ID}') {
-            def myImage = docker.build('${ECR_IMAGE_NAME_FRONTEND}')
+          docker.withRegistry("${ECR_REGISTRY_URL}", "${ECR_CREDENTIALS_ID}") {
+            def myImage = docker.build("${ECR_IMAGE_NAME_FRONTEND}")
             myImage.push('latest')
           }
         }
