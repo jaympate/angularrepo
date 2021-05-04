@@ -27,6 +27,6 @@ export class ArticleComponent implements OnInit {
   lazyLoad: string;
 
   ngOnInit(): void {
-    this.lazyLoad = 'https://djarticles.s3.eu-west-3.amazonaws.com/' + this.article.id + '.jpeg';
+    this.lazyLoad = 'https://www.dieterjordens.com/article-images/' + this.article.id + '.jpeg';
   }
 }
