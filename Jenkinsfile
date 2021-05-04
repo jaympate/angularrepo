@@ -16,8 +16,8 @@ pipeline {
       steps {
         script {
           // configure registry
-          docker.withRegistry('https://082272919318.dkr.ecr.eu-west-3.amazonaws.com', 'ecr:eu-west-3:aws.dieter.jordens') {
-            def myImage = docker.build('dj-website-frontend')
+          docker.withRegistry('${ECR_REGISTRY_URL}', '${ECR_CREDENTIALS_ID}') {
+            def myImage = docker.build('${ECR_IMAGE_NAME_FRONTEND}')
             myImage.push('latest')
           }
         }
