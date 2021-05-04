@@ -70,10 +70,14 @@ import { Component } from '@angular/core';
                 <h2 class="section-title">Work experience</h2>
                 <div class="row">
                   <div class="col-12 item">
-                    <small>2016 - present</small>
-                    <h3>Software & Data Craftsman</h3>
+                    <small>May 2021 - Present</small>
+                    <h3>Software & Data Engineer</h3>
+                    <h4>Dieter Jordens IT Consulting BV</h4>
+                  </div>
+                  <div class="col-12 item">
+                    <small>September 2016 - May 2021</small>
+                    <h3>Software Craftsman</h3>
                     <h4>Continuum Consulting NV</h4>
-                    <p>Lummen, Belgium</p>
                   </div>
                 </div>
               </div>
@@ -86,13 +90,11 @@ import { Component } from '@angular/core';
                     <small>2016</small>
                     <h3>Master of Engineering: Computer Science, Artificial Intelligence</h3>
                     <h4>University of Leuven</h4>
-                    <p>Leuven, Belgium</p>
                   </div>
                   <div class="col-12 item">
                     <small>2014</small>
                     <h3>Bachelor of Science: Computer Science, ICT</h3>
                     <h4>University of Hasselt</h4>
-                    <p>Diepenbeek, Belgium</p>
                   </div>
                 </div>
               </div>

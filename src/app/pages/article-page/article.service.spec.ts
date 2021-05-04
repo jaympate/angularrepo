@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {of, throwError} from 'rxjs';
 import {Article} from './article';
 import {Builder} from 'builder-pattern';
+import {environment} from '../../../environments/environment';
 
 
 describe('ArticleService', () => {
@@ -50,7 +51,7 @@ describe('ArticleService', () => {
     expect(httpClient.get).toHaveBeenCalledWith(`https://www.dieterjordens.com/api/articles`, {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: 'Basic YWRtaW46RWVuRWVudm91ZGlnV2FjaHR3b29yZA=='
+          Authorization: 'Basic ' + environment.token
         }
     });
   });
