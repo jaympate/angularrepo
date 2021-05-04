@@ -30,6 +30,6 @@ export class BookComponent {
   lazyLoad: string;
 
   ngOnInit(): void {
-    this.lazyLoad = 'https://www.dieterjordens.com/book-covers/' + this.book.isbn + '.jpeg';
+    this.lazyLoad = 'https://djbookcovers.s3.eu-west-3.amazonaws.com/' + this.book.isbn + '.jpeg';
   }
 }
