@@ -25,9 +25,9 @@
     "@angular/router": "^11",
     "@fortawesome/angular-fontawesome": "~0.8",
     "@fortawesome/fontawesome-svg-core": "~1.2",
-    "@ng-bootstrap/ng-bootstrap": "~9.0",
+    "@ng-bootstrap/ng-bootstrap": "^9",
     "bootstrap": "~4.6",
-    "builder-pattern": "~1.2",
+    "builder-pattern": "^1",
     "core-js": "^3",
     "font-awesome": "~4.7",
     "hamburgers": "^1",
@@ -35,7 +35,7 @@
     "jquery": "^3",
     "moment": "~2.29",
     "ng-lazyload-image": "^9",
-    "rxjs": "~6.6"
+    "rxjs": "^6"
   },
   "jest": {
     "collectCoverage": true,
@@ -57,7 +57,7 @@
     "@angular/cli": "^11",
     "@angular/language-service": "^11",
     "@types/jest": "^26",
-    "@types/node": "^14",
+    "@types/node": "^15",
     "@typescript-eslint/eslint-plugin": "^4",
     "@typescript-eslint/parser": "^4",
     "eslint": "^7",
