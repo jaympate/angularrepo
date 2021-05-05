@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  token: 'YWRtaW46RWVuRWVudm91ZGlnV2FjaHR3b29yZA=='
+  token: 'RGVSVGhhUkV2aVRhY29ub1hFbU86eXdsR3djZ3pkcWlxSElwYjhzaHZRI3NeY2Uzcnl0KkhTcDM3QGVBVmxhQUBhSTgyRyM='
 };
