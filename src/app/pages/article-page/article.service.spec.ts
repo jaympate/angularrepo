@@ -50,8 +50,7 @@ describe('ArticleService', () => {
 
     expect(httpClient.get).toHaveBeenCalledWith(`https://www.dieterjordens.com/api/articles`, {
         headers: {
-          'Content-Type': 'application/json',
-          Authorization: 'Basic ' + environment.token
+          'Content-Type': 'application/json'
         }
     });
   });

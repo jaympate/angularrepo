@@ -12,8 +12,7 @@ export class ArticleService {
   private readonly baseUrl = `https://www.dieterjordens.com/api/articles`;
   private readonly httpOptions = {
     headers: {
-      'Content-Type': 'application/json',
-      Authorization: 'Basic ' + environment.token
+      'Content-Type': 'application/json'
     }
   };
 

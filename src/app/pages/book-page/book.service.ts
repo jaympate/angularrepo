@@ -12,8 +12,7 @@ export class BookService {
   private readonly baseUrl = `https://www.dieterjordens.com/api/books`;
   private readonly httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      Authorization: 'Basic ' + environment.token
+      'Content-Type': 'application/json'
     })
   };
 

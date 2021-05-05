@@ -14,8 +14,7 @@ export class ProjectService {
   constructor(private http: HttpClient) {
     const httpOptions = {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        Authorization: 'Basic ' + environment.token
+        'Content-Type': 'application/json'
       })
     };
     this.projects$ = this.http.get<Project[]>(this.baseUrl, httpOptions);
