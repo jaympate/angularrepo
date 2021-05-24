@@ -16,12 +16,12 @@ import { Component } from '@angular/core';
           </div>
           <div class="container-fluid pt-3">
             <h1 class="name">Dieter Jordens</h1>
-            <span class="lead">Software & Data Craftsman</span>
+            <span class="lead">Software & Data Engineer</span>
             <div class="about pt-3">
               <p class="text-justify">
-                Dieter is a software developer with 5 years of professional experience.
+                Dieter is a software developer with five years of professional experience.
                 He holds the title of Civil Engineer.
-                Dieter currently works as a software and data craftsman at Continuum Consulting NV.
+                Dieter is currently working as a software and data engineer for his first client as a freelancer: Aquafin NV.
               </p>
             </div>
             <ul class="social-media-list">
@@ -72,7 +72,7 @@ import { Component } from '@angular/core';
                   <div class="col-12 item">
                     <small>May 2021 - Present</small>
                     <h3>Software & Data Engineer</h3>
-                    <h4>Dieter Jordens IT Consulting BV</h4>
+                    <h4>Dieter Jordens IT Consulting</h4>
                   </div>
                   <div class="col-12 item">
                     <small>September 2016 - May 2021</small>
