@@ -14,7 +14,7 @@ import {Article} from './article';
         <div data-article-date
              [textContent]="article.publicationDate | date : 'mediumDate'"></div>
         <div data-article-bar class="article-bar"></div>
-        <div data-article-introduction>{{article.introduction}}&nbsp;<a data-article-url [href]="article.url">Read more</a></div>
+        <div data-article-introduction>{{article.introduction}}&nbsp;<a data-article-url [href]="article.url" rel="canonical">Read more</a></div>
       </div>
     </div>`,
   changeDetection: ChangeDetectionStrategy.OnPush,
