@@ -15,10 +15,6 @@ html {
   min-height: 20vh;
 }
 
-.body {
-  min-height: 70vh;
-}
-
 .text {
   color: $text-color;
 }
@@ -30,10 +26,6 @@ html {
 
 hr {
   border-color: $black-color;
-}
-
-.ngb-highlight{
-  background-color: #ff0;
 }
 
 @media only screen and (max-width: 1000px) {

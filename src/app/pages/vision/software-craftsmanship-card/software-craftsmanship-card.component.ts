@@ -16,6 +16,10 @@ import { Card } from './card';
   `,
   styles: [
     `
+      .card-title {
+        font-weight: bold;
+        font-size: 1.6rem;
+      }
       .card-body {
         padding-top: 0;
         font-size: 1rem;

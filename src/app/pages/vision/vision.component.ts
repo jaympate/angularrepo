@@ -10,13 +10,15 @@ import { Observable } from 'rxjs';
       <div class="card text-center">
         <div class="card-body">
           <h5 class="card-title">
-            Dieter sees Software Development as a craft!
+            Software Development is a Craft
           </h5>
-          <p class="card-text">
-            As Software Craftsman Dieter raises the bar of professional software development by putting theory into practice.
-            In addition, Dieter helps others to learn the craft.
-            He applies the values from the Software Craftsmanship Manifesto in his daily work.
-          </p>
+          <div class='card-text-software'>
+            <p class="card-text">
+              Dieter realises software is expensive and therefore chooses to work in a qualitative way. Doing it right from the first time saves you a lot of money.
+              That is why he applies the principles of the <a href='https://agilemanifesto.org/principles.html'>Agile Manifesto</a> in his work.
+              Working qualitative does not mean slow, but rather structured. To move forward, you have to be critical to your work, day in and day out.
+            </p>
+          </div>
         </div>
       </div>
       <div class="software-craftsmanship-values">

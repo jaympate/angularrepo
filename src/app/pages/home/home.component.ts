@@ -4,46 +4,53 @@ import moment from 'moment';
 @Component({
   selector: 'app-home',
   template: `
-    <div class="container home mb-5">
-      <div class="row align-center">
-        <div class="col-xl-6 ml-auto mr-auto">
-          <div class="mt-3 mb-3">
-            <i class="fa fa-quote-left quote"></i>&nbsp;
-            <span class="blockquote">Let's turn data into value, together!</span
-            >&nbsp;<i class="fa fa-quote-right quote"></i>
+    <div class="home">
+      <div class="header">
+        <div class="pb-3 pt-5 about grid-container">
+          <div class='grid-child text-header'>
+            <h1 class="title">I Change Your Data Into Value</h1>&nbsp;
+            <p> My job as a data engineer is to analyse data and make it usable.
+              Together we solve your daily software problems with years of experience. </p>
+          </div>
+          <div class='grid-child'>
+            <img class='image' height='200px' src="assets/images/cartoon.png">
           </div>
         </div>
       </div>
-      <div id="accordion">
-        <app-faq-option
-          question="What is Dieter's background?"
-          [answer]="backgroundDieter"
-        ></app-faq-option>
-        <app-faq-option
-          question="How much back-end experience does he have?"
-          [answer]="backend"
-        >
-        </app-faq-option>
-        <app-faq-option
-          question="Does Dieter have front-end experience?"
-          [answer]="frontend"
-        >
-        </app-faq-option>
-        <app-faq-option
-          question="Does he know how to deliver software?"
-          [answer]="softwareDelivery"
-        >
-        </app-faq-option>
-        <app-faq-option
-          question="What is his experience with Artificial Intelligence?"
-          [answer]="ai"
-        >
-        </app-faq-option>
-        <app-faq-option
-          question="What does Dieter do for the community?"
-          [answer]="givingBack"
-        >
-        </app-faq-option>
+      <div class="slant"></div>
+      <div class="container home">
+        <h2 class='pb-3'>Frequently Asked Questions</h2>
+        <div id="accordion">
+          <app-faq-option
+            question="What is Dieter's background?"
+            [answer]="backgroundDieter"
+          ></app-faq-option>
+          <app-faq-option
+            question="How much back-end experience does he have?"
+            [answer]="backend"
+          >
+          </app-faq-option>
+          <app-faq-option
+            question="Does Dieter have front-end experience?"
+            [answer]="frontend"
+          >
+          </app-faq-option>
+          <app-faq-option
+            question="Does he know how to deliver software?"
+            [answer]="softwareDelivery"
+          >
+          </app-faq-option>
+          <app-faq-option
+            question="What is his experience with Artificial Intelligence?"
+            [answer]="ai"
+          >
+          </app-faq-option>
+          <app-faq-option
+            question="What does Dieter do for the community?"
+            [answer]="givingBack"
+          >
+          </app-faq-option>
+        </div>
       </div>
     </div>
   `,
@@ -117,7 +124,7 @@ export class HomeComponent {
         <div class="col">
           <p class="text-justify">
             Today, writing software alone won't get you far.
-            Delivery software is essential.
+            Delivering software is essential.
             Without delivery, there is no value.
             The most successful projects are the projects in close cooperation with the client.
             By working together, you can respond better to the needs of the market.
@@ -127,7 +134,6 @@ export class HomeComponent {
             He knows how to quickly deliver high-quality applications written in different languages and different frameworks.
             He understands that running applications can become complicated as they grow.
             Therefore he spends time learning more and more about cloud computing services.
-            Dieter is currently spending time on getting cloud certified.
           </p>
         </div>
       </div>
@@ -146,7 +152,8 @@ export class HomeComponent {
             Machine Learning and Deep Learning used in the industry today. To stay relevant in the field, he's been
             visiting conferences and followed online courses. Besides building theoretical experience, he also gains practical
             experience by creating his hobby projects. He has made a topic prediction model that can predict
-            the topics of his future articles. Currently, he's also working on a face recognition application.
+            the topics of his future articles. Earlier in his career, he also worked on a face recognition
+            and identification application.
           </p>
         </div>
         <div class="col-3 hidden-mobile d-flex justify-content-center">
@@ -167,10 +174,10 @@ export class HomeComponent {
             As a technical writer for publications on Medium such as Better Programming, Towards
             Data Science (and others) he can reach more people as he usually would at work.
             Dieter likes to read and write, which only helps him to deeper understand something.
-            Dieter also spoke at a large online conference and is looking forward to doing this again.
-            He does this because it helps him to grow as an individual.
+            Dieter also spoke at two online conferences in the past and would love to do this again, when
+            events can be organized in person again. Dieter believes that writing and speaking helps to grow as an individual.
             If you're an organizer or publisher, you're always welcome to reach out.
-            It's his ambition to translate his experience and knowledge into value for others.
+            It's Dieters ambition to translate his experience and knowledge into value for others.
           </p>
         </div>
       </div>

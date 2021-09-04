@@ -16,7 +16,7 @@ export class NavOptionsComponent {
 
   constructor(private router: Router) {
     this.navigationOptions = [
-      Builder<NavigationOption>().path('').text('FAQ').build(),
+      Builder<NavigationOption>().path('').text('Home').build(),
       Builder<NavigationOption>().path('vision').text('Vision').build(),
       Builder<NavigationOption>().path('cv').text('CV').build(),
       Builder<NavigationOption>()

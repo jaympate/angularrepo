@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-cv',
   template: `
-    <div class="container pt-3 pb-2">
+    <div class="container pt-3">
       <div class="row cv border pb-3">
         <div class="col-sm-4 cv-left border-right image-container">
           <div class="container-fluid pt-3 ">
@@ -19,48 +19,10 @@ import { Component } from '@angular/core';
             <span class="lead">Software & Data Engineer</span>
             <div class="about pt-3">
               <p class="text-justify">
-                Dieter is a software developer with five years of professional experience.
-                He holds the title of Civil Engineer.
-                Dieter is currently working as a software and data engineer for his first client as a freelancer: Aquafin NV.
+                Dieter holds the title of Civil Engineer. He is a software developer with many years of professional experience.
+                He founded his own company in May 2021. Currently, he works for Aquafin NV as an independent contractor.
               </p>
             </div>
-            <ul class="social-media-list">
-              <li>
-                <a href="https://www.facebook.com/dieter.jordens"
-                  ><i class="fa fa-facebook"></i>
-                </a>
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/in/dieterjordens"
-                  ><i class="fa fa-linkedin"></i>
-                </a>
-              </li>
-              <li>
-                <a href="https://gitlab.com/dieterj"
-                  ><i class="fa fa-gitlab"></i>
-                </a>
-              </li>
-              <li>
-                <a href="https://github.com/djFooFoo"
-                  ><i class="fa fa-github"></i>
-                </a>
-              </li>
-              <li>
-                <a href="https://twitter.com/Dieter_Jordens"
-                  ><i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li>
-                <a href="mailto:dieter.jordens.website@gmail.com"
-                  ><i class="fa fa-envelope"></i>
-                </a>
-              </li>
-            </ul>
-            <a
-              href="mailto:dieter.jordens.website@gmail.com?subject=CV&body=Hi Dieter%0A%0AI%20would%20like%20access%20to%20your%20personal%20resume%20for%20<insert-reason>.%0AKind%20regards%0A%0A<insert-name>"
-              class="btn btn-outline-dark btn-lg cvButton"
-              ><i class="fa fa-download"></i> Receive full resume</a
-            >
           </div>
         </div>
         <div class="col-sm-8 cv-right">
