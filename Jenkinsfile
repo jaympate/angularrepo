@@ -1,18 +1,31 @@
 pipeline {
   agent any
   stages {
-    stage('Test') {
-      agent {
+    stage('NPM CI') {
+      /*agent {
         docker { image 'node:latest' }
-      }
+      }*/
       steps {
         sh 'npm ci'
+        echo ("NPM CI")
+      }
+    }
+    stage('NPM run') {
+      steps {
         sh 'npm run-script lint'
+        echo ("NPM run")
+      }
+    }
+    stage ('NPM Test'){
+      steps {
+        echo ("In NPM Test")    
         sh 'npm run-script test'
       }
     }
+  }
+}
 
-    stage('Deploy') {
+   /* stage('Deploy') {
       steps {
         script {
           // configure registry
@@ -24,4 +37,4 @@ pipeline {
       }
     }
   }
-}
+}*/
